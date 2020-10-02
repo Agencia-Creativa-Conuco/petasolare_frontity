@@ -1,0 +1,81 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.44.2",
+  "hash": "7392493a5094e3de00d6",
+  "publicPath": "/static/",
+  "outputPath": "C:\\Users\\ingos\\frontity\\petasolare_frontity\\build\\static",
+  "assetsByChunkName": {
+    "list": "list.module.js",
+    "petasolare": "petasolare.module.js"
+  },
+  "assets": [
+    {
+      "name": "list.module.js",
+      "size": 48053,
+      "chunks": [
+        "list"
+      ],
+      "chunkNames": [
+        "list"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "petasolare.module.js",
+      "size": 5131237,
+      "chunks": [
+        "petasolare"
+      ],
+      "chunkNames": [
+        "petasolare"
+      ],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "petasolare": {
+      "chunks": [
+        "petasolare"
+      ],
+      "assets": [
+        "petasolare.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "petasolare": {
+      "chunks": [
+        "petasolare"
+      ],
+      "assets": [
+        "petasolare.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "list": {
+      "chunks": [
+        "list"
+      ],
+      "assets": [
+        "list.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": []
+}
