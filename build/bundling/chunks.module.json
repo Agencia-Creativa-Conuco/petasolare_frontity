@@ -2,17 +2,171 @@
   "errors": [],
   "warnings": [],
   "version": "4.44.2",
-  "hash": "7392493a5094e3de00d6",
+  "hash": "6c146b23873c6e5fa7ca",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\ingos\\frontity\\petasolare_frontity\\build\\static",
   "assetsByChunkName": {
+    "about": "about.module.js",
+    "front-page": "front-page.module.js",
     "list": "list.module.js",
+    "page": "page.module.js",
+    "pages": [
+      "pages.module.js",
+      "pages.e24e5dd849eb678a549c.hot-update.js"
+    ],
     "petasolare": "petasolare.module.js"
   },
   "assets": [
     {
+      "name": "about.module.js",
+      "size": 77885,
+      "chunks": [
+        "about"
+      ],
+      "chunkNames": [
+        "about"
+      ],
+      "info": {},
+      "emitted": true
+    },
+    {
+      "name": "e24e5dd849eb678a549c.hot-update.json",
+      "size": 47,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "fonts/Inter-Bold-LATIN.woff2",
+      "size": 33648,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Inter-Bold-US-ASCII.woff2",
+      "size": 22248,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Inter-Bold.woff2",
+      "size": 138872,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Inter-Medium-LATIN.woff2",
+      "size": 33232,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Inter-Medium-US-ASCII.woff2",
+      "size": 21828,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Inter-Medium.woff2",
+      "size": 137268,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Inter-SemiBold-LATIN.woff2",
+      "size": 33456,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Inter-SemiBold-US-ASCII.woff2",
+      "size": 22032,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Inter-SemiBold.woff2",
+      "size": 138088,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Roboto-Black.ttf",
+      "size": 171072,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Roboto-Bold.ttf",
+      "size": 170348,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Roboto-Light.ttf",
+      "size": 170012,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Roboto-Regular.ttf",
+      "size": 171272,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "fonts/Roboto-Thin.ttf",
+      "size": 171500,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "front-page.module.js",
+      "size": 331481,
+      "chunks": [
+        "front-page"
+      ],
+      "chunkNames": [
+        "front-page"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
       "name": "list.module.js",
-      "size": 48053,
+      "size": 48076,
       "chunks": [
         "list"
       ],
@@ -23,8 +177,47 @@
       "emitted": false
     },
     {
+      "name": "page.module.js",
+      "size": 65410,
+      "chunks": [
+        "page"
+      ],
+      "chunkNames": [
+        "page"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "pages.e24e5dd849eb678a549c.hot-update.js",
+      "size": 5884,
+      "chunks": [
+        "pages"
+      ],
+      "chunkNames": [
+        "pages"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "pages.module.js",
+      "size": 13352,
+      "chunks": [
+        "pages"
+      ],
+      "chunkNames": [
+        "pages"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
       "name": "petasolare.module.js",
-      "size": 5131237,
+      "size": 5451162,
       "chunks": [
         "petasolare"
       ],
@@ -68,12 +261,53 @@
       ],
       "children": {},
       "childAssets": {}
+    },
+    "pages": {
+      "chunks": [
+        "pages"
+      ],
+      "assets": [
+        "pages.module.js",
+        "pages.e24e5dd849eb678a549c.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "page": {
+      "chunks": [
+        "page"
+      ],
+      "assets": [
+        "page.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "front-page": {
+      "chunks": [
+        "front-page"
+      ],
+      "assets": [
+        "front-page.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "about": {
+      "chunks": [
+        "about"
+      ],
+      "assets": [
+        "about.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
     }
   },
   "logging": {
     "webpack.buildChunkGraph.visitModules": {
       "entries": [],
-      "filteredEntries": 5,
+      "filteredEntries": 8,
       "debug": false
     }
   },

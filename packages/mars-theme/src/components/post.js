@@ -53,7 +53,7 @@ const Post = ({ state, actions, libraries }) => {
 
       {/* Look at the settings to see if we should include the featured image */}
       {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
+        <FeaturedMedia media={post.featured_media} />
       )}
 
       {/* Render the content using the Html2React component so the HTML is processed

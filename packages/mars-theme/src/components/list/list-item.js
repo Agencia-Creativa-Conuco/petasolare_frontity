@@ -41,7 +41,7 @@ const Item = ({ state, item }) => {
        * list of featured posts, we render the media.
        */}
       {state.theme.featured.showOnList && (
-        <FeaturedMedia id={item.featured_media} />
+        <FeaturedMedia media={item.featured_media} />
       )}
 
       {/* If the post has an excerpt (short summary text), we render it */}

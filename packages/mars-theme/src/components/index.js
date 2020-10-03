@@ -4,9 +4,12 @@ import Switch from "@frontity/components/switch";
 import Header from "./header";
 import List from "./list";
 import Post from "./post";
+import Pages from "./pages";
 import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
+import globalStyles from "./styles/global-styles";
+import FontFace from "./styles/font-faces";
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -27,7 +30,7 @@ const Theme = ({ state }) => {
 
       {/* Add some global styles for the whole site, like body or a's. 
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
-      <Global styles={globalStyles} />
+      <Global styles={globalStyles(state.theme.colors)} />
 
       {/* Add the header of the site. */}
       <HeadContainer>
@@ -39,43 +42,34 @@ const Theme = ({ state }) => {
       <Main>
         <Switch>
           <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
+          <Pages when={data.isHome || data.isPage} />
           <Post when={data.isPostType} />
+          <List when={data.isArchive} />
           <PageError when={data.isError} />
         </Switch>
       </Main>
+
+      <FooterContainer>
+
+      </FooterContainer>
     </>
   );
 };
 
 export default connect(Theme);
 
-const globalStyles = css`
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-      "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  }
-  a,
-  a:visited {
-    color: inherit;
-    text-decoration: none;
-  }
+const HeadContainer = styled.div`
+  ${({headerBg})=>css`
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: ${headerBg};
+  `}
 `;
 
-const HeadContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  background-color: #1f38c5;
+const FooterContainer = styled.div`
 `;
 
 const Main = styled.div`
-  display: flex;
-  justify-content: center;
-  background-image: linear-gradient(
-    180deg,
-    rgba(66, 174, 228, 0.1),
-    rgba(66, 174, 228, 0)
-  );
+  overflow: hidden;
 `;

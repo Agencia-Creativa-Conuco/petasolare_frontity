@@ -12,28 +12,6 @@ const settings = {
       "name": "@frontity/mars-theme",
       "state": {
         "theme": {
-          "menu": [
-            [
-              "Home",
-              "/"
-            ],
-            [
-              "Nature",
-              "/category/nature/"
-            ],
-            [
-              "Travel",
-              "/category/travel/"
-            ],
-            [
-              "Japan",
-              "/tag/japan/"
-            ],
-            [
-              "About Us",
-              "/about-us/"
-            ]
-          ],
           "featured": {
             "showOnList": false,
             "showOnPost": false
@@ -45,7 +23,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "https://test.frontity.org/wp-json"
+          "api": "http://petasolare.local/wp-json"
         }
       }
     },

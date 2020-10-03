@@ -1,6 +1,9 @@
 import Theme from "./components";
 import image from "@frontity/html2react/processors/image";
 import iframe from "@frontity/html2react/processors/iframe";
+import handlers from "./handlers";
+import { beforeSSR, beforeCSR } from "./actions";
+import {getURL} from "./libraries";
 
 const marsTheme = {
   name: "@frontity/mars-theme",
@@ -17,11 +20,60 @@ const marsTheme = {
      * relevant state. It is scoped to the `theme` namespace.
      */
     theme: {
-      menu: [],
+      colors:{
+        heading: "#000000",
+        background:{
+          body:"#FFFFFF",
+          header: "transparent",
+        },
+        primary: {
+          base:"#0065B8",
+          dark: "#005396",
+          light: "#28AAE1",
+        },
+        secondary: {
+          base:"#808080",
+          dark:"#707070",
+          light:"#FAFAFA",
+        },
+        gray: {
+          base:"#808080",
+          dark:"#707070",
+          light:"#FAFAFA",
+        },
+        green: {
+          base:"#39B449",
+        },
+      },
+      menu: {
+        main : {
+          items :[
+          {
+            title: "Home",
+            url: "/"
+          },
+          {
+            title: "Nature",
+            url: "/category/nature/"
+          },
+          {
+            title: "Travel",
+            url: "/category/travel/"
+          },
+          {
+            title: "Japan",
+            url: "/tag/japan/"
+          },
+          {
+            title: "About Us",
+            url: "/about-us/"
+          }
+        ]}
+      },
       isMobileMenuOpen: false,
       featured: {
-        showOnList: false,
-        showOnPost: false,
+        showOnList: true,
+        showOnPost: true,
       },
     },
   },
@@ -31,6 +83,8 @@ const marsTheme = {
    */
   actions: {
     theme: {
+      beforeSSR,
+      beforeCSR,
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },
@@ -40,6 +94,12 @@ const marsTheme = {
     },
   },
   libraries: {
+    theme: {
+      getURL
+    },
+    source: {
+      handlers: handlers,
+    },
     html2react: {
       /**
        * Add a processor to `html2react` so it processes the `<img>` tags
