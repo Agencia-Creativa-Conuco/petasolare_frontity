@@ -21,6 +21,9 @@ const Contact = ({state, actions, libraries}) => {
                                 <Col size="12" >
                                     <Input type="email" id="email" name="email" placeholder="Email" />
                                 </Col>
+                                <Col size="12" >
+                                    <Message id="message" name="message" placeholder="Mensaje" />
+                                </Col>
                                 <ButtonBox>
                                     <Button type="submit">Contáctanos</Button>
                                 </ButtonBox>
@@ -67,6 +70,20 @@ const Input = styled.input`
     ${({color="#F5F5F5"})=>css`
         display: block;
         width: 100%;
+        margin-bottom: 2rem;
+        padding: 2rem;
+        border-radius: 2rem;
+        background-color: ${color};
+        border: initial;
+        outline: initial;
+    `}
+`;
+
+const Message = styled.textarea`
+    ${({color="#F5F5F5"})=>css`
+        display: block;
+        width: 100%;
+        height: 12.5rem;
         margin-bottom: 2rem;
         padding: 2rem;
         border-radius: 2rem;

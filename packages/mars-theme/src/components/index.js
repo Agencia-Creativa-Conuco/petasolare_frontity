@@ -42,9 +42,9 @@ const Theme = ({ state }) => {
       <Main>
         <Switch>
           <Loading when={data.isFetching} />
+          <List when={data.isArchive} />
           <Pages when={data.isHome || data.isPage} />
           <Post when={data.isPostType} />
-          <List when={data.isArchive} />
           <PageError when={data.isError} />
         </Switch>
       </Main>

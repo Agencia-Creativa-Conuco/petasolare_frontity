@@ -31,7 +31,7 @@ const About = ({state, actions, libraries}) => {
                                         name="Paneles Solares" 
                                         jobTitle="Paneles Solares" 
                                         description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                        media="13"
+                                        media={14}
                                         link="/"
                                     /> 
                                 </Item>
@@ -40,7 +40,7 @@ const About = ({state, actions, libraries}) => {
                                         name="Paneles Solares" 
                                         jobTitle="Paneles Solares" 
                                         description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                        media="13"
+                                        media={14}
                                         link="/"
                                     /> 
                                 </Item>
@@ -49,7 +49,7 @@ const About = ({state, actions, libraries}) => {
                                         name="Paneles Solares" 
                                         jobTitle="Paneles Solares" 
                                         description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                        media="13"
+                                        media={14}
                                         link="/"
                                     /> 
                                 </Item>
@@ -58,7 +58,7 @@ const About = ({state, actions, libraries}) => {
                                         name="Paneles Solares" 
                                         jobTitle="Paneles Solares" 
                                         description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                        media="13"
+                                        media={14}
                                         link="/"
                                     /> 
                                 </Item>

@@ -11,7 +11,6 @@ import {Rows, Cols} from "./layout";
 const Nav = ({ state, libraries }) => {
 
   const prueba = libraries.theme.getURL(state, libraries, "http://petasolare.local/wp-json/menus/v1/menus/3");
-  console.log(prueba);
 
   return (
     <NavContainer alignCenter justifyContent="flex-end">

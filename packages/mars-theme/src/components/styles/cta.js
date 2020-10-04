@@ -1,7 +1,8 @@
 import {css} from "frontity";
 
 const ctas = ({
-    bgColor = "#39B449"
+    bgColor = "#39B449",
+    color = "white",
 }) => css`
     display: inline-block;
     text-align: center;
@@ -13,7 +14,7 @@ const ctas = ({
     font-size: 2rem;
     border-radius: 1rem;
     display: inline-block;
-    color: white;
+    color: ${color};
     outline: initial;
     border: initial;
     cursor: pointer;

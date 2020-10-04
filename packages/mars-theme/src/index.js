@@ -71,10 +71,6 @@ const marsTheme = {
         ]}
       },
       isMobileMenuOpen: false,
-      featured: {
-        showOnList: true,
-        showOnPost: true,
-      },
     },
   },
   /**

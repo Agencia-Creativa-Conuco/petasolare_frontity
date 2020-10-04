@@ -17,7 +17,7 @@ const Services = ({state, actions, libraries}) => {
                                         <ServiceCard 
                                             title="Paneles Solares" 
                                             description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media="13"
+                                            media={14}
                                             link="/"
                                         />
                                     </Item>
@@ -25,7 +25,7 @@ const Services = ({state, actions, libraries}) => {
                                         <ServiceCard 
                                             title="Paneles Solares" 
                                             description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media="13"
+                                            media={14}
                                             link="/"
                                         />
                                     </Item>
@@ -33,7 +33,7 @@ const Services = ({state, actions, libraries}) => {
                                         <ServiceCard 
                                             title="Paneles Solares" 
                                             description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media="13"
+                                            media={14}
                                             link="/"
                                         />
                                     </Item>
@@ -41,7 +41,7 @@ const Services = ({state, actions, libraries}) => {
                                         <ServiceCard 
                                             title="Paneles Solares" 
                                             description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media="13"
+                                            media={14}
                                             link="/"
                                         />
                                     </Item>
@@ -49,7 +49,7 @@ const Services = ({state, actions, libraries}) => {
                                         <ServiceCard 
                                             title="Paneles Solares" 
                                             description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media="13"
+                                            media={14}
                                             link="/"
                                         />
                                     </Item>
@@ -57,7 +57,7 @@ const Services = ({state, actions, libraries}) => {
                                         <ServiceCard 
                                             title="Paneles Solares" 
                                             description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media="13"
+                                            media={14}
                                             link="/"
                                         />
                                     </Item>
@@ -65,7 +65,7 @@ const Services = ({state, actions, libraries}) => {
                                         <ServiceCard 
                                             title="Paneles Solares" 
                                             description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media="13"
+                                            media={14}
                                             link="/"
                                         />
                                     </Item>
@@ -73,7 +73,7 @@ const Services = ({state, actions, libraries}) => {
                                         <ServiceCard 
                                             title="Paneles Solares" 
                                             description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media="13"
+                                            media={14}
                                             link="/"
                                         />
                                     </Item>
