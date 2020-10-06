@@ -5,18 +5,26 @@ import {Containers, Rows, Cols, Section, mq} from "../../layout";
 
 const Cover = ({state, actions, libraries}) => {
 
+    const data = state.source.get(state.router.link);
+
+    const page = state.source[data.type][data.id];
+
+    const {
+        about_position_statement
+    } = page.meta_box;
+
     return (
         <>
             <Section spaceNone>
                 <Container fluid>
                     <CoverContainer color={state.theme.colors.primary.base}>
-                        <FeaturedMedia media={14} height="100%"/>
+                        <FeaturedMedia media={page.featured_media} height="100%"/>
                     </CoverContainer>
                     <Row>
                         <Col size={12} sizeSM={10} sizeMD={8} sizeLG={6}>
                             <Content>
-                                <Title>Nuestro Proyecto</Title>
-                                <Copy>Somos un equipo de ingenieros que disfruta de innovar día a día, encontrando un equilibrio entre la creatividad y la razón. Petasolare nace del deseo enorme de encontrar nuevas soluciones a los retos cotidianos. Desde que entendimos los beneficios ambientales y sociales que proporcionan la energía fotovoltaica, nos pareció más que lógico compartirlo, por lo que estamos comprometidos con la tarea de llevar este sistema a la mayor cantidad de espacios donde sea posible.</Copy>
+                                <Title>{page.title.rendered}</Title>
+                                <Copy>{about_position_statement}</Copy>
                             </Content>
                         </Col>
                     </Row>

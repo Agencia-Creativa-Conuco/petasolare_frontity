@@ -4,6 +4,12 @@ import {Containers, Rows, Cols, Section} from "../../layout";
 
 const Cover = ({state, actions, libraries}) => {
 
+    const data = state.source.get(state.router.link);
+
+    const page = state.source[data.type][data.id];
+
+    const { home_video } = page.meta_box
+
     return (
         <>
             <Section spaceNone>
@@ -11,8 +17,14 @@ const Cover = ({state, actions, libraries}) => {
                     <Row>
                         <Col  noGutters>
                             <VideoContainer color={state.theme.colors.primary.base}>
-                                <Video controls>
-                                    <source src="mov_bbb.mp4" type="video/mp4" />
+                                <Video muted loop autoPlay>
+                                    {
+                                        Object.values(home_video).map((video,index)=>{
+                                            return (
+                                                <source key={index} src={video.src} type={video.type} />
+                                            )
+                                        })
+                                    }
                                     Your browser does not support HTML video.
                                 </Video>
                             </VideoContainer>

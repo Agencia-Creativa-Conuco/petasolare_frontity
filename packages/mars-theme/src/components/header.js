@@ -1,43 +1,57 @@
-import React from "react";
-import { connect, styled } from "frontity";
+import React, {useEffect} from "react";
+import { connect, styled, css } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
-import MobileMenu from "./menu";
+import MobileToggle from "./menu-toggle";
 import {Containers, Rows, Cols, mq} from "./layout";
 import Switch from "@frontity/components/switch";
 import Image from "@frontity/components/image";
+import MenuModal from "./menu-modal";
 
-
-const Header = ({ state }) => {
+const Header = ({ state, actions }) => {
 
   const settings = state.source.settings;
   const logo = settings["site-logo"];
   
+  const { isMobileMenuOpen } = state.theme;
+
+  useEffect(() => {
+    actions.theme.menuIsOnTop(window.scrollY);
+  }, []);
+
   return (
     <>
-      <Container fluid>
-        <Row alignCenter>
-          <Col size="auto">
-            {/* Site Identity */}
-            <StyledLink link="/">
-              {
-                logo? 
-                 <Logo src={logo.full_url} alt={logo.alt} />
-                : 
-                  <>
-                    <Title>{settings["site-name"] || state.frontity.title}</Title>
-                    <Description>{state.frontity.description}</Description>
-                  </>
-              }
-            </StyledLink>
-            <MobileMenu />
-          </Col>
-          {/* Site Nav */}
-          <Col>
-            <Nav />
-          </Col>
-        </Row>
-      </Container>
+      <StyledHeader bgColor={state.theme.colors.background.header} isOnTop={state.theme.menu.isOnTop}>
+        <Container fluid>
+          <Row alignCenter>
+            <Col size="auto">
+              {/* Site Identity */}
+              <StyledLink link="/">
+                {
+                  logo? 
+                    <LogoContainer>
+                      < Logo src={logo.full_url} alt={logo.alt} />
+                    </LogoContainer>
+                  : 
+                    <>
+                      <Title>{settings["site-name"] || state.frontity.title}</Title>
+                      <Description>{state.frontity.description}</Description>
+                    </>
+                }
+              </StyledLink>
+            </Col>
+            <Col size="auto" hiddenLG mlAuto>
+              <MobileToggle />
+            </Col>
+            {/* Site Nav */}
+            <Col size="auto" hidden visibleLG mlAuto>
+              <Nav />
+            </Col>
+          </Row>
+        </Container>
+        {/* If the menu is open, render the menu modal */}
+        {isMobileMenuOpen && <MenuModal />}
+      </StyledHeader>
     </>
   );
 };
@@ -45,11 +59,22 @@ const Header = ({ state }) => {
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Header);
 
-const Container = styled.header`
+const StyledHeader = styled.header`
+  ${({bgColor, isOnTop = true})=>css`
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    background-color: ${isOnTop? "transaparent" : bgColor};
+    transition: background 0.2s ease-in-out;
+  `}
+`;
+
+const Container = styled.div`
   ${Containers}
   ${mq.lg}{
     padding-left: 4rem;
     padding-right: 4rem;
+    z-index: 100;
   }
 `;
 
@@ -75,8 +100,37 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
+const LogoContainer = styled.div`
+  position: relative;
+  z-index: 5;
+  &:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: white;
+    box-shadow: 0 2rem 2rem rgba(0,0,0,0.15);
+    width: 100%;
+    height: 0;
+    padding-bottom: 100%;
+    border-radius: 50%;
+    transform: scale(2) translate(-3%, -46%);
+    z-index: 1;
+  }
+`;
+
 const Logo = styled(Image)`
   ${ ({layout}) => `
     padding: 10px 0;
+    position: relative;
+    z-index:2;
+    width: auto;
+    height: 6rem;
+    ${mq.md}{
+      height: 7rem;
+    }
+    ${mq.lg}{
+      height: 8rem;
+    }
   `}
 `;

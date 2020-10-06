@@ -5,19 +5,32 @@ import FeaturedMedia from "../../featured-media";
 
 const Cover = ({state, actions, libraries}) => {
 
+    const data = state.source.get(state.router.link);
+
+    const page = state.source[data.type][data.id];
+
+    const {
+        title,
+        featured_media
+    } = page;
+    
+    const {
+        solution_copy
+    } = page.meta_box;
+
     return (
         <>
             <Section spaceNone>
                 <Wrapper>
                     <MediaContainer color={state.theme.colors.primary.base}>
-                        <FeaturedMedia media={14} height="100%" heightSM="56.25%" />
+                        <FeaturedMedia media={featured_media} height="100%" heightSM="56.25%" />
                     </MediaContainer>
                     <Container>
                         <Row>
                             <Col size={12} sizeMD={6}>
                                 <Content>
-                                    <Title>Soluciones Hogar</Title>
-                                    <Copy>Somos un equipo de ingenieros que disfruta de innovar día a día, encontrando un equilibrio entre la creatividad y la razón. Petasolare nace del deseo enorme de encontrar nuevas soluciones a los retos cotidianos.</Copy>
+                                    <Title>{title.rendered}</Title>
+                                    <Copy>{solution_copy}</Copy>
                                 </Content>
                             </Col>
                         </Row>

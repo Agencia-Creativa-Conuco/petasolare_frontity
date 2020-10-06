@@ -40,6 +40,8 @@ const CardMedia = styled.div`
     max-width: 10rem;
     margin: 0rem auto;
     margin-bottom: 2rem;
+    border-radius: 50%;
+    overflow: hidden;
 `;
 
 const Media = styled(FeaturedMedia)`

@@ -58,7 +58,7 @@ const CardDescription = styled.p`
     `}
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.div`
     text-decoration: none;
     display: block;
     padding: 2rem;

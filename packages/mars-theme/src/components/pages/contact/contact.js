@@ -8,12 +8,26 @@ import {h3} from "../../styles/tipography";
 
 const About = ({state, actions, libraries}) => {
 
+    const data = state.source.get(state.router.link);
+
+    const page = state.source[data.type][data.id];
+
+    const {
+        featured_media,
+    } = page;
+
+    const {
+        contact_email,
+        contact_phone,
+        contact_address
+    } = page.meta_box;
+
     return (
         <>
             <Section spaceTopNone>
                 <Wrapper>
                     <MediaContainer>
-                        <FeaturedMedia media={14} height="56.25%" position="35% 50%" heightLG="100%"/>
+                        <FeaturedMedia media={featured_media} height="56.25%" position="35% 50%" heightLG="100%"/>
                     </MediaContainer>
                     <Container fluid>
                         <Row>
@@ -28,7 +42,7 @@ const About = ({state, actions, libraries}) => {
                                                 <Info>
                                                     <InfoLabel>Email</InfoLabel>
                                                     <InfoDescription>
-                                                        <Link link={"mailto:info@petasolare.com.do"}>info@petasolare.com.do</Link>
+                                                        <Link link={"mailto:info@petasolare.com.do"}>{contact_email}</Link>
                                                     </InfoDescription>
                                                 </Info>
                                             </Col>
@@ -36,7 +50,7 @@ const About = ({state, actions, libraries}) => {
                                                 <Info>
                                                     <InfoLabel>Teléfono</InfoLabel>
                                                     <InfoDescription>
-                                                        <Link link={"tel:+8099710771"}>8099710771</Link>
+                                                        <Link link={`tel:+${contact_phone}`}>{contact_phone}</Link>
                                                     </InfoDescription>
                                                 </Info>
                                             </Col>
@@ -44,7 +58,7 @@ const About = ({state, actions, libraries}) => {
                                                 <Info>
                                                     <InfoLabel>Dirección</InfoLabel>
                                                     <InfoAddress>
-                                                        <Link link={"tel:+8099710771"}>C. principal #5 plaza Cerro Alto</Link>
+                                                        <Link link={"tel:+8099710771"}>{contact_address}</Link>
                                                     </InfoAddress>
                                                 </Info>
                                             </Col>

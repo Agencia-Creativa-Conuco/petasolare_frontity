@@ -5,6 +5,14 @@ import Button from "../../button";
 
 const Contact = ({state, actions, libraries}) => {
 
+    const data = state.source.get(state.router.link);
+
+    const page = state.source[data.type][data.id];
+
+    const {
+        content
+    } = page;
+    
     const Html2React = libraries.html2react.Component;
 
     return (
@@ -16,7 +24,7 @@ const Contact = ({state, actions, libraries}) => {
                 <Container>
                     <Row>
                         <Col size={12} sizeSM={10} sizeMD={8} mxAuto>
-                        <Html2React html={"Sin importar lo grande o pequeño que sea el proyecto en el que nos envolvemos, nuestro mayor deseo es brindar a cada cliente un servicio personalizado, donde la calidad, la funcionalidad y la belleza de cada trabajo esté garantizado."} />
+                        <Html2React html={content.rendered} />
                         </Col>
                     </Row>
                 </Container>

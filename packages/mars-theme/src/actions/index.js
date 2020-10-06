@@ -1,8 +1,4 @@
 const getSettings = async ({state, actions, libraries}) => {
-    await actions.source.fetch("/wpmenus/main");
-    await actions.source.fetch("/wpmenus/footer");
-    // await actions.source.fetch(`/site/settings`);
-
     const response = await libraries.source.api.get({
         endpoint: `/site/v1/settings/`
     })

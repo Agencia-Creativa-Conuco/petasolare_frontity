@@ -32,8 +32,8 @@ const PostsList = ({ state }) => {
             const isSmall = !isPrincipal && !isSecondary;
             // Render one Item component for each one.
             return (
-              <Col size={12} sizeMD={isPrincipal? 12 : isSecondary? 7 : 5}>
-                <Item key={item.id} item={item} {...{isPrincipal, isSecondary, isSmall}} />
+              <Col key={item.id} size={12} sizeMD={isPrincipal? 12 : isSecondary? 7 : 5}>
+                <Item item={item} {...{isPrincipal, isSecondary, isSmall}} />
               </Col>
             );
           })}

@@ -7,6 +7,19 @@ import {h3} from "../../styles/tipography";
 
 const Solutions = ({state, actions, libraries}) => {
 
+    const data = state.source.get(state.router.link);
+
+    const page = state.source[data.type][data.id];
+
+    const {
+        solutions_home_image,
+        solutions_home_url,
+        solutions_home_copy,
+        solutions_company_image,
+        solutions_company_url,
+        solutions_company_copy
+    } = page.meta_box;
+
     return (
         <>
             <Section spaceTopNone>
@@ -16,29 +29,29 @@ const Solutions = ({state, actions, libraries}) => {
                             <Col size={12} sizeMD={6}>
                                 <Solution>
                                     <Media>
-                                        <FeaturedMedia media={14} height="75%"/>
+                                        <FeaturedMedia media={solutions_home_image[0]} height="75%"/>
                                     </Media>
                                     <StyledLink 
-                                        link="/" 
+                                        link={solutions_home_url} 
                                         cta 
                                         color={state.theme.colors.primary.base} 
                                         bgColor="white"
                                     >Soluciones hogar</StyledLink>
-                                    <SolutionDescription>Somos un equipo de ingenieros que disfruta de innovar día a día, encontrando un equilibrio entre la creatividad y la razón. Petasolare nace del deseo enorme de encontrar nuevas soluciones a los reto</SolutionDescription>
+                                    <SolutionDescription>{solutions_home_copy}</SolutionDescription>
                                 </Solution>
                             </Col>
                             <Col size={12} sizeMD={6}>
                                 <Solution>
                                     <Media>
-                                        <FeaturedMedia media={14} height="75%"/>
+                                        <FeaturedMedia media={solutions_company_image[0]} height="75%"/>
                                     </Media>
                                     <StyledLink 
-                                        link="/" 
+                                        link={solutions_company_url} 
                                         cta 
                                         color={state.theme.colors.primary.base} 
                                         bgColor="white"
                                     >Soluciones empresa</StyledLink>
-                                    <SolutionDescription>Somos un equipo de ingenieros que disfruta de innovar día a día, encontrando un equilibrio entre la creatividad y la razón. Petasolare nace del deseo enorme de encontrar nuevas soluciones a los reto</SolutionDescription>
+                                    <SolutionDescription>{solutions_company_copy}</SolutionDescription>
                                 </Solution>
                             </Col>
                         </Row>

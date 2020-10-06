@@ -1,7 +1,7 @@
 import { connect } from "frontity";
 import React from "react";
 import Cover from "./about-cover";
-import Body from "./front-body"
+import Body from "./about-body"
 
 const About = ({state, actions, libraries}) => {
 

@@ -7,6 +7,12 @@ import FeaturedMedia from "../../featured-media";
 
 const Services = ({state, actions, libraries}) => {
 
+    const data = state.source.get(state.router.link);
+
+    const page = state.source[data.type][data.id];
+   
+    const {services} = page;
+
     return (
         <>
             <Section thin>
@@ -16,51 +22,33 @@ const Services = ({state, actions, libraries}) => {
                         <Row>
                             <Col>
                                 <List>
-                                    <Item size="12" sizeMD="6" sizeLG="4" mxAuto>
-                                        <Card>
-                                            <StyledLink link={"/"}>
-                                                <CardHeader>
-                                                    <CardMedia>
-                                                        <FeaturedMedia media={14} height="100%"/>
-                                                    </CardMedia>
-                                                    <CardTitle color={state.theme.colors.primary.base}>{"Servicio"}</CardTitle>
-                                                </CardHeader>
-                                                <CardBody>
-                                                    <CardDescription color={state.theme.colors.secondary.base}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id auctor nibh, ac pretium "}</CardDescription>
-                                                </CardBody>
-                                            </StyledLink>
-                                        </Card>
-                                    </Item>
-                                    <Item size="12" sizeMD="6" sizeLG="4" mxAuto>
-                                        <Card>
-                                            <StyledLink link={"/"}>
-                                                <CardHeader>
-                                                    <CardMedia>
-                                                        <FeaturedMedia media={14} height="100%"/>
-                                                    </CardMedia>
-                                                    <CardTitle color={state.theme.colors.primary.base}>{"Servicio"}</CardTitle>
-                                                </CardHeader>
-                                                <CardBody>
-                                                    <CardDescription color={state.theme.colors.secondary.base}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id auctor nibh, ac pretium "}</CardDescription>
-                                                </CardBody>
-                                            </StyledLink>
-                                        </Card>
-                                    </Item>
-                                    <Item size="12" sizeMD="6" sizeLG="4" mxAuto>
-                                        <Card>
-                                            <StyledLink link={"/"}>
-                                                <CardHeader>
-                                                    <CardMedia>
-                                                        <FeaturedMedia media={14} height="100%"/>
-                                                    </CardMedia>
-                                                    <CardTitle color={state.theme.colors.primary.base}>{"Servicio"}</CardTitle>
-                                                </CardHeader>
-                                                <CardBody>
-                                                    <CardDescription color={state.theme.colors.secondary.base}>{"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id auctor nibh, ac pretium "}</CardDescription>
-                                                </CardBody>
-                                            </StyledLink>
-                                        </Card>
-                                    </Item>
+                                {
+                                    services.map((service,index)=>{
+                                        const {
+                                            title,
+                                            excerpt,
+                                            icon,
+                                        } = service;
+
+                                        return (
+                                            <Item key={index} size="12" sizeMD="6" sizeLG="4" mxAuto>
+                                                <Card>
+                                                    <StyledLink link={"/"}>
+                                                        <CardHeader>
+                                                            <CardMedia>
+                                                                <FeaturedMedia media={icon} height="100%"/>
+                                                            </CardMedia>
+                                                            <CardTitle color={state.theme.colors.primary.base}>{title}</CardTitle>
+                                                        </CardHeader>
+                                                        <CardBody>
+                                                            <CardDescription color={state.theme.colors.secondary.base}>{excerpt}</CardDescription>
+                                                        </CardBody>
+                                                    </StyledLink>
+                                                </Card>
+                                            </Item>
+                                        )
+                                    })
+                                }
                                 </List>
                             </Col>
                         </Row>
@@ -191,7 +179,7 @@ const CardDescription = styled.p`
     `}
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.div`
     text-decoration: none;
     display: block;
     padding: 2rem;

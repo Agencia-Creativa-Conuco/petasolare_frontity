@@ -10,8 +10,6 @@ import {Rows, Cols} from "./layout";
  */
 const Nav = ({ state, libraries }) => {
 
-  const prueba = libraries.theme.getURL(state, libraries, "http://petasolare.local/wp-json/menus/v1/menus/3");
-
   return (
     <NavContainer alignCenter justifyContent="flex-end">
       {state.theme.menu.main.items.map((item) => {
@@ -21,9 +19,9 @@ const Nav = ({ state, libraries }) => {
         return (
           <NavItem size="auto" key={item.ID||item.title}>
             {/* If link url is the current page, add `aria-current` for a11y */}
-            <Link link={link} aria-current={isCurrentPage ? "page" : undefined}>
+            <StyledLink link={link} aria-current={isCurrentPage ? "page" : undefined}>
               {item.title}
-            </Link>
+            </StyledLink>
           </NavItem>
         );
       })}
@@ -39,4 +37,11 @@ const NavContainer = styled.nav`
 
 const NavItem = styled.div`
   ${Cols}
+`;
+
+const StyledLink = styled(Link)`
+  color: white;
+  text-shadow: 0 0rem 0.5rem rgba(0,0,0,0.5);
+  text-decoration: none;
+  font-size: 2rem;
 `;

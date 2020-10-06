@@ -1,7 +1,6 @@
 import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
 import Switch from "@frontity/components/switch";
-import Loading from "../loading";
 import Page from "./page";
 import FrontPage from "./front-page";
 import About from "./about";
@@ -17,17 +16,20 @@ const Pages = ({ state }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
 
+  const page = data.isArchive? {} : state.source[data.type][data.id];
+
+  const pageType = data.isArchive? {} : page.meta_box.page_type;
+
   return (
     <>
         {/* Add some metatags to the <head> of the HTML. */}
         <Switch>
-            <Loading when={data.isFetching} />
-            <Solution when={true} />
-            <Solutions when={true} />
-            <Contact when={true} />
-            <About when={true} />
-            <FrontPage when={data.isHome} />
-            <Page when={data.isPostType} />
+            <Solution when={pageType == "solution"} />
+            <Solutions when={pageType == "solutions"} />
+            <Contact when={pageType == "contact"} />
+            <About when={pageType == "about"} />
+            <FrontPage when={pageType == "home" || data.isHome} />
+            <Page when={data.isPage} />
         </Switch>
     </>
   );

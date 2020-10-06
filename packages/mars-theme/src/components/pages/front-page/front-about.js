@@ -5,6 +5,14 @@ import TeamCard from "../../team-card";
 
 const About = ({state, actions, libraries}) => {
 
+    const data = state.source.get(state.router.link);
+
+    const page = state.source[data.type][data.id];
+   
+    const {persons} = page;
+
+    const { home_about_title, home_about_description } = page.meta_box
+
     const Html2React = libraries.html2react.Component;
 
     return (
@@ -13,55 +21,40 @@ const About = ({state, actions, libraries}) => {
                 <Container decoColor={state.theme.colors.secondary.light}>
                     <Row>
                         <Col>
-                            <Title color={state.theme.colors.primary.base}>Nosotros</Title>
+                            <Title color={state.theme.colors.primary.base}>{home_about_title || "Nosotros"}</Title>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <Description>
-                                <Html2React html={"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id auctor nibh, ac pretium ipsum. Ut a lacinia risus. Aenean venenatis lacus ac pretium ipsum. Ut a lacinia ris ac pretium ipsum. Ut a lacinia ris lacinia ris ac pretium ipsum. Ut a lacinia ris Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam id auctor nibh, ac pretium ipsum. Ut a lacinia risus. Aenean venenatis lacus ac pretium ipsum. Ut a lacinia ris ac pretium ipsum. Ut a lacinia ris lacinia ris ac pretium ipsum. Ut a lacinia ris"} />
+                                <Html2React html={home_about_description} />
                             </Description>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
                             <TeamList>
-                                <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                    <TeamCard 
-                                        name="Paneles Solares" 
-                                        jobTitle="Paneles Solares" 
-                                        description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                        media={14}
-                                        link="/"
-                                    /> 
-                                </Item>
-                                <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                    <TeamCard 
-                                        name="Paneles Solares" 
-                                        jobTitle="Paneles Solares" 
-                                        description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                        media={14}
-                                        link="/"
-                                    /> 
-                                </Item>
-                                <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                    <TeamCard 
-                                        name="Paneles Solares" 
-                                        jobTitle="Paneles Solares" 
-                                        description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                        media={14}
-                                        link="/"
-                                    /> 
-                                </Item>
-                                <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                    <TeamCard 
-                                        name="Paneles Solares" 
-                                        jobTitle="Paneles Solares" 
-                                        description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                        media={14}
-                                        link="/"
-                                    /> 
-                                </Item>
+                                {
+                                    persons.map((person, index)=>{
+                                        const {
+                                            title,
+                                            featured_media,
+                                            jobtitle,
+                                        } = person;
+                                        
+                                        return (
+                                            <Item key={index} size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
+                                                <TeamCard 
+                                                    name={title} 
+                                                    jobTitle={jobtitle} 
+                                                    description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
+                                                    media={featured_media}
+                                                    link="/"
+                                                /> 
+                                            </Item>
+                                        )
+                                    })
+                                }
                             </TeamList>
                         </Col>
                     </Row>
@@ -108,7 +101,7 @@ const Title = styled.h2`
     `}
 `;
 
-const Description = styled.div`
+const Description = styled.p`
     text-align: justify;
     max-width: 75rem;
     margin: 0 auto;

@@ -1,7 +1,9 @@
 import React from "react";
 import { Global, css, connect, styled, Head } from "frontity";
+import Script from "@frontity/components/script";
 import Switch from "@frontity/components/switch";
 import Header from "./header";
+import Footer from "./footer";
 import List from "./list";
 import Post from "./post";
 import Pages from "./pages";
@@ -37,21 +39,33 @@ const Theme = ({ state }) => {
         <Header />
       </HeadContainer>
 
-      {/* Add the main section. It renders a different component depending
-      on the type of URL we are in. */}
-      <Main>
-        <Switch>
-          <Loading when={data.isFetching} />
-          <List when={data.isArchive} />
-          <Pages when={data.isHome || data.isPage} />
-          <Post when={data.isPostType} />
-          <PageError when={data.isError} />
-        </Switch>
-      </Main>
+      <Wrapper>
+        {/* Add the main section. It renders a different component depending
+        on the type of URL we are in. */}
+        <Main>
+          <Switch>
+            <Loading when={data.isFetching} />
+            <Pages when={data.isPage} />
+            <Post when={data.isPostType} />
+            <List when={data.isArchive} />
+            <PageError when={data.isError} />
+          </Switch>
+        </Main>
 
-      <FooterContainer>
+        <FooterContainer>
+          <Footer />
+        </FooterContainer>
+      </Wrapper>
 
-      </FooterContainer>
+      <Script code={`
+        const body = document;
+        
+        body.addEventListener('scroll', e => {
+          e.preventDefault();
+          
+          frontity.actions.theme.menuIsOnTop(window.scrollY);
+        });
+      `} />
     </>
   );
 };
@@ -67,9 +81,15 @@ const HeadContainer = styled.div`
   `}
 `;
 
-const FooterContainer = styled.div`
-`;
+const FooterContainer = styled.div``;
 
 const Main = styled.div`
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;
+
+const Wrapper = styled.div`
   overflow: hidden;
 `;

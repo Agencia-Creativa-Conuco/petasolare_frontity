@@ -3,6 +3,10 @@ import typography from "./tipography";
 import normalize from "./normalize";
 
 const cssReset = css`
+
+  html{
+  }
+  
   html,
   body {
     border: none;

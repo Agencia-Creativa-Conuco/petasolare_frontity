@@ -5,6 +5,12 @@ import ServiceCard from "../../service-card";
 
 const Services = ({state, actions, libraries}) => {
 
+    const data = state.source.get(state.router.link);
+
+    const page = state.source[data.type][data.id];
+   
+    const {services} = page;
+
     return (
         <>
             <Section spaceTopNone>
@@ -13,70 +19,26 @@ const Services = ({state, actions, libraries}) => {
                         <Row>
                             <Col>
                                 <List>
-                                    <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                        <ServiceCard 
-                                            title="Paneles Solares" 
-                                            description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media={14}
-                                            link="/"
-                                        />
-                                    </Item>
-                                    <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                        <ServiceCard 
-                                            title="Paneles Solares" 
-                                            description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media={14}
-                                            link="/"
-                                        />
-                                    </Item>
-                                    <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                        <ServiceCard 
-                                            title="Paneles Solares" 
-                                            description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media={14}
-                                            link="/"
-                                        />
-                                    </Item>
-                                    <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                        <ServiceCard 
-                                            title="Paneles Solares" 
-                                            description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media={14}
-                                            link="/"
-                                        />
-                                    </Item>
-                                    <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                        <ServiceCard 
-                                            title="Paneles Solares" 
-                                            description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media={14}
-                                            link="/"
-                                        />
-                                    </Item>
-                                    <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                        <ServiceCard 
-                                            title="Paneles Solares" 
-                                            description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media={14}
-                                            link="/"
-                                        />
-                                    </Item>
-                                    <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                        <ServiceCard 
-                                            title="Paneles Solares" 
-                                            description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media={14}
-                                            link="/"
-                                        />
-                                    </Item>
-                                    <Item size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
-                                        <ServiceCard 
-                                            title="Paneles Solares" 
-                                            description="Esto es lo que te espera para que entiendas que esto si es asi y no solo asi como lo es todo" 
-                                            media={14}
-                                            link="/"
-                                        />
-                                    </Item>
+                                {
+                                    services.map((service,index)=>{
+                                        const {
+                                            title,
+                                            excerpt,
+                                            icon,
+                                        } = service;
+
+                                        return (
+                                            <Item key={index} size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
+                                                <ServiceCard 
+                                                    title={title} 
+                                                    description={excerpt}
+                                                    media={icon}
+                                                    link="/"
+                                                />
+                                            </Item>
+                                        )
+                                    })
+                                }
                                 </List>
                             </Col>
                         </Row>

@@ -24,7 +24,7 @@ const marsTheme = {
         heading: "#000000",
         background:{
           body:"#FFFFFF",
-          header: "transparent",
+          header: "#0065B8",
         },
         primary: {
           base:"#0065B8",
@@ -86,6 +86,9 @@ const marsTheme = {
       },
       closeMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = false;
+      },
+      menuIsOnTop: ({state}) => (scrollY) => {
+        state.theme.menu.isOnTop = !scrollY?true:false;
       },
     },
   },
