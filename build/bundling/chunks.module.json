@@ -2,7 +2,7 @@
   "errors": [],
   "warnings": [],
   "version": "4.44.2",
-  "hash": "ca65385592490912da84",
+  "hash": "09e74261dd691b986a6f",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\ingos\\frontity\\petasolare_frontity\\build\\static",
   "assetsByChunkName": {
@@ -10,7 +10,7 @@
     "contact": "contact.module.js",
     "front-page": [
       "front-page.module.js",
-      "front-page.29fb5474e0509c63a119.hot-update.js"
+      "front-page.3533444f84ffbe899431.hot-update.js"
     ],
     "front-page~solution": "front-page~solution.module.js",
     "list": "list.module.js",
@@ -22,7 +22,7 @@
   },
   "assets": [
     {
-      "name": "29fb5474e0509c63a119.hot-update.json",
+      "name": "3533444f84ffbe899431.hot-update.json",
       "size": 52,
       "chunks": [],
       "chunkNames": [],
@@ -169,8 +169,8 @@
       "emitted": false
     },
     {
-      "name": "front-page.29fb5474e0509c63a119.hot-update.js",
-      "size": 36857,
+      "name": "front-page.3533444f84ffbe899431.hot-update.js",
+      "size": 163571,
       "chunks": [
         "front-page"
       ],
@@ -185,7 +185,7 @@
     },
     {
       "name": "front-page.module.js",
-      "size": 243185,
+      "size": 351592,
       "chunks": [
         "front-page"
       ],
@@ -342,7 +342,7 @@
       "assets": [
         "front-page~solution.module.js",
         "front-page.module.js",
-        "front-page.29fb5474e0509c63a119.hot-update.js"
+        "front-page.3533444f84ffbe899431.hot-update.js"
       ],
       "children": {},
       "childAssets": {}

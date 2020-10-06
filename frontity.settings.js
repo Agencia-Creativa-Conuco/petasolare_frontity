@@ -23,7 +23,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "http://web.petasolare.conuco.do/wp-json",
+          "api": "http://petasolare.local/wp-json",
           "homepage" : "/petasolare",
           "postsPage" : "/blog",
         }
