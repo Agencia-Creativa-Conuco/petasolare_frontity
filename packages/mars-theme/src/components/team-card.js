@@ -14,7 +14,7 @@ const TeamCard = ({
         <>
             <Card>
                 <CardMedia>
-                    <Media media={media} height="100%"/>
+                    <Media media={media} size="100%"/>
                 </CardMedia>
                 <CardBody>
                     <CardTitle color={state.theme.colors.primary.base}>{name}</CardTitle>

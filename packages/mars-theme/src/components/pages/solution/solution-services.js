@@ -36,7 +36,7 @@ const Services = ({state, actions, libraries}) => {
                                                     <StyledLink link={"/"}>
                                                         <CardHeader>
                                                             <CardMedia>
-                                                                <FeaturedMedia media={icon} height="100%"/>
+                                                                <FeaturedMedia media={icon} size="100%"/>
                                                             </CardMedia>
                                                             <CardTitle color={state.theme.colors.primary.base}>{title}</CardTitle>
                                                         </CardHeader>

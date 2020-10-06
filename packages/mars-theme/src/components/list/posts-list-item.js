@@ -26,9 +26,9 @@ const Item = ({ state, item, index, isEditorial, isPrincipal, isSecondary, isSma
         <Media>
           <FeaturedMedia 
             media={item.featured_media} 
-            height="70%" 
-            heightSM="56.25%" 
-            heightMD={isPrincipal? "56.25%" : isSecondary? "56.25%" : "80%"}
+            size="70%" 
+            sizeSM="56.25%" 
+            sizeMD={isPrincipal? "56.25%" : isSecondary? "56.25%" : "80%"}
           />
         </Media>
       )}

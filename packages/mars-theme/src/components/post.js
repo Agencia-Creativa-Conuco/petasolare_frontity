@@ -37,7 +37,7 @@ const Post = ({ state, actions, libraries }) => {
             {/* Look at the settings to see if we should include the featured image */}
             {state.theme.featured.showOnPost && (
             <PostMedia>
-              <FeaturedMedia media={post.featured_media} height="56.25%" />
+              <FeaturedMedia media={post.featured_media} size="56.25%" />
             </PostMedia>
             )}
           </Col>

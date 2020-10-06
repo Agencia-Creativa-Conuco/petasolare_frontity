@@ -29,7 +29,7 @@ const Solutions = ({state, actions, libraries}) => {
                             <Col size={12} sizeMD={6}>
                                 <Solution>
                                     <Media>
-                                        <FeaturedMedia media={solutions_home_image[0]} height="75%"/>
+                                        <FeaturedMedia media={solutions_home_image[0]} size="75%"/>
                                     </Media>
                                     <StyledLink 
                                         link={solutions_home_url} 
@@ -43,7 +43,7 @@ const Solutions = ({state, actions, libraries}) => {
                             <Col size={12} sizeMD={6}>
                                 <Solution>
                                     <Media>
-                                        <FeaturedMedia media={solutions_company_image[0]} height="75%"/>
+                                        <FeaturedMedia media={solutions_company_image[0]} size="75%"/>
                                     </Media>
                                     <StyledLink 
                                         link={solutions_company_url} 

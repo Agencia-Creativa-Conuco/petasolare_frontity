@@ -14,7 +14,7 @@ const ServiceCard = ({
             <Card>
                 <StyledLink link={link}>
                     <CardMedia>
-                        <FeaturedMedia media={media} height="100%"/>
+                        <FeaturedMedia media={media} size="100%"/>
                     </CardMedia>
                     <CardBody>
                         <CardTitle color={state.theme.colors.primary.base}>{title}</CardTitle>

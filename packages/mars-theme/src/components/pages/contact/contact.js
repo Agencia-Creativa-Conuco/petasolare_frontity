@@ -27,7 +27,7 @@ const About = ({state, actions, libraries}) => {
             <Section spaceTopNone>
                 <Wrapper>
                     <MediaContainer>
-                        <FeaturedMedia media={featured_media} height="56.25%" position="35% 50%" heightLG="100%"/>
+                        <FeaturedMedia media={featured_media} size="100%" sizeSM="56.25%" heightMD="100%" position="35% 50%"/>
                     </MediaContainer>
                     <Container fluid>
                         <Row>

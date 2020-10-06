@@ -121,7 +121,7 @@ const Deco = styled.div`
       background-color: ${colors.primary.base};
       border-radius: 50%;
       transform: translate(-70%, 0%);
-      z-index: 0;
+      z-index: 1;
       ${mq.sm}{
         top: 0;
         bottom: initial;

@@ -23,7 +23,7 @@ const Cover = ({state, actions, libraries}) => {
             <Section spaceNone>
                 <Wrapper>
                     <MediaContainer color={state.theme.colors.primary.base}>
-                        <FeaturedMedia media={featured_media} height="100%" heightSM="56.25%" />
+                        <FeaturedMedia media={featured_media} height="100%"/>
                     </MediaContainer>
                     <Container>
                         <Row>
@@ -76,8 +76,12 @@ const MediaContainer = styled.div`
 `;
 
 const Content = styled.div`
-    padding-bottom: 10vw;
-    padding-top: 20vw;
+    padding-bottom: 20vw;
+    padding-top: 30vw;
+    ${mq.md}{
+        padding-bottom: 10vw;
+        padding-top: 20vw;
+    }
 `;
 
 const Title = styled.h1`

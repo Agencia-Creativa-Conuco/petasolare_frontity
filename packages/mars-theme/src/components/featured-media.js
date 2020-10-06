@@ -5,7 +5,9 @@ import {mq} from "./layout";
 
 
 const FeaturedMedia = ({ 
-  state, media, height, heightSM, heightMD, heightLG, heightXL, position, className, bgColor  
+  state, media, position, className, bgColor,
+  height, heightSM, heightMD, heightLG, heightXL,
+  size, sizeSM, sizeMD, sizeLG, sizeXL
 }) => {
   
   const isCustom = typeof media === "object";
@@ -14,7 +16,7 @@ const FeaturedMedia = ({
     media = state.source.attachment[media];
   }
   
-  const isSized = height || heightSM || heightMD || heightLG || heightXL;
+  const isSized = height || heightSM || heightMD || heightLG || heightXL || size || sizeSM || sizeMD || sizeLG || sizeXL;
   const isSVG = media && (isCustom && media.full_url.endsWith("svg") || !isCustom && media.source_url.endsWith("svg"));
 
   const {colors} = state.theme;
@@ -37,7 +39,7 @@ const FeaturedMedia = ({
       ) : null;
 
   return (
-    <Container {...{height, heightSM, heightMD, heightLG, heightXL, position, className, bgColor, colors}}>
+    <Container {...{height, heightSM, heightMD, heightLG, heightXL, size, sizeSM, sizeMD, sizeLG, sizeXL, position, className, bgColor, colors}}>
       <StyledImage
         alt={(isCustom? media.title : media.title.rendered)}
         src={(isCustom? media.full_url : media.source_url)}
@@ -52,21 +54,37 @@ const FeaturedMedia = ({
 export default connect(FeaturedMedia);
 
 const Container = styled.div`
-${({height, heightSM, heightMD, heightLG, heightXL, bgColor, colors})=> `
+${({
+  height, heightSM, heightMD, heightLG, heightXL,
+  size, sizeSM, sizeMD, sizeLG, sizeXL, bgColor, colors
+})=> `
     position: relative;
     ${bgColor? `background-color: ${bgColor};`: `background-color: ${colors.gray.light};`}
-    ${height && height != true? `padding-bottom: ${height};`: ""}
+    ${size && size != true? `padding-bottom: ${size};`: ""}
     ${mq.sm}{
-      ${heightSM && heightSM != true? `padding-bottom: ${heightSM};`: ""}
+      ${sizeSM && sizeSM != true? `padding-bottom: ${sizeSM};`: ""}
     }
     ${mq.md}{
-      ${heightMD && heightMD != true? `padding-bottom: ${heightMD};`: ""}
+      ${sizeMD && sizeMD != true? `padding-bottom: ${sizeMD};`: ""}
     }
     ${mq.lg}{
-      ${heightLG && heightLG != true? `padding-bottom: ${heightLG};`: ""}
+      ${sizeLG && sizeLG != true? `padding-bottom: ${sizeLG};`: ""}
     }
     ${mq.xl}{
-      ${heightXL && heightXL != true? `padding-bottom: ${heightXL};`: ""}
+      ${sizeXL && sizeXL != true? `padding-bottom: ${sizeXL};`: ""}
+    }
+    ${height && height != true? `height: ${height};`: ""}
+    ${mq.sm}{
+      ${heightSM && heightSM != true? `height: ${heightSM};`: ""}
+    }
+    ${mq.md}{
+      ${heightMD && heightMD != true? `height: ${heightMD};`: ""}
+    }
+    ${mq.lg}{
+      ${heightLG && heightLG != true? `height: ${heightLG};`: ""}
+    }
+    ${mq.xl}{
+      ${heightXL && heightXL != true? `height: ${heightXL};`: ""}
     }
   `}
 `;
