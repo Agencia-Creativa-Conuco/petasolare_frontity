@@ -2,14 +2,14 @@
   "errors": [],
   "warnings": [],
   "version": "4.44.2",
-  "hash": "0a4dec04ad1253198a4f",
+  "hash": "a3ced978b80b99257ff2",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\ingos\\frontity\\petasolare_frontity\\build\\static",
   "assetsByChunkName": {
     "about": "about.module.js",
     "contact": [
       "contact.module.js",
-      "contact.4f843f8a00af994bcfdd.hot-update.js"
+      "contact.0a4dec04ad1253198a4f.hot-update.js"
     ],
     "front-page": "front-page.module.js",
     "front-page~solution": "front-page~solution.module.js",
@@ -22,7 +22,7 @@
   },
   "assets": [
     {
-      "name": "4f843f8a00af994bcfdd.hot-update.json",
+      "name": "0a4dec04ad1253198a4f.hot-update.json",
       "size": 49,
       "chunks": [],
       "chunkNames": [],
@@ -45,8 +45,8 @@
       "emitted": false
     },
     {
-      "name": "contact.4f843f8a00af994bcfdd.hot-update.js",
-      "size": 631479,
+      "name": "contact.0a4dec04ad1253198a4f.hot-update.js",
+      "size": 631473,
       "chunks": [
         "contact"
       ],
@@ -61,7 +61,7 @@
     },
     {
       "name": "contact.module.js",
-      "size": 634007,
+      "size": 634001,
       "chunks": [
         "contact"
       ],
@@ -362,7 +362,7 @@
       ],
       "assets": [
         "contact.module.js",
-        "contact.4f843f8a00af994bcfdd.hot-update.js"
+        "contact.0a4dec04ad1253198a4f.hot-update.js"
       ],
       "children": {},
       "childAssets": {}

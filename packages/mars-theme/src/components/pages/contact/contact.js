@@ -101,7 +101,7 @@ const About = ({state, actions, libraries}) => {
                                                                 {
                                                                     settings.emails.map(([email], index)=>{
                                                                         return (
-                                                                            <EmailLink index={index} link={`mailto:${email}`}>{email}</EmailLink>
+                                                                            <EmailLink key={index} link={`mailto:${email}`}>{email}</EmailLink>
                                                                         )
                                                                     })
                                                                 }
