@@ -73,7 +73,7 @@ const documentSetup = (colors) => css`
   body {
     background: ${colors.background.body};
     box-sizing: border-box;
-    color: ${colors.gray.dark};
+    color: ${colors.text};
     font-family: "Roboto", -apple-system, BlinkMacSystemFont, "Helvetica Neue",
       Helvetica, sans-serif;
     font-size: 1.6rem;

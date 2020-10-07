@@ -43,7 +43,7 @@ const About = ({state, actions, libraries}) => {
                                         } = person;
                                         
                                         return (
-                                            <Item key={index} size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
+                                            <Item key={index} size="auto" mxAuto>
                                                 <TeamCard 
                                                     name={title} 
                                                     jobTitle={jobtitle} 

@@ -12,7 +12,10 @@ import {
 const Footer = ({ state }) => {
 
   const settings = state.source.settings;
-  const logo = settings["site-logo-footer"];
+  const {
+    emails, phone, whatsapp, address, location,
+    facebook, instagram, twitter
+  } = settings;
   
   return (
     <>
@@ -23,59 +26,97 @@ const Footer = ({ state }) => {
           <Row alignCenter>
             <Col>
               <Info>
-                <Col size="auto" sizeMD={4} mxAuto>
-                  <PhoneBox>
-                    <Phone link="tel:+8296473439">
-                      <PhoneImage>
-                        <WhatsappIcon/>
-                      </PhoneImage>
-                      <PhoneNumber>829 647 3439</PhoneNumber>
-                    </Phone>
-                    <Phone link="tel:+8093824286">
-                      <PhoneImage>
-                        <PhoneIcon/>
-                      </PhoneImage>
-                      <PhoneNumber>809 382 4286</PhoneNumber>
-                    </Phone>
-                  </PhoneBox>
-                </Col>
-                <Col size="auto" sizeMD={4} mxAuto>
-                  <SocialBox>
-                    <SocialNetwork link="https://web.facebook.com/petasolare/?_rdc=1&_rdr">
-                      <FacebookIcon />
-                    </SocialNetwork>
-                    <SocialNetwork link="https://www.instagram.com/petasolare/?hl=es-la">
-                      <InstagramIcon />
-                    </SocialNetwork>
-                    <SocialNetwork link="https://twitter.com/petasolare_srl?lang=es">
-                      <TwitterIcon />
-                    </SocialNetwork>
-                  </SocialBox>
-                </Col>
-                <Col size="auto" sizeMD={4} mxAuto>
-                  <BoxWrapper>
-                    <MailBox>
-                      <MailImage color={state.theme.colors.primary.base}>
-                        <MailIcon/>
-                        <Mail link="mailto:info@petasolare.com">info@petasolare.com</Mail>
-                        <Mail link="mailto:ingenieria@petasolare.com">ingenieria@petasolare.com</Mail>
-                        <Mail link="mventao:info@petasolare.com">venta@petasolare.com</Mail>
-                      </MailImage>
-                    </MailBox>
-                  </BoxWrapper>
-                </Col>
-                <Col size="auto" sizeMD={4} mxAuto>
-                  <AddressBox>
-                    <Address link="https://g.page/petasolare?share">
-                      <AddressImage>
-                        <LocationIcon/>
-                      </AddressImage>
-                      <AddressInfo>Ave. Juan Pablo Duarte</AddressInfo>
-                      <AddressInfo>Bella Terra Mall, Mód-A121,</AddressInfo>
-                      <AddressInfo>Santiago, República Dominicana</AddressInfo>
-                    </Address>
-                  </AddressBox>
-                </Col>
+                {
+                  whatsapp || phone? (
+                    <Col size="auto" sizeMD={4} mxAuto>
+                      <PhoneBox>
+                        {
+                          whatsapp ? (
+                            <Phone link={`tel:+${whatsapp}`}>
+                              <PhoneImage>
+                                <WhatsappIcon/>
+                              </PhoneImage>
+                              <PhoneNumber>{whatsapp}</PhoneNumber>
+                            </Phone>
+                          ):null
+                        }
+                        {
+                          whatsapp ? (
+                            <Phone link={`tel:+${phone}`}>
+                              <PhoneImage>
+                                <PhoneIcon/>
+                              </PhoneImage>
+                              <PhoneNumber>{phone}</PhoneNumber>
+                            </Phone>
+                          ):null
+                        }
+                      </PhoneBox>
+                    </Col>
+                  ):null
+                }
+                {
+                  facebook || twitter || instagram ?(
+                    <Col size="auto" sizeMD={4} mxAuto>
+                      <SocialBox>
+                        {
+                          facebook? (
+                            <SocialNetwork link={facebook}>
+                              <FacebookIcon />
+                            </SocialNetwork>
+                          ):null
+                        }
+                        {
+                          instagram? (
+                            <SocialNetwork link={instagram}>
+                              <InstagramIcon />
+                            </SocialNetwork>
+                          ):null
+                        }
+                        {
+                          twitter? (
+                            <SocialNetwork link={twitter}>
+                              <TwitterIcon />
+                            </SocialNetwork>
+                          ):null
+                        }
+                      </SocialBox>
+                    </Col>
+                  ):null
+                }
+                {
+                  emails.length? (
+                    <Col size="auto" sizeMD={4} mxAuto>
+                      <BoxWrapper>
+                        <MailBox>
+                          <MailImage color={state.theme.colors.primary.base}>
+                            <MailIcon/>
+                            {
+                              emails.map(([email], index)=>{
+                                return (
+                                  <Mail key={index} link={`mailto:${email}`}>{email}</Mail>
+                                )
+                              })
+                            }
+                          </MailImage>
+                        </MailBox>
+                      </BoxWrapper>
+                    </Col>
+                  ):null
+                }
+                {
+                  address?(
+                    <Col size="auto" sizeMD={4} mxAuto>
+                      <AddressBox>
+                        <Address link={location? location : "#"}>
+                          <AddressImage>
+                            <LocationIcon/>
+                          </AddressImage>
+                          <AddressInfo>{address}</AddressInfo>
+                        </Address>
+                      </AddressBox>
+                    </Col>
+                  ):null
+                }
               </Info>
             </Col>
           </Row>
@@ -150,14 +191,6 @@ const Deco = styled.div`
           border-radius: 50%;
           transform: translate(-50%, 0);
       }
-  `}
-`;
-
-const Logo = styled(Image)`
-  ${ ({layout}) => `
-    padding: 10px 0;
-    position: relative;
-    z-index:2;
   `}
 `;
 
@@ -246,4 +279,5 @@ const Address = styled(Link)`
 
 const AddressInfo = styled.span`
   display: block;
+  white-space: pre;
 `;

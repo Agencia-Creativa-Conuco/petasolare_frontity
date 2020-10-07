@@ -28,6 +28,7 @@ export default connect(MobileToggle);
 
 const MenuToggle = styled.button`
   ${({bgColor, isOnTop, isMobileMenuOpen})=>css`
+    border-radius: 50%;
     background: ${ isOnTop? isMobileMenuOpen? "transparent" : bgColor : "transparent"};
     border: 0;
     color: white;

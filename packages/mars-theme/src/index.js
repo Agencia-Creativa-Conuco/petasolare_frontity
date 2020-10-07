@@ -21,7 +21,8 @@ const marsTheme = {
      */
     theme: {
       colors:{
-        heading: "#000000",
+        heading: "#808080",
+        text: "#808080",
         background:{
           body:"#FFFFFF",
           header: "#0065B8",
@@ -71,6 +72,8 @@ const marsTheme = {
         ]}
       },
       isMobileMenuOpen: false,
+      // Whether to auto-fetch links on a page. Values can be "no" | "all" | "in-view" | "hover"
+      autoPreFetch : "hover"
     },
   },
   /**

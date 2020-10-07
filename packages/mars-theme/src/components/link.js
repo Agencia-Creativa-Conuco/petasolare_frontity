@@ -20,11 +20,24 @@ const Link = ({
   // Check if the link is an external or internal link
   const isExternal = ()=>{
     const localUrl = new URL(state.frontity.url);
+    const apiUrl = new URL(state.source.api);
     let linkUrl;
 
     if(link.startsWith("http")){
       linkUrl = new URL(link);
-      return localUrl.host !== linkUrl.host;
+      const parsedURL = libraries.source.parse(link);
+      
+      if(localUrl.host !== linkUrl.host && apiUrl.host !== linkUrl.host){
+        return true;
+      }
+      else{
+        const {path,page,query,hash} = parsedURL;
+        link = libraries.source.stringify({
+          ...{path,page,query,hash}
+        });
+        
+        return false;
+      }
     }
     else if(link.startsWith("tel") || link.startsWith("mailto")){
       return true;
@@ -82,16 +95,17 @@ const Link = ({
       onClick={onClick}
       className={className}
       aria-current={ariaCurrent}
-      rel={isExternal ? "noopener noreferrer" : rel}
-      target={isExternal ? "_blank" : null}
+      rel={isExternal() ? "noopener noreferrer" : rel}
+      target={isExternal() ? "_blank" : null}
       cta = {cta}
       colors = {state.theme.colors}
       color = {color}
       bgColor = {bgColor}
       onMouseEnter={() => {
         // Prefetch the link's content when the user hovers on the link
-        if (state.theme.autoPreFetch === "hover" && !isExternal)
+        if (state.theme.autoPreFetch == "hover" && !isExternal()){
           actions.source.fetch(link);
+        }
       }}
     >
       {children}

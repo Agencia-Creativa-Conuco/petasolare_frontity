@@ -34,6 +34,7 @@ const Card = styled.div`
     padding: 2rem;
     background-color: white;
     margin: 0 auto;
+    height: 100%;
 `;
 
 const CardMedia = styled.div`

@@ -16,6 +16,7 @@ const Nav = ({ state, libraries }) => {
         // Check if the link matched the current page url
         const isCurrentPage = state.router.link === item.url;
         const link = libraries.theme.getURL(state, libraries, item.url);
+
         return (
           <NavItem size="auto" key={item.ID||item.title}>
             {/* If link url is the current page, add `aria-current` for a11y */}

@@ -107,6 +107,7 @@ const tipography = (colors) => css`
     h1{
         ${h1}
         font-weight: 900;
+        color: ${ colors.primary.base || "blue" };
     }
     h2{
         ${h2}

@@ -13,7 +13,7 @@ const Services = ({state, actions, libraries}) => {
 
     return (
         <>
-            <Section spaceTopNone>
+            <Section thin spaceTopNone>
                 <Wrapper decoColor={state.theme.colors.secondary.light}>
                     <Container>
                         <Row>
@@ -28,7 +28,7 @@ const Services = ({state, actions, libraries}) => {
                                         } = service;
 
                                         return (
-                                            <Item key={index} size="12" sizeSM="6" sizeMD="4" sizeLG="3" mxAuto>
+                                            <Item key={index} size="auto" mxAuto>
                                                 <ServiceCard 
                                                     title={title} 
                                                     description={excerpt}

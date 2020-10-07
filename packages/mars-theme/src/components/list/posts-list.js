@@ -15,7 +15,7 @@ const PostsList = ({ state }) => {
           <Col>
             {/* If the list is a taxonomy, we render a title. */}
             {data.isTaxonomy && (
-              <Header>
+              <Header color={state.theme.color.primary.base}>
                 {data.taxonomy}:{" "}
                 <b>{decode(state.source[data.taxonomy][data.id].name)}</b>
               </Header>
@@ -63,7 +63,9 @@ const Col = styled.div`
 `;
 
 const Header = styled.h3`
-  font-weight: 300;
-  text-transform: capitalize;
-  color: rgba(12, 17, 43, 0.9);
+  ${({color})=>css`
+    font-weight: 300;
+    text-transform: capitalize;
+    color: ${color};
+  `}
 `;

@@ -2,16 +2,16 @@
   "errors": [],
   "warnings": [],
   "version": "4.44.2",
-  "hash": "09e74261dd691b986a6f",
+  "hash": "0a4dec04ad1253198a4f",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\ingos\\frontity\\petasolare_frontity\\build\\static",
   "assetsByChunkName": {
     "about": "about.module.js",
-    "contact": "contact.module.js",
-    "front-page": [
-      "front-page.module.js",
-      "front-page.3533444f84ffbe899431.hot-update.js"
+    "contact": [
+      "contact.module.js",
+      "contact.4f843f8a00af994bcfdd.hot-update.js"
     ],
+    "front-page": "front-page.module.js",
     "front-page~solution": "front-page~solution.module.js",
     "list": "list.module.js",
     "page": "page.module.js",
@@ -22,8 +22,8 @@
   },
   "assets": [
     {
-      "name": "3533444f84ffbe899431.hot-update.json",
-      "size": 52,
+      "name": "4f843f8a00af994bcfdd.hot-update.json",
+      "size": 49,
       "chunks": [],
       "chunkNames": [],
       "info": {
@@ -45,8 +45,23 @@
       "emitted": false
     },
     {
+      "name": "contact.4f843f8a00af994bcfdd.hot-update.js",
+      "size": 631479,
+      "chunks": [
+        "contact"
+      ],
+      "chunkNames": [
+        "contact"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
       "name": "contact.module.js",
-      "size": 224746,
+      "size": 634007,
       "chunks": [
         "contact"
       ],
@@ -169,23 +184,8 @@
       "emitted": false
     },
     {
-      "name": "front-page.3533444f84ffbe899431.hot-update.js",
-      "size": 163571,
-      "chunks": [
-        "front-page"
-      ],
-      "chunkNames": [
-        "front-page"
-      ],
-      "info": {
-        "hotModuleReplacement": true,
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
       "name": "front-page.module.js",
-      "size": 351592,
+      "size": 470673,
       "chunks": [
         "front-page"
       ],
@@ -197,7 +197,7 @@
     },
     {
       "name": "front-page~solution.module.js",
-      "size": 45714,
+      "size": 46034,
       "chunks": [
         "front-page~solution"
       ],
@@ -209,7 +209,7 @@
     },
     {
       "name": "list.module.js",
-      "size": 99947,
+      "size": 127086,
       "chunks": [
         "list"
       ],
@@ -221,7 +221,7 @@
     },
     {
       "name": "page.module.js",
-      "size": 65410,
+      "size": 61811,
       "chunks": [
         "page"
       ],
@@ -245,7 +245,7 @@
     },
     {
       "name": "petasolare.module.js",
-      "size": 6113892,
+      "size": 6304450,
       "chunks": [
         "petasolare"
       ],
@@ -341,8 +341,7 @@
       ],
       "assets": [
         "front-page~solution.module.js",
-        "front-page.module.js",
-        "front-page.3533444f84ffbe899431.hot-update.js"
+        "front-page.module.js"
       ],
       "children": {},
       "childAssets": {}
@@ -362,7 +361,8 @@
         "contact"
       ],
       "assets": [
-        "contact.module.js"
+        "contact.module.js",
+        "contact.4f843f8a00af994bcfdd.hot-update.js"
       ],
       "children": {},
       "childAssets": {}

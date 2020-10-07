@@ -15,34 +15,47 @@ const Contact = ({state, actions, libraries}) => {
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
     const [message, setMessage] = useState("");
-    const [hasFormSendOk, setFormState] = useState(false);
+    const [isFormSubmiting, setFormSubmiting] = useState(false);
+    const [hasSubmited, setSubmited] = useState(false);
+    const [errorMessages, setErrorMessages] = useState([]);
 
-    const sendForm = (e) =>{
+    const sendForm = async (e) =>{
         e.preventDefault();
-        
-        const data = new FormData();
-        data.append("your-name", name);
-        data.append("email", email);
-        data.append("tel", phone);
-        data.append("message", message);
-         
-         const xhr = new XMLHttpRequest();
-         xhr.withCredentials = true;
-         
-         xhr.addEventListener("readystatechange", function () {
-           if (this.readyState === this.DONE) {
-                console.log(this.responseText);
+
+        setFormSubmiting(true);
+
+        const form = new FormData();
+            form.append("your-name", name);
+            form.append("email", email);
+            form.append("tel", phone);
+            form.append("message", message);
+
+        const response = await fetch(`${state.source.api}/contact-form-7/v1/contact-forms/${home_contact_form}/feedback`, {
+            "method": "POST",
+            "body" : form
+        });
+
+        if (response.ok){
+            const data = await response.json();
+            // console.log(response, data);
+
+            if(data.status == "mail_sent"){
                 setName("");
                 setEmail("");
                 setPhone("");
                 setMessage("");
-                setFormState(true);
-           }
-         });
-         
-         xhr.open("POST", `${state.source.api}/contact-form-7/v1/contact-forms/${home_contact_form}/feedback`);
-         
-         xhr.send(data);
+                setErrorMessages([]);
+                setSubmited(true);
+            }
+            else{
+                setErrorMessages(data.invalid_fields);
+            }
+            setFormSubmiting(false);
+        }
+        else{
+            // console.log(response.status);
+            setFormSubmiting(false);
+        }
     }
 
     const handleChange = (e, setValue) => {
@@ -56,7 +69,7 @@ const Contact = ({state, actions, libraries}) => {
                     <Row>
                         <Col size={12} sizeSM={10} sizeMD={8} mxAuto>
                             {
-                                !hasFormSendOk? (
+                                !hasSubmited? (
                                     
                                     <Form onSubmit={(e)=> sendForm(e)}>
                                         <Col size="12" >
@@ -66,6 +79,7 @@ const Contact = ({state, actions, libraries}) => {
                                                 name="your-name" 
                                                 placeholder="Nombre" 
                                                 required 
+                                                disabled={isFormSubmiting}
                                                 value={name}
                                                 onChange={(e) => handleChange(e, setName)}/>
                                         </Col>
@@ -76,6 +90,7 @@ const Contact = ({state, actions, libraries}) => {
                                                 name="email" 
                                                 placeholder="Email" 
                                                 required 
+                                                disabled={isFormSubmiting}
                                                 value={email}
                                                 onChange={(e) => handleChange(e, setEmail)}/>
                                         </Col>
@@ -85,6 +100,7 @@ const Contact = ({state, actions, libraries}) => {
                                                 id="tel" 
                                                 name="tel" 
                                                 placeholder="Teléfono" 
+                                                disabled={isFormSubmiting}
                                                 value={phone}
                                                 onChange={(e) => handleChange(e, setPhone)} 
                                             />
@@ -94,11 +110,34 @@ const Contact = ({state, actions, libraries}) => {
                                                 id="message" 
                                                 name="message" 
                                                 placeholder="Mensaje" 
+                                                disabled={isFormSubmiting}
                                                 value={message}
                                                 onChange={(e) => handleChange(e, setMessage)} />
                                         </Col>
+                                        {
+                                            errorMessages.length > 0 && (
+                                                <Col size="12">
+                                                    <ErrorMessages>
+                                                        {
+                                                            errorMessages.map((item,index)=>{
+                                                                return (
+                                                                    <ErrorMessage key={index}>{item.message}</ErrorMessage>
+                                                                )
+                                                            })
+                                                        }
+                                                    </ErrorMessages>
+                                                </Col>
+                                            )
+                                        }
                                         <ButtonBox>
-                                            <Button type="submit">Contáctanos</Button>
+                                            <Button 
+                                                type="submit" 
+                                                disabled={isFormSubmiting}
+                                            >
+                                            {
+                                                isFormSubmiting? "Enviando..." : "Contáctanos"
+                                            }    
+                                            </Button>
                                         </ButtonBox>
                                     </Form>
                                 ) : (
@@ -183,6 +222,12 @@ const ButtonBox = styled.div`
     width: 100%;
 `;
 
+const ErrorMessages = styled.div``;
+
+const ErrorMessage = styled.p`
+    color: red;
+`;
+
 const MessageBox = styled.div`
     ${Rows}
     border-radius: 2rem;
@@ -203,6 +248,8 @@ const MessageTitle = styled.h3`
     ${({color})=>css`
         color: ${color};
         text-align: center;
+        width: 100%;
+        margin-bottom: 2rem;
     `}
 `;
 

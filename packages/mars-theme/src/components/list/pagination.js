@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
+import {Containers, Rows, Cols} from "../layout";
 
 /**
  * Pagination Component
@@ -20,23 +21,29 @@ const Pagination = ({ state, actions }) => {
   }, []);
 
   return (
-    <div>
-      {/* If there's a next page, render this link */}
-      {next && (
-        <Link link={next}>
-          <Text>← Older posts</Text>
-        </Link>
-      )}
+    <Container>
+      <Row>
+        <Col size="auto"mrAuto>
+          {/* If there's a next page, render this link */}
+          {next && (
+            <Link link={next}>
+              <Text>← Posts Anteriores</Text>
+            </Link>
+          )}
+        </Col>
+        {previous && next && " - "}
+        <Col size="auto" mlAuto>
+          {/* If there's a previous page, render this link */}
+          {previous && (
+            <Link link={previous}>
+              <Text>Posts Recientes →</Text>
+            </Link>
+          )}
+        </Col>
+      </Row>
 
-      {previous && next && " - "}
 
-      {/* If there's a previous page, render this link */}
-      {previous && (
-        <Link link={previous}>
-          <Text>Newer posts →</Text>
-        </Link>
-      )}
-    </div>
+    </Container>
   );
 };
 
@@ -46,7 +53,22 @@ const Pagination = ({ state, actions }) => {
  */
 export default connect(Pagination);
 
+const Container = styled.div`
+    ${Containers}
+`;
+
+const Row = styled.div`
+    ${Rows}
+`;
+
+const Col = styled.div`
+    ${Cols}
+`;
+
 const Text = styled.em`
   display: inline-block;
   margin-top: 16px;
+  background-color: #F0F0F0;
+  padding: 1rem;
+  border-radius: 1rem;
 `;

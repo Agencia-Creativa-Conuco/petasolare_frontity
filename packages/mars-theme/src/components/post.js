@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
-import { connect, styled, css } from "frontity";
+import { connect, styled, css, Global } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
 import {Containers, Rows, Cols, Section, mq} from "./layout";
+
+import Bootstrap from "bootstrap/dist/css/bootstrap-grid.min.css";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -14,7 +16,6 @@ const Post = ({ state, actions, libraries }) => {
   const author = state.source.author[post.author];
   // Get a human readable date.
   const date = new Date(post.date);
-  console.log(post);
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
@@ -30,56 +31,62 @@ const Post = ({ state, actions, libraries }) => {
 
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Section as="article">
-      <Container>
-        <Row>
-          <Col>
-            {/* Look at the settings to see if we should include the featured image */}
-            {state.theme.featured.showOnPost && (
-            <PostMedia>
-              <FeaturedMedia media={post.featured_media} size="56.25%" />
-            </PostMedia>
-            )}
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <PostHeader>
-              {/* Only display author and date on posts */}
-              {data.isPost && (
-                <div>
-                  {author && (
-                    <StyledLink link={author.link}>
-                      <Author>
-                        By <b>{author.name}</b>
-                      </Author>
-                    </StyledLink>
-                  )}
-                  <DateWrapper>
-                    {" "}
-                    on <b>{date.toDateString()}</b>
-                  </DateWrapper>
-                </div>
+    <>
+      <Global styles={postStyles({gutenbergCSS})} />
+    
+      <SectionComponent as="article">
+        <Container>
+          <Row>
+            <Col>
+              {/* Look at the settings to see if we should include the featured image */}
+              {state.theme.featured.showOnPost && (
+              <PostMedia>
+                <FeaturedMedia media={post.featured_media} size="45%" />
+              </PostMedia>
               )}
-              <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-            </PostHeader>
-          </Col>
-        </Row>
-        {/* Render the content using the Html2React component so the HTML is processed
-        by the processors we included in the libraries.html2react.processors array. */}
-        <Row>
-          <Col>
-            <Content>
-              <Html2React html={post.content.rendered} />
-            </Content>
-          </Col>
-        </Row>
-      </Container>
-    </Section>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <PostHeader>
+                {/* Only display author and date on posts */}
+                {data.isPost && (
+                  <MetaData>
+                    {author && (
+                      <StyledLink link={author.link}>
+                        <Author>
+                          By <b>{author.name}</b>
+                        </Author>
+                      </StyledLink>
+                    )}
+                    <DateWrapper>
+                      {" "}
+                      on <b>{date.toDateString()}</b>
+                    </DateWrapper>
+                  </MetaData>
+                )}
+                <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+              </PostHeader>
+            </Col>
+          </Row>
+          {/* Render the content using the Html2React component so the HTML is processed
+          by the processors we included in the libraries.html2react.processors array. */}
+          <Row>
+            <Col>
+              <Content>
+                <Html2React html={post.content.rendered} />
+              </Content>
+            </Col>
+          </Row>
+        </Container>
+      </SectionComponent>
+    </>
   ) : null;
 };
 
 export default connect(Post);
+
+const SectionComponent = styled(Section)``;
 
 const Container = styled.div`
     ${Containers}
@@ -93,7 +100,9 @@ const Col = styled.div`
     ${Cols}
 `;
 
-const PostHeader = styled.div``;
+const PostHeader = styled.div`
+  text-align: center;
+`;
 
 const PostMedia = styled.div``;
 
@@ -101,7 +110,10 @@ const Title = styled.h1`
   margin: 0;
   margin-top: 0;
   margin-bottom: 4rem;
-  color: rgba(12, 17, 43);
+`;
+
+const MetaData = styled.div`
+  padding: 1rem 0;
 `;
 
 const StyledLink = styled(Link)`
@@ -109,13 +121,11 @@ const StyledLink = styled(Link)`
 `;
 
 const Author = styled.p`
-  color: rgba(12, 17, 43, 0.9);
   font-size: 0.9em;
   display: inline;
 `;
 
 const DateWrapper = styled.p`
-  color: rgba(12, 17, 43, 0.9);
   font-size: 0.9em;
   display: inline;
 `;
@@ -125,4 +135,11 @@ const DateWrapper = styled.p`
  * selectors to style that HTML.
  */
 const Content = styled.div`
+  max-width: 75rem;
+  margin: 0 auto;
+`;
+
+const postStyles = ({gutenbergCSS}) => css`
+    ${Bootstrap}
+    @import "${gutenbergCSS}";
 `;

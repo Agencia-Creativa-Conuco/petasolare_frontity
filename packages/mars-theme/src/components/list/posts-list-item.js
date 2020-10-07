@@ -1,7 +1,8 @@
 import React from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity";
 import Link from "../link";
 import FeaturedMedia from "../featured-media";
+import {h1, h3, h4} from "../styles/tipography";
 
 /**
  * Item Component
@@ -28,16 +29,24 @@ const Item = ({ state, item, index, isEditorial, isPrincipal, isSecondary, isSma
             media={item.featured_media} 
             size="70%" 
             sizeSM="56.25%" 
-            sizeMD={isPrincipal? "56.25%" : isSecondary? "56.25%" : "80%"}
+            sizeMD={isPrincipal? "45%" : isSecondary? "56.25%" : "80%"}
           />
         </Media>
       )}
 
-      <Title dangerouslySetInnerHTML={{ __html: item.title.rendered }} />
+      <Title 
+        dangerouslySetInnerHTML={{ __html: item.title.rendered }} 
+        color={state.theme.colors.secondary.base}
+        {...{isPrincipal}}
+      />
 
       {/* If the post has an excerpt (short summary text), we render it */}
-      {item.excerpt && (
-        <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
+      {item.excerpt && isPrincipal && (
+        <Excerpt 
+          dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} 
+          color={state.theme.colors.text}
+          {...{isPrincipal}}
+        />
       )}
       </StyledLink>
     </Article>
@@ -56,18 +65,24 @@ const Media = styled.div`
   overflow: hidden;
 `;
 
-const Title = styled.h1`
-  font-size: 2rem;
-  color: rgba(12, 17, 43);
-  margin: 0;
-  padding-top: 2rem;
-  padding-bottom: 1rem;
-  box-sizing: border-box;
+const Title = styled.h2`
+  ${({isPrincipal, color})=>css`
+    ${isPrincipal? h1 : h3}
+    font-size: 2rem;
+    color: ${color};
+    margin: 0;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    box-sizing: border-box;
+  `}
 `;
 
 const Excerpt = styled.div`
-  line-height: 1.6em;
-  color: rgba(12, 17, 43, 0.8);
+  ${({isPrincipal, color})=>css`
+      ${isPrincipal? h4 : ""}
+      line-height: 1.6em;
+      color: ${color};
+  `}
 `;
 
 const StyledLink = styled(Link)`
