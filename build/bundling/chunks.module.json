@@ -2,28 +2,28 @@
   "errors": [],
   "warnings": [],
   "version": "4.44.2",
-  "hash": "a3ced978b80b99257ff2",
+  "hash": "d7c35a2924a62b03530e",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\ingos\\frontity\\petasolare_frontity\\build\\static",
   "assetsByChunkName": {
     "about": "about.module.js",
-    "contact": [
-      "contact.module.js",
-      "contact.0a4dec04ad1253198a4f.hot-update.js"
-    ],
+    "contact": "contact.module.js",
     "front-page": "front-page.module.js",
     "front-page~solution": "front-page~solution.module.js",
     "list": "list.module.js",
     "page": "page.module.js",
     "pages": "pages.module.js",
-    "petasolare": "petasolare.module.js",
+    "petasolare": [
+      "petasolare.module.js",
+      "petasolare.a3ced978b80b99257ff2.hot-update.js"
+    ],
     "solution": "solution.module.js",
     "solutions": "solutions.module.js"
   },
   "assets": [
     {
-      "name": "0a4dec04ad1253198a4f.hot-update.json",
-      "size": 49,
+      "name": "a3ced978b80b99257ff2.hot-update.json",
+      "size": 52,
       "chunks": [],
       "chunkNames": [],
       "info": {
@@ -45,21 +45,6 @@
       "emitted": false
     },
     {
-      "name": "contact.0a4dec04ad1253198a4f.hot-update.js",
-      "size": 631473,
-      "chunks": [
-        "contact"
-      ],
-      "chunkNames": [
-        "contact"
-      ],
-      "info": {
-        "hotModuleReplacement": true,
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
       "name": "contact.module.js",
       "size": 634001,
       "chunks": [
@@ -69,7 +54,8 @@
         "contact"
       ],
       "info": {},
-      "emitted": false
+      "emitted": true,
+      "isOverSizeLimit": true
     },
     {
       "name": "fonts/Inter-Bold-LATIN.woff2",
@@ -244,8 +230,23 @@
       "emitted": false
     },
     {
+      "name": "petasolare.a3ced978b80b99257ff2.hot-update.js",
+      "size": 95547,
+      "chunks": [
+        "petasolare"
+      ],
+      "chunkNames": [
+        "petasolare"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
       "name": "petasolare.module.js",
-      "size": 6304450,
+      "size": 6307946,
       "chunks": [
         "petasolare"
       ],
@@ -287,7 +288,8 @@
         "petasolare"
       ],
       "assets": [
-        "petasolare.module.js"
+        "petasolare.module.js",
+        "petasolare.a3ced978b80b99257ff2.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -299,7 +301,8 @@
         "petasolare"
       ],
       "assets": [
-        "petasolare.module.js"
+        "petasolare.module.js",
+        "petasolare.a3ced978b80b99257ff2.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -361,8 +364,7 @@
         "contact"
       ],
       "assets": [
-        "contact.module.js",
-        "contact.0a4dec04ad1253198a4f.hot-update.js"
+        "contact.module.js"
       ],
       "children": {},
       "childAssets": {}

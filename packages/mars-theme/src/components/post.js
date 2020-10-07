@@ -19,6 +19,9 @@ const Post = ({ state, actions, libraries }) => {
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
+  // Get Gutenberg css url
+  const apiURL = new URL(state.source.api);
+  const gutenbergCSS = apiURL.origin + "/wp-includes/css/dist/block-library/style.min.css";
   /**
    * Once the post has loaded in the DOM, prefetch both the
    * home posts and the list component so if the user visits
