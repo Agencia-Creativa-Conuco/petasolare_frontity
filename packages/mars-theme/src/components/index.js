@@ -9,7 +9,7 @@ import Post from "./post";
 import Pages from "./pages";
 import Loading from "./loading";
 import Title from "./title";
-import PageError from "./page-error";
+import PageError from "./error";
 import globalStyles from "./styles/global-styles";
 import FontFace from "./styles/font-faces";
 
