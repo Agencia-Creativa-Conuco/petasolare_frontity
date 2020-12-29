@@ -44,7 +44,7 @@ const Header = ({ state, actions }) => {
               <MobileToggle />
             </Col>
             {/* Site Nav */}
-            <Col size="auto" hidden visibleLG mlAuto>
+            <Col size="auto" hiddenXS visibleLG mlAuto>
               <Nav />
             </Col>
           </Row>

@@ -28,21 +28,22 @@ const Services = ({state, actions, libraries}) => {
                                             title,
                                             excerpt,
                                             icon,
+                                            link
                                         } = service;
 
                                         return (
-                                            <Item key={index} size="12" sizeMD="6" sizeLG="4" mxAuto>
+                                            <Item key={index} size="12" sizeMD={6} sizeLG={4} mxAuto>
                                                 <Card>
-                                                    <StyledLink link={"/"}>
+                                                    <StyledLink link={link}>
                                                         <CardHeader>
                                                             <CardMedia>
-                                                                <FeaturedMedia media={icon} size="100%"/>
+                                                                <FeaturedMedia media={icon} size="100%" bgColor="transparent"/>
                                                             </CardMedia>
                                                             <CardTitle color={state.theme.colors.primary.base}>{title}</CardTitle>
                                                         </CardHeader>
-                                                        <CardBody>
+                                                        {/* <CardBody>
                                                             <CardDescription color={state.theme.colors.secondary.base}>{excerpt}</CardDescription>
-                                                        </CardBody>
+                                                        </CardBody> */}
                                                     </StyledLink>
                                                 </Card>
                                             </Item>
@@ -179,7 +180,7 @@ const CardDescription = styled.p`
     `}
 `;
 
-const StyledLink = styled.div`
+const StyledLink = styled(Link)`
     text-decoration: none;
     display: block;
     padding: 2rem;

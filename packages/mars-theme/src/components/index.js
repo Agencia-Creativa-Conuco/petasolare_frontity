@@ -12,7 +12,7 @@ import Title from "./title";
 import PageError from "./error";
 import globalStyles from "./styles/global-styles";
 import FontFace from "./styles/font-faces";
-
+import Modal from "./modal";
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.
@@ -55,6 +55,8 @@ const Theme = ({ state }) => {
         <FooterContainer>
           <Footer />
         </FooterContainer>
+
+        <Modal />
       </Wrapper>
 
       <Script code={`
@@ -85,9 +87,9 @@ const FooterContainer = styled.div``;
 
 const Main = styled.div`
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: column;
 `;
 
 const Wrapper = styled.div`

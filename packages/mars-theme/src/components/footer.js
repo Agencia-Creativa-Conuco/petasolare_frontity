@@ -133,6 +133,7 @@ const StyledFooter = styled.footer`
   width: 100%;
   padding-bottom: 5vw;
   position: relative;
+  margin-top: 10rem;
 `;
 
 const Container = styled.div`

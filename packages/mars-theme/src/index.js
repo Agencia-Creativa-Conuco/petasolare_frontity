@@ -73,7 +73,12 @@ const marsTheme = {
       },
       isMobileMenuOpen: false,
       // Whether to auto-fetch links on a page. Values can be "no" | "all" | "in-view" | "hover"
-      autoPreFetch : "hover"
+      autoPreFetch : "hover",
+      modal:{
+        isModalOpen:false,
+        modalTitle:null,
+        modalContent: ()=>{}
+      }
     },
   },
   /**
@@ -92,6 +97,14 @@ const marsTheme = {
       },
       menuIsOnTop: ({state}) => (scrollY) => {
         state.theme.menu.isOnTop = !scrollY?true:false;
+      },
+      openModal: ({ state }) => {
+        state.theme.modal.isModalOpen = true;
+      },
+      closeModal: ({ state }) => {
+        state.theme.modal.isModalOpen = false;
+        state.theme.modal.modalTitle = null;
+        state.theme.modal.modalBody = null;
       },
     },
   },

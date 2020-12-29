@@ -2,6 +2,7 @@ import { connect, styled, css } from "frontity";
 import React from "react";
 import {Containers, Rows, Cols, Section} from "../../layout";
 import TeamCard from "../../team-card";
+import FeaturedMedia from "../../featured-media";
 
 const About = ({state, actions, libraries}) => {
 
@@ -14,6 +15,24 @@ const About = ({state, actions, libraries}) => {
     const { home_about_title, home_about_description } = page.meta_box
 
     const Html2React = libraries.html2react.Component;
+    
+    const {colors} = state.theme;
+
+    const openPersonModal = (title, jobtitle, featured_media, content) => {
+        const {openModal} = actions.theme;
+        state.theme.modalTitle = "Contáctanos";
+        state.theme.modal.modalContent = () => () => (
+            <ModalBody>
+                <PersonAvatar>
+                    <FeaturedMedia media={featured_media} size="100%"/>
+                </PersonAvatar>
+                <PersonTitle color={colors.primary.base}>{title}</PersonTitle>
+                <PersonJobTitle>{jobtitle}</PersonJobTitle>
+                <PersonBio><Html2React html={content}/></PersonBio>
+            </ModalBody>
+        ); 
+        openModal();
+    };
 
     return (
         <>
@@ -40,10 +59,16 @@ const About = ({state, actions, libraries}) => {
                                             title,
                                             featured_media,
                                             jobtitle,
+                                            content,
                                         } = person;
                                         
                                         return (
-                                            <Item key={index} size="auto" mxAuto>
+                                            <Item 
+                                                key={index} 
+                                                size="auto" 
+                                                mxAuto
+                                                onClick={(e)=>{openPersonModal(title, jobtitle, featured_media, content)}}
+                                            >
                                                 <TeamCard 
                                                     name={title} 
                                                     jobTitle={jobtitle} 
@@ -121,3 +146,25 @@ const Item = styled.li`
     margin-bottom: 4rem;
     z-index: 1;
 `;
+
+const ModalBody = styled.div``;
+
+const PersonTitle = styled.h2`
+    ${({color="blue"})=>css`
+        color: ${color};
+        text-align: center;
+    `}
+`;
+
+const PersonJobTitle = styled.p`
+    text-align:center;
+`;
+
+const PersonAvatar = styled.div`
+    border-radius: 50%;
+    max-width: 25rem;
+    margin: 0 auto;
+    overflow: hidden;
+`;
+
+const PersonBio = styled.div``;

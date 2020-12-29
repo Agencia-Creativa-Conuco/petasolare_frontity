@@ -10,12 +10,12 @@ const Contact = ({state, actions, libraries}) => {
     const page = state.source[data.type][data.id];
 
     const {
-        content
+        content = ""
     } = page;
     
     const Html2React = libraries.html2react.Component;
 
-    return (
+    return content !== ""?(
         <>
             <Section>
                 <Wrapper decoColor={state.theme.colors.primary.dark}>
@@ -30,7 +30,7 @@ const Contact = ({state, actions, libraries}) => {
                 </Container>
             </Section>
         </>
-    )
+    ):null
 }
 
 export default connect(Contact);
@@ -38,18 +38,6 @@ export default connect(Contact);
 const Wrapper = styled.div`
     ${({decoColor})=>css`
         position: relative;
-        &:before{
-            content: '';
-            position: absolute;
-            left: 0%;
-            top: 0%;
-            width: 20%;
-            padding-bottom: 20%;
-            height: 0;
-            background-color: ${decoColor};
-            border-radius: 50%;
-            transform: translate(-75%, 0%);
-        }
     `}
 `;
 

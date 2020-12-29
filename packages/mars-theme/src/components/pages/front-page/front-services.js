@@ -25,6 +25,7 @@ const Services = ({state, actions, libraries}) => {
                                             title,
                                             excerpt,
                                             icon,
+                                            link
                                         } = service;
 
                                         return (
@@ -33,7 +34,7 @@ const Services = ({state, actions, libraries}) => {
                                                     title={title} 
                                                     description={excerpt}
                                                     media={icon}
-                                                    link="/"
+                                                    link={link}
                                                 />
                                             </Item>
                                         )

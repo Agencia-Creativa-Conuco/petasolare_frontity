@@ -12,7 +12,7 @@ const FrontPage = ({state, actions, libraries}) => {
             <Cover />
             <Services />
             <Content />
-            <Calc />
+            {/* <Calc /> */}
         </>
     )
 }

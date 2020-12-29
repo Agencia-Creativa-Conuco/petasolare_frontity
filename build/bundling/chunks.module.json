@@ -2,25 +2,36 @@
   "errors": [],
   "warnings": [],
   "version": "4.44.2",
-  "hash": "585329894787a231efac",
-  "publicPath": "http://localhost:3000/static/",
-  "outputPath": "C:\\Users\\ingos\\Local Sites\\petasolare\\app\\public\\wp-content\\frontity\\build\\static",
+  "hash": "700971455503e937b9f2",
+  "publicPath": "/static/",
+  "outputPath": "C:\\Users\\ingos\\frontity\\petasolare_frontity\\build\\static",
   "assetsByChunkName": {
     "about": "about.module.js",
+    "about~contact~front-page~list~page~single~solution~solutions": "about~contact~front-page~list~page~single~solution~solutions.module.js",
     "contact": "contact.module.js",
+    "contact~front-page": "contact~front-page.module.js",
     "front-page": "front-page.module.js",
     "front-page~solution": "front-page~solution.module.js",
     "list": "list.module.js",
     "page": "page.module.js",
+    "page-error": "page-error.module.js",
     "pages": "pages.module.js",
     "petasolare": "petasolare.module.js",
+    "service": [
+      "service.module.js",
+      "service.dd894c87dcd878651ef6.hot-update.js"
+    ],
+    "single": "single.module.js",
     "solution": "solution.module.js",
-    "solutions": "solutions.module.js"
+    "solutions": "solutions.module.js",
+    "vendors~contact~front-page": "vendors~contact~front-page.module.js",
+    "vendors~page~single": "vendors~page~single.module.js",
+    "vendors~single": "vendors~single.module.js"
   },
   "assets": [
     {
       "name": "about.module.js",
-      "size": 170425,
+      "size": 168829,
       "chunks": [
         "about"
       ],
@@ -31,8 +42,20 @@
       "emitted": false
     },
     {
+      "name": "about~contact~front-page~list~page~single~solution~solutions.module.js",
+      "size": 27300,
+      "chunks": [
+        "about~contact~front-page~list~page~single~solution~solutions"
+      ],
+      "chunkNames": [
+        "about~contact~front-page~list~page~single~solution~solutions"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
       "name": "contact.module.js",
-      "size": 635981,
+      "size": 146133,
       "chunks": [
         "contact"
       ],
@@ -40,6 +63,29 @@
         "contact"
       ],
       "info": {},
+      "emitted": false
+    },
+    {
+      "name": "contact~front-page.module.js",
+      "size": 191319,
+      "chunks": [
+        "contact~front-page"
+      ],
+      "chunkNames": [
+        "contact~front-page"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "dd894c87dcd878651ef6.hot-update.json",
+      "size": 49,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
       "emitted": false
     },
     {
@@ -156,7 +202,7 @@
     },
     {
       "name": "front-page.module.js",
-      "size": 474565,
+      "size": 324494,
       "chunks": [
         "front-page"
       ],
@@ -168,7 +214,7 @@
     },
     {
       "name": "front-page~solution.module.js",
-      "size": 46874,
+      "size": 43583,
       "chunks": [
         "front-page~solution"
       ],
@@ -180,7 +226,7 @@
     },
     {
       "name": "list.module.js",
-      "size": 128854,
+      "size": 132962,
       "chunks": [
         "list"
       ],
@@ -191,8 +237,20 @@
       "emitted": false
     },
     {
+      "name": "page-error.module.js",
+      "size": 14235,
+      "chunks": [
+        "page-error"
+      ],
+      "chunkNames": [
+        "page-error"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
       "name": "page.module.js",
-      "size": 62531,
+      "size": 61811,
       "chunks": [
         "page"
       ],
@@ -204,7 +262,7 @@
     },
     {
       "name": "pages.module.js",
-      "size": 22838,
+      "size": 23680,
       "chunks": [
         "pages"
       ],
@@ -216,7 +274,7 @@
     },
     {
       "name": "petasolare.module.js",
-      "size": 6315044,
+      "size": 6167980,
       "chunks": [
         "petasolare"
       ],
@@ -227,8 +285,47 @@
       "emitted": false
     },
     {
+      "name": "service.dd894c87dcd878651ef6.hot-update.js",
+      "size": 30548,
+      "chunks": [
+        "service"
+      ],
+      "chunkNames": [
+        "service"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "service.module.js",
+      "size": 101148,
+      "chunks": [
+        "service"
+      ],
+      "chunkNames": [
+        "service"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "single.module.js",
+      "size": 276411,
+      "chunks": [
+        "single"
+      ],
+      "chunkNames": [
+        "single"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
       "name": "solution.module.js",
-      "size": 279028,
+      "size": 277623,
       "chunks": [
         "solution"
       ],
@@ -240,12 +337,48 @@
     },
     {
       "name": "solutions.module.js",
-      "size": 57563,
+      "size": 56923,
       "chunks": [
         "solutions"
       ],
       "chunkNames": [
         "solutions"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "vendors~contact~front-page.module.js",
+      "size": 300922,
+      "chunks": [
+        "vendors~contact~front-page"
+      ],
+      "chunkNames": [
+        "vendors~contact~front-page"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "vendors~page~single.module.js",
+      "size": 139619,
+      "chunks": [
+        "vendors~page~single"
+      ],
+      "chunkNames": [
+        "vendors~page~single"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "vendors~single.module.js",
+      "size": 430009,
+      "chunks": [
+        "vendors~single"
+      ],
+      "chunkNames": [
+        "vendors~single"
       ],
       "info": {},
       "emitted": false
@@ -277,10 +410,28 @@
     },
     "list": {
       "chunks": [
+        "about~contact~front-page~list~page~single~solution~solutions",
         "list"
       ],
       "assets": [
+        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "list.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "single": {
+      "chunks": [
+        "vendors~page~single",
+        "vendors~single",
+        "about~contact~front-page~list~page~single~solution~solutions",
+        "single"
+      ],
+      "assets": [
+        "vendors~page~single.module.js",
+        "vendors~single.module.js",
+        "about~contact~front-page~list~page~single~solution~solutions.module.js",
+        "single.module.js"
       ],
       "children": {},
       "childAssets": {}
@@ -295,11 +446,36 @@
       "children": {},
       "childAssets": {}
     },
+    "page-error": {
+      "chunks": [
+        "page-error"
+      ],
+      "assets": [
+        "page-error.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "service": {
+      "chunks": [
+        "service"
+      ],
+      "assets": [
+        "service.module.js",
+        "service.dd894c87dcd878651ef6.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
     "page": {
       "chunks": [
+        "vendors~page~single",
+        "about~contact~front-page~list~page~single~solution~solutions",
         "page"
       ],
       "assets": [
+        "vendors~page~single.module.js",
+        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "page.module.js"
       ],
       "children": {},
@@ -307,10 +483,16 @@
     },
     "front-page": {
       "chunks": [
+        "vendors~contact~front-page",
+        "about~contact~front-page~list~page~single~solution~solutions",
+        "contact~front-page",
         "front-page~solution",
         "front-page"
       ],
       "assets": [
+        "vendors~contact~front-page.module.js",
+        "about~contact~front-page~list~page~single~solution~solutions.module.js",
+        "contact~front-page.module.js",
         "front-page~solution.module.js",
         "front-page.module.js"
       ],
@@ -319,9 +501,11 @@
     },
     "about": {
       "chunks": [
+        "about~contact~front-page~list~page~single~solution~solutions",
         "about"
       ],
       "assets": [
+        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "about.module.js"
       ],
       "children": {},
@@ -329,9 +513,15 @@
     },
     "contact": {
       "chunks": [
+        "vendors~contact~front-page",
+        "about~contact~front-page~list~page~single~solution~solutions",
+        "contact~front-page",
         "contact"
       ],
       "assets": [
+        "vendors~contact~front-page.module.js",
+        "about~contact~front-page~list~page~single~solution~solutions.module.js",
+        "contact~front-page.module.js",
         "contact.module.js"
       ],
       "children": {},
@@ -339,9 +529,11 @@
     },
     "solutions": {
       "chunks": [
+        "about~contact~front-page~list~page~single~solution~solutions",
         "solutions"
       ],
       "assets": [
+        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "solutions.module.js"
       ],
       "children": {},
@@ -349,10 +541,12 @@
     },
     "solution": {
       "chunks": [
+        "about~contact~front-page~list~page~single~solution~solutions",
         "front-page~solution",
         "solution"
       ],
       "assets": [
+        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "front-page~solution.module.js",
         "solution.module.js"
       ],

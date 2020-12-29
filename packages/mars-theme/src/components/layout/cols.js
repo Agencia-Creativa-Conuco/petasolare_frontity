@@ -220,9 +220,9 @@ const Cols = props => css`
         }
     `:""}
 
-    // ${props.hidden ? `
-    //     display: none;
-    // `:""}
+    ${props.hiddenXS ? `
+        display: none;
+    `:""}
     ${props.hiddenSM ? `
         ${mq.sm}{
             display: none;

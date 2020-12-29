@@ -1,3 +1,3 @@
 import {loadable} from "frontity";
 
-export default loadable( ()=> import("./post"));
+export default loadable( ()=> import("./single"));
