@@ -9,6 +9,8 @@ const ServiceCard = ({
     title, description, link, media
 }) => {
 
+    const Html2React = libraries.html2react.Component;
+
     return (
         <>
             <Card>
@@ -18,7 +20,7 @@ const ServiceCard = ({
                     </CardMedia>
                     <CardBody>
                         <CardTitle color={state.theme.colors.primary.base}>{title}</CardTitle>
-                        <CardDescription color={state.theme.colors.secondary.base}>{description}</CardDescription>
+                        <CardDescription color={state.theme.colors.secondary.base}><Html2React html={description}/></CardDescription>
                     </CardBody>
                 </StyledLink>
             </Card>
@@ -51,7 +53,7 @@ const CardTitle = styled.p`
     `}
 `;
 
-const CardDescription = styled.p`
+const CardDescription = styled.div`
     ${({color})=>css`
         color: ${color};
         text-align: justify;

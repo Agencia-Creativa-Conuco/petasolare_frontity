@@ -38,7 +38,7 @@ const Card = styled.div`
 `;
 
 const CardMedia = styled.div`
-    max-width: 10rem;
+    width: 12rem;
     margin: 0rem auto;
     margin-bottom: 2rem;
     border-radius: 50%;

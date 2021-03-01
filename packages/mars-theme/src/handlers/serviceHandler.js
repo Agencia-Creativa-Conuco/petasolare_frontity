@@ -23,9 +23,34 @@ const serviceHandler ={
             response,
             state
         })
-        
-        // Assign data to be consumed later.
+
         await serviceData.map((item)=>{
+            Object.assign(state.source.data[item.link], {
+                isPostType: true,
+                isServicio: true,
+                isReady: true,
+                isFetching: false
+            });
+        })
+        
+        const service = serviceData[0];
+        const relatedIds = state.source[service.type][service.id].meta_box.service_related;
+
+        const relatedResponse = await libraries.source.api.get({
+            endpoint: `service`,
+            params: {
+                include:relatedIds,
+                _embed:true,
+            }
+        });
+
+        const relatedServiceData = await libraries.source.populate({
+            response: relatedResponse,
+            state
+        })
+
+        // Assign data to be consumed later.
+        await relatedServiceData.map((item)=>{
             Object.assign(state.source.data[item.link], {
                 isPostType: true,
                 isServicio: true,

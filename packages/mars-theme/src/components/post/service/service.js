@@ -3,6 +3,7 @@ import React from "react";
 import Cover from "./service-cover";
 import Content from "./service-content";
 import Info from "./service-info";
+import Services from "./service-related";
 
 const Service = ({state, actions, libraries}) => {
 
@@ -10,6 +11,7 @@ const Service = ({state, actions, libraries}) => {
         <Article>
             <Cover />
             <Info />
+            <Services />
             <Content />
         </Article>
     )
