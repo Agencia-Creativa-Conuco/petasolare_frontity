@@ -16,10 +16,10 @@ const Cover = ({state, actions, libraries}) => {
     return (
         <>
             <Section spaceNone>
-                <Container fluid>
-                    <CoverContainer color={state.theme.colors.primary.base}>
-                        <FeaturedMedia media={page.featured_media} height="100%"/>
-                    </CoverContainer>
+                <CoverContainer color={state.theme.colors.primary.base}>
+                    <FeaturedMedia media={page.featured_media} height="100%"/>
+                </CoverContainer>
+                <Container>
                     <Row>
                         <Col size={12} sizeSM={10} sizeMD={8} sizeLG={6}>
                             <Content>
@@ -83,7 +83,7 @@ const CoverContainer = styled.div`
         &:before{
             content: "";
             position: absolute;
-            right: 0;
+            left: 0;
             top: 0;
             width: 100%;
             height: 100%;
@@ -91,10 +91,11 @@ const CoverContainer = styled.div`
             opacity: 0.3;
             z-index: 1;
             ${mq.lg}{
-                right: 50%;
-                width: 65%;
+                left: -20%;
+                width: 75%;
                 height: 0%;
-                padding-bottom: 65%;    border-radius: 50%;
+                padding-bottom: 75%;    
+                border-radius: 50%;
                 transform: translate(00%, -50%);
                 top: 50%;
             }
@@ -112,6 +113,9 @@ const CoverContainer = styled.div`
             transform-origin: center center;
             transform: translate(-50%, 98%);
             z-index: 2;
+            ${mq.lg}{
+                transform: translate(-50%, 99%);
+            }
         }
     `}
 `;

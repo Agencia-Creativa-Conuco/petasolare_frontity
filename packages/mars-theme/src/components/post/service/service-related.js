@@ -9,9 +9,9 @@ const Services = ({state, actions, libraries}) => {
 
     const service = state.source[data.type][data.id];
 
-    const services = service.meta_box.service_related;
+    const services = service?service.meta_box.service_related:[];
    
-    return (
+    return services.length > 0?(
         <>
             <Section thin spaceTopNone>
                 <Wrapper decoColor={state.theme.colors.secondary.light}>
@@ -43,7 +43,7 @@ const Services = ({state, actions, libraries}) => {
                 </Wrapper>
             </Section>
         </>
-    )
+    ):null
 }
 
 export default connect(Services);
