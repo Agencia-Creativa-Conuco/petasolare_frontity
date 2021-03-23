@@ -11,7 +11,7 @@ const Contact = ({state, actions, libraries}) => {
 
     const page = state.source[data.type][data.id];
 
-    const { home_contact_form } = page.meta_box
+    const { home_contact_form, page_form_id } = page.meta_box
     
     return (
         <>
@@ -24,7 +24,7 @@ const Contact = ({state, actions, libraries}) => {
                     </Row> */}
                     <Row>
                         <Col>
-                            <FormHS />    
+                            <FormHS formID={page_form_id}/>    
                         </Col>
                     </Row>
                 </Container>

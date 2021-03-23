@@ -4,23 +4,23 @@ import {Containers, Rows, Cols, mq} from "./layout";
 import HubspotForm from 'react-hubspot-form';
 import Loading from "./loading";
 
-const ContactForm = ({state, formID, className}) => {
+const ContactForm = ({state, formID}) => {
 
-    return (
+    return formID?(
       <Form>
         <Container>
             <Row>
                 <Col>
                     <HubspotForm
                         portalId={state.theme.settings.hubspot.id}
-                        formId={state.theme.settings.hubspot.forms.subscriber}
+                        formId={formID}
                         loading={<Loading height="200px"/>}
                     />
                 </Col>
             </Row>
         </Container>
       </Form>
-    )
+    ):null
 }
 
 export default connect(ContactForm);

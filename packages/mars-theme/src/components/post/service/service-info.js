@@ -58,7 +58,6 @@ const Col = styled.div`
 `;
 
 const MediaContainer = styled.div`
-    max-width: 35rem;
     margin: 0 auto;
 `;
 

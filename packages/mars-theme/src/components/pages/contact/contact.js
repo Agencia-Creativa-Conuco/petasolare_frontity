@@ -19,7 +19,7 @@ const About = ({state, actions, libraries}) => {
     } = page;
 
     const {
-        contact_form
+        page_form_id
     } = page.meta_box;
 
     return (
@@ -83,7 +83,7 @@ const About = ({state, actions, libraries}) => {
                                     </Row>
                                     <Row>
                                         <Col size={12}>
-                                            <ContactForm formID={contact_form} />
+                                            <ContactForm formID={page_form_id} />
                                         </Col>
                                     </Row>
                                 </InfoWrapper>

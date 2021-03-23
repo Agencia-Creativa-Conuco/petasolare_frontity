@@ -1,26 +1,51 @@
 import { connect, styled, css } from "frontity";
 import React from "react";
 import {Containers, Rows, Cols, Section, mq} from "../../layout";
-import Button from "../../button";
 
 const Content = ({state, actions, libraries}) => {
 
     const data = state.source.get(state.router.link);
 
-    const page = state.source[data.type][data.id];
+    const service = state.source[data.type][data.id];
 
     const {
         content = ""
-    } = page;
+    } = service;
+
+    const {service_benefits, service_benefits_title} = service.meta_box;
     
     const Html2React = libraries.html2react.Component;
 
     return content !== ""?(
         <>
             <Section>
-                <Wrapper decoColor={state.theme.colors.primary.dark}>
-
-                </Wrapper>
+            {
+                service_benefits.length > 0?(
+                    <Container>
+                        <Row>
+                            <Col>
+                                <Title>{service_benefits_title}</Title>
+                            </Col>
+                        </Row>
+                        <Benefits decoColor={state.theme.colors.primary.dark}>
+                            <Row>
+                                {
+                                    service_benefits.map( (benefit, index)=>{
+                                        
+                                        return(
+                                            <Col key={index} size={12} sizeMD={6} sizeLG={4}>
+                                                <Item>{benefit}</Item>
+                                            </Col>
+                                        )
+                                    })
+                                }
+                            </Row>
+                        </Benefits>
+                    </Container>
+                ):null
+            }
+            </Section>
+            <Section>
                 <Html2React html={content.rendered} />
             </Section>
         </>
@@ -29,10 +54,9 @@ const Content = ({state, actions, libraries}) => {
 
 export default connect(Content);
 
-const Wrapper = styled.div`
-    ${({decoColor})=>css`
-        position: relative;
-    `}
+const Benefits = styled.ul`
+    margin: 0;
+    padding: 0;
 `;
 
 const Container = styled.div`
@@ -46,3 +70,9 @@ const Row = styled.div`
 const Col = styled.div`
     ${Cols}
 `;
+
+const Title = styled.h2`
+    text-align: center;
+`;
+
+const Item = styled.li``;
