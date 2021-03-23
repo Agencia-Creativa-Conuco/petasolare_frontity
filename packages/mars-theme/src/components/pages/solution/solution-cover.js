@@ -2,6 +2,7 @@ import { connect, styled, css } from "frontity";
 import React from "react";
 import {Containers, Rows, Cols, Section, mq} from "../../layout";
 import FeaturedMedia from "../../featured-media";
+import {h1} from "../../styles/tipography";
 
 const Cover = ({state, actions, libraries}) => {
 
@@ -27,7 +28,7 @@ const Cover = ({state, actions, libraries}) => {
                     </MediaContainer>
                     <Container>
                         <Row>
-                            <Col size={12} sizeMD={6}>
+                            <Col size={12} sizeMD={8}>
                                 <Content>
                                     <Title>{title.rendered}</Title>
                                     <Copy>{solution_copy}</Copy>
@@ -88,6 +89,7 @@ const Title = styled.h1`
     color: white;
     text-shadow: 0 0.25rem 0.25rem rgba(0,0,0,0.15);
 `;
+
     
 const Copy = styled.p`
     color: white;

@@ -9,6 +9,8 @@ const Cover = ({state, actions, libraries}) => {
 
     const page = state.source[data.type][data.id];
 
+    const colors = state.theme.colors;
+
     const {
         title,
         featured_media
@@ -21,13 +23,13 @@ const Cover = ({state, actions, libraries}) => {
     return (
         <>
             <Section spaceNone>
-                <Wrapper>
+                <Wrapper bgColor={colors.primary.base}>
                     <MediaContainer color={state.theme.colors.primary.base}>
                         <FeaturedMedia media={featured_media} height="100%"/>
                     </MediaContainer>
                     <Container>
                         <Row>
-                            <Col size={12} sizeMD={6}>
+                            <Col size={12} sizeMD={10}>
                                 <Content>
                                     <Title>{title.rendered}</Title>
                                     <Copy>{service_copy}</Copy>
@@ -45,6 +47,7 @@ export default connect(Cover);
 
 const Container = styled.div`
     ${Containers}
+    z-index: 4;
 `;
 
 const Row = styled.div`
@@ -56,22 +59,34 @@ const Col = styled.div`
 `;
 
 const Wrapper = styled.div`
-    position: relative;
-    ${mq.md}{
-        clip-path: ellipse(70% 100% at 45% 0%);
-    }
+    ${({bgColor="blue"})=>css`
+        position: relative;
+        ${mq.md}{
+            clip-path: ellipse(70% 100% at 45% 0%);
+        }
+        &:before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: ${bgColor};
+            z-index: 2;
+            opacity: 0.15;
+        }
+    `}
 `;
 
 const MediaContainer = styled.div`
     ${({color})=>css`
-        height: auto;
-        height: 100%;
         position: absolute;
         overflow: hidden;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
+        z-index: 1;
     `}
 `;
 

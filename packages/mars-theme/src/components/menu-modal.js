@@ -7,7 +7,7 @@ import MenuToggle from "./menu-toggle";
 const MenuModal = ({ state, libraries }) => {
   return (
     <>
-      <MenuWrapper bgColor={state.theme.colors.background.header}>
+      <MenuWrapper bgColor={state.theme.colors.background.headerMobile}>
         <Section as="div" thin>
           <Container>
             {/* <Row>

@@ -5,7 +5,7 @@ import Nav from "./nav";
 import MobileToggle from "./menu-toggle";
 import {Containers, Rows, Cols, mq} from "./layout";
 import Switch from "@frontity/components/switch";
-import Image from "@frontity/components/image";
+import FeaturedMedia from "./featured-media";
 import MenuModal from "./menu-modal";
 
 const Header = ({ state, actions }) => {
@@ -13,7 +13,7 @@ const Header = ({ state, actions }) => {
   const settings = state.source.settings;
   const logo = settings["site-logo"];
   
-  const { isMobileMenuOpen } = state.theme;
+  const { isMobileMenuOpen, colors } = state.theme;
 
   useEffect(() => {
     actions.theme.menuIsOnTop(window.scrollY);
@@ -21,7 +21,7 @@ const Header = ({ state, actions }) => {
 
   return (
     <>
-      <StyledHeader bgColor={state.theme.colors.background.header} isOnTop={state.theme.menu.isOnTop}>
+      <StyledHeader bgColor={isMobileMenuOpen? colors.background.headerMobile : colors.background.header} isOnTop={state.theme.menu.isOnTop}>
         <Container fluid>
           <Row alignCenter>
             <Col size="auto">
@@ -30,7 +30,7 @@ const Header = ({ state, actions }) => {
                 {
                   logo? 
                     <LogoContainer>
-                      < Logo src={logo.full_url} alt={logo.alt} />
+                      < Logo media={logo} height="4rem" fit="initial" loading="eager"/>
                     </LogoContainer>
                   : 
                     <>
@@ -66,6 +66,8 @@ const StyledHeader = styled.header`
     width: 100%;
     background-color: ${isOnTop? "transaparent" : bgColor};
     transition: background 0.2s ease-in-out;
+    min-height: 6rem;
+    padding: 1.5rem 0;
   `}
 `;
 
@@ -108,29 +110,23 @@ const LogoContainer = styled.div`
     position: absolute;
     left: 0;
     top: 0;
+    transform: scale(2) translate(-3%, -60%);
     background-color: white;
     box-shadow: 0 2rem 2rem rgba(0,0,0,0.15);
     width: 100%;
     height: 0;
     padding-bottom: 100%;
     border-radius: 50%;
-    transform: scale(2) translate(-3%, -46%);
     z-index: 1;
   }
 `;
 
-const Logo = styled(Image)`
+const Logo = styled(FeaturedMedia)`
   ${ ({layout}) => `
     padding: 10px 0;
     position: relative;
     z-index:2;
-    width: auto;
-    height: 6rem;
-    ${mq.md}{
-      height: 7rem;
-    }
-    ${mq.lg}{
-      height: 8rem;
-    }
+    width: 25rem;
+    transform: scale(1.3);
   `}
 `;

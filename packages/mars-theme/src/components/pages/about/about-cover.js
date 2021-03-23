@@ -21,7 +21,7 @@ const Cover = ({state, actions, libraries}) => {
                 </CoverContainer>
                 <Container>
                     <Row>
-                        <Col size={12} sizeSM={10} sizeMD={8} sizeLG={6}>
+                        <Col size={12} sizeMD={10} sizeLG={8}>
                             <Content>
                                 <Title>{page.title.rendered}</Title>
                                 <Copy>{about_position_statement}</Copy>
@@ -69,6 +69,9 @@ const Title = styled.h1`
 const Copy = styled.p`
     text-align: justify;
     color: white;
+    ${mq.md}{
+        text-align: left;
+    }
 `;
 
 const CoverContainer = styled.div`
@@ -88,17 +91,17 @@ const CoverContainer = styled.div`
             width: 100%;
             height: 100%;
             background-color: ${color};
-            opacity: 0.3;
+            opacity: 0.5;
             z-index: 1;
-            ${mq.lg}{
-                left: -20%;
-                width: 75%;
-                height: 0%;
-                padding-bottom: 75%;    
-                border-radius: 50%;
-                transform: translate(00%, -50%);
-                top: 50%;
-            }
+            // ${mq.lg}{
+            //     left: -20%;
+            //     width: 75%;
+            //     height: 0%;
+            //     padding-bottom: 75%;    
+            //     border-radius: 50%;
+            //     transform: translate(00%, -50%);
+            //     top: 50%;
+            // }
         }
         &:after{
             content: "";

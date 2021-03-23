@@ -24,7 +24,7 @@ const Contact = ({state, actions, libraries}) => {
                 <Container>
                     <Row>
                         <Col size={12} sizeSM={10} sizeMD={8} mxAuto>
-                        <Html2React html={content.rendered} />
+                            <Html2React html={content.rendered} />
                         </Col>
                     </Row>
                 </Container>

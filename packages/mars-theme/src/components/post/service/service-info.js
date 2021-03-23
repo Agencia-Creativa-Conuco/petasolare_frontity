@@ -33,7 +33,7 @@ const Info = ({state, actions, libraries}) => {
                         </Col>
                         <Col size={12} sizeMD={6}>
                             <MediaContainer>
-                                <FeaturedMedia media={service_logo[0]} size="100%" bgColor="transparent"/>
+                                <FeaturedMedia media={service_logo[0]} size="100%" bgColor="transparent" fit="initial"/>
                             </MediaContainer>
                         </Col>
                     </Row>
@@ -57,7 +57,10 @@ const Col = styled.div`
     ${Cols}
 `;
 
-const MediaContainer = styled.div``;
+const MediaContainer = styled.div`
+    max-width: 35rem;
+    margin: 0 auto;
+`;
 
 const Content = styled.div`
     margin-bottom: 4rem;

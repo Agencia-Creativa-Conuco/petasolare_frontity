@@ -2,6 +2,7 @@ import { connect, styled, css } from "frontity";
 import React from "react";
 import {Containers, Rows, Cols, Section, mq} from "../../layout";
 import Link from "../../link";
+import {h1,h2} from "../../styles/tipography";
 
 const Cover = ({state, actions, libraries}) => {
 
@@ -32,7 +33,7 @@ const Cover = ({state, actions, libraries}) => {
                     <Row>
                         <Col>
                             <Row>
-                                <Col size={12} sizeSM={10} sizeMD={8} sizeLG={6} mlAuto>
+                                <Col size={12} sizeSM={10} sizeMD={8} sizeLG={8} mlAuto>
                                     <InfoContainer color={state.theme.colors.primary.base} >
                                         <Title>{page.title.rendered}</Title>
                                         <Copy><Html2React html={page.content.rendered} /></Copy>
@@ -116,6 +117,7 @@ const InfoContainer = styled.div`
         z-index: 2;
         padding-top: 35vw;
         padding-bottom: 35vw;
+        text-align: right;
         ${mq.sm}{
             padding-top: 20vw;
             padding-bottom: 20vw;
@@ -129,11 +131,16 @@ const InfoContainer = styled.div`
 
 const Title = styled.h1`
     color: white;
+    ${mq.sm}{
+        ${h2}
+    }
+    ${mq.xl}{
+        ${h1}
+    }
 `;
     
 const Copy = styled.div`
     color: white;
-    text-align: left;
     p{
         text-align: inherit;
     }

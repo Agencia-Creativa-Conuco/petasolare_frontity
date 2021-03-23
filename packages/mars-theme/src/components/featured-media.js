@@ -7,7 +7,7 @@ import {mq} from "./layout";
 const FeaturedMedia = ({ 
   state, media, position, className, bgColor,
   height, heightSM, heightMD, heightLG, heightXL,
-  size, sizeSM, sizeMD, sizeLG, sizeXL
+  size, sizeSM, sizeMD, sizeLG, sizeXL, loading="lazy", fit="cover",
 }) => {
   
   const isCustom = typeof media === "object";
@@ -46,6 +46,8 @@ const FeaturedMedia = ({
         srcSet={!isSVG? `${srcset}, ${(isCustom? media.full_url : media.source_url)} 1920w`:null}
         position={position}
         isSized={isSized}
+        loading={loading}
+        fit={fit}
       />
     </Container>
   );
@@ -56,10 +58,10 @@ export default connect(FeaturedMedia);
 const Container = styled.div`
 ${({
   height, heightSM, heightMD, heightLG, heightXL,
-  size, sizeSM, sizeMD, sizeLG, sizeXL, bgColor, colors
+  size, sizeSM, sizeMD, sizeLG, sizeXL, bgColor ="transparent", colors
 })=> `
     position: relative;
-    ${bgColor? `background-color: ${bgColor};`: `background-color: ${colors.gray.light};`}
+    background-color: ${bgColor};
     ${size && size != true? `padding-bottom: ${size};`: ""}
     ${mq.sm}{
       ${sizeSM && sizeSM != true? `padding-bottom: ${sizeSM};`: ""}
@@ -90,7 +92,7 @@ ${({
 `;
 
 const StyledImage = styled(Image)`
-  ${({isSized, position}) => `
+  ${({isSized, position, fit}) => `
     ${ isSized ? `
       position: absolute;
       left: 0;
@@ -99,7 +101,7 @@ const StyledImage = styled(Image)`
     display: block;
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    object-fit: ${fit};
     ${position && position !=true? `object-position: ${position};`: ``}
   `}
 `;

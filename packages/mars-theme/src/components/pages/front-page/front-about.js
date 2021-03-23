@@ -64,8 +64,10 @@ const About = ({state, actions, libraries}) => {
                                         
                                         return (
                                             <Item 
-                                                key={index} 
-                                                size="auto" 
+                                                key={index}
+                                                size={12} 
+                                                sizeMD={6} 
+                                                sizeLG="auto" 
                                                 mxAuto
                                                 onClick={(e)=>{openPersonModal(title, jobtitle, featured_media, content)}}
                                             >

@@ -20,12 +20,21 @@ const marsTheme = {
      * relevant state. It is scoped to the `theme` namespace.
      */
     theme: {
+      settings:{
+        hubspot:{
+          id: 19524753,
+          forms:{
+            subscriber: "19ddfa21-2c3d-4f01-81da-e2e944b2d20f",
+          }
+        }
+      },
       colors:{
         heading: "#808080",
         text: "#808080",
         background:{
           body:"#FFFFFF",
-          header: "#0065B8",
+          header: "#0065B8DD",
+          headerMobile: "#0065B8",
         },
         primary: {
           base:"#0065B8",

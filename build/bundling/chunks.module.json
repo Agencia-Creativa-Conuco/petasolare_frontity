@@ -2,14 +2,16 @@
   "errors": [],
   "warnings": [],
   "version": "4.44.2",
-  "hash": "3879441b53fd21c9cedc",
+  "hash": "ed4d73d9df3b57180f73",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\ingos\\frontity\\petasolare_frontity\\build\\static",
   "assetsByChunkName": {
     "about": "about.module.js",
-    "about~contact~front-page~list~page~single~solution~solutions": "about~contact~front-page~list~page~single~solution~solutions.module.js",
     "contact": "contact.module.js",
-    "contact~front-page": "contact~front-page.module.js",
+    "contact~front-page": [
+      "contact~front-page.module.js",
+      "contact~front-page.d3706e4dc1d71b49dedb.hot-update.js"
+    ],
     "front-page": "front-page.module.js",
     "front-page~service": "front-page~service.module.js",
     "front-page~solution": "front-page~solution.module.js",
@@ -18,45 +20,30 @@
     "page-error": "page-error.module.js",
     "pages": "pages.module.js",
     "petasolare": "petasolare.module.js",
-    "service": [
-      "service.module.js",
-      "service.ec2f8db27c57d476cfc0.hot-update.js"
-    ],
+    "service": "service.module.js",
     "single": "single.module.js",
     "solution": "solution.module.js",
     "solutions": "solutions.module.js",
-    "vendors~contact~front-page": "vendors~contact~front-page.module.js",
+    "vendors~front-page": "vendors~front-page.module.js",
     "vendors~page~single": "vendors~page~single.module.js",
     "vendors~single": "vendors~single.module.js"
   },
   "assets": [
     {
       "name": "about.module.js",
-      "size": 170037,
+      "size": 170701,
       "chunks": [
         "about"
       ],
       "chunkNames": [
         "about"
-      ],
-      "info": {},
-      "emitted": false
-    },
-    {
-      "name": "about~contact~front-page~list~page~single~solution~solutions.module.js",
-      "size": 27300,
-      "chunks": [
-        "about~contact~front-page~list~page~single~solution~solutions"
-      ],
-      "chunkNames": [
-        "about~contact~front-page~list~page~single~solution~solutions"
       ],
       "info": {},
       "emitted": false
     },
     {
       "name": "contact.module.js",
-      "size": 146133,
+      "size": 155825,
       "chunks": [
         "contact"
       ],
@@ -64,11 +51,26 @@
         "contact"
       ],
       "info": {},
+      "emitted": false
+    },
+    {
+      "name": "contact~front-page.d3706e4dc1d71b49dedb.hot-update.js",
+      "size": 20037,
+      "chunks": [
+        "contact~front-page"
+      ],
+      "chunkNames": [
+        "contact~front-page"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
       "emitted": false
     },
     {
       "name": "contact~front-page.module.js",
-      "size": 191319,
+      "size": 20114,
       "chunks": [
         "contact~front-page"
       ],
@@ -79,8 +81,8 @@
       "emitted": false
     },
     {
-      "name": "ec2f8db27c57d476cfc0.hot-update.json",
-      "size": 49,
+      "name": "d3706e4dc1d71b49dedb.hot-update.json",
+      "size": 60,
       "chunks": [],
       "chunkNames": [],
       "info": {
@@ -203,7 +205,7 @@
     },
     {
       "name": "front-page.module.js",
-      "size": 292778,
+      "size": 670440,
       "chunks": [
         "front-page"
       ],
@@ -211,11 +213,12 @@
         "front-page"
       ],
       "info": {},
-      "emitted": false
+      "emitted": false,
+      "isOverSizeLimit": true
     },
     {
       "name": "front-page~service.module.js",
-      "size": 33134,
+      "size": 41986,
       "chunks": [
         "front-page~service"
       ],
@@ -227,7 +230,7 @@
     },
     {
       "name": "front-page~solution.module.js",
-      "size": 43495,
+      "size": 47912,
       "chunks": [
         "front-page~solution"
       ],
@@ -275,7 +278,7 @@
     },
     {
       "name": "pages.module.js",
-      "size": 23727,
+      "size": 23102,
       "chunks": [
         "pages"
       ],
@@ -287,7 +290,7 @@
     },
     {
       "name": "petasolare.module.js",
-      "size": 6170944,
+      "size": 6199361,
       "chunks": [
         "petasolare"
       ],
@@ -298,23 +301,8 @@
       "emitted": false
     },
     {
-      "name": "service.ec2f8db27c57d476cfc0.hot-update.js",
-      "size": 47989,
-      "chunks": [
-        "service"
-      ],
-      "chunkNames": [
-        "service"
-      ],
-      "info": {
-        "hotModuleReplacement": true,
-        "immutable": true
-      },
-      "emitted": false
-    },
-    {
       "name": "service.module.js",
-      "size": 149657,
+      "size": 161282,
       "chunks": [
         "service"
       ],
@@ -338,7 +326,7 @@
     },
     {
       "name": "solution.module.js",
-      "size": 277623,
+      "size": 264031,
       "chunks": [
         "solution"
       ],
@@ -361,13 +349,13 @@
       "emitted": false
     },
     {
-      "name": "vendors~contact~front-page.module.js",
-      "size": 300922,
+      "name": "vendors~front-page.module.js",
+      "size": 310538,
       "chunks": [
-        "vendors~contact~front-page"
+        "vendors~front-page"
       ],
       "chunkNames": [
-        "vendors~contact~front-page"
+        "vendors~front-page"
       ],
       "info": {},
       "emitted": false
@@ -423,11 +411,9 @@
     },
     "list": {
       "chunks": [
-        "about~contact~front-page~list~page~single~solution~solutions",
         "list"
       ],
       "assets": [
-        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "list.module.js"
       ],
       "children": {},
@@ -437,13 +423,11 @@
       "chunks": [
         "vendors~page~single",
         "vendors~single",
-        "about~contact~front-page~list~page~single~solution~solutions",
         "single"
       ],
       "assets": [
         "vendors~page~single.module.js",
         "vendors~single.module.js",
-        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "single.module.js"
       ],
       "children": {},
@@ -476,8 +460,7 @@
       ],
       "assets": [
         "front-page~service.module.js",
-        "service.module.js",
-        "service.ec2f8db27c57d476cfc0.hot-update.js"
+        "service.module.js"
       ],
       "children": {},
       "childAssets": {}
@@ -485,12 +468,10 @@
     "page": {
       "chunks": [
         "vendors~page~single",
-        "about~contact~front-page~list~page~single~solution~solutions",
         "page"
       ],
       "assets": [
         "vendors~page~single.module.js",
-        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "page.module.js"
       ],
       "children": {},
@@ -498,19 +479,18 @@
     },
     "front-page": {
       "chunks": [
-        "vendors~contact~front-page",
-        "about~contact~front-page~list~page~single~solution~solutions",
-        "contact~front-page",
+        "vendors~front-page",
         "front-page~solution",
         "front-page~service",
+        "contact~front-page",
         "front-page"
       ],
       "assets": [
-        "vendors~contact~front-page.module.js",
-        "about~contact~front-page~list~page~single~solution~solutions.module.js",
-        "contact~front-page.module.js",
+        "vendors~front-page.module.js",
         "front-page~solution.module.js",
         "front-page~service.module.js",
+        "contact~front-page.module.js",
+        "contact~front-page.d3706e4dc1d71b49dedb.hot-update.js",
         "front-page.module.js"
       ],
       "children": {},
@@ -518,11 +498,9 @@
     },
     "about": {
       "chunks": [
-        "about~contact~front-page~list~page~single~solution~solutions",
         "about"
       ],
       "assets": [
-        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "about.module.js"
       ],
       "children": {},
@@ -530,15 +508,12 @@
     },
     "contact": {
       "chunks": [
-        "vendors~contact~front-page",
-        "about~contact~front-page~list~page~single~solution~solutions",
         "contact~front-page",
         "contact"
       ],
       "assets": [
-        "vendors~contact~front-page.module.js",
-        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "contact~front-page.module.js",
+        "contact~front-page.d3706e4dc1d71b49dedb.hot-update.js",
         "contact.module.js"
       ],
       "children": {},
@@ -546,11 +521,9 @@
     },
     "solutions": {
       "chunks": [
-        "about~contact~front-page~list~page~single~solution~solutions",
         "solutions"
       ],
       "assets": [
-        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "solutions.module.js"
       ],
       "children": {},
@@ -558,12 +531,10 @@
     },
     "solution": {
       "chunks": [
-        "about~contact~front-page~list~page~single~solution~solutions",
         "front-page~solution",
         "solution"
       ],
       "assets": [
-        "about~contact~front-page~list~page~single~solution~solutions.module.js",
         "front-page~solution.module.js",
         "solution.module.js"
       ],

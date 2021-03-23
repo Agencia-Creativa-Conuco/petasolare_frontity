@@ -9,13 +9,37 @@ const Services = ({state, actions, libraries}) => {
 
     const page = state.source[data.type][data.id];
    
+    const { home_services_title, home_services_description } = page.meta_box
+    
     const {services} = page;
+
+    const Html2React = libraries.html2react.Component;
 
     return (
         <>
             <Section thin spaceTopNone>
                 <Wrapper decoColor={state.theme.colors.secondary.light}>
                     <Container>
+                        {
+                            home_services_title?(
+                                <Row>
+                                    <Col>
+                                        <Title color={state.theme.colors.primary.base}>{home_services_title}</Title>
+                                    </Col>
+                                </Row>
+                            ):null
+                        }
+                        {
+                            home_services_description?(
+                                <Row>
+                                    <Col>
+                                        <Description>
+                                            <Html2React html={home_services_description} />
+                                        </Description>
+                                    </Col>
+                                </Row>
+                            ):null
+                        }
                         <Row>
                             <Col>
                                 <List>
@@ -29,7 +53,7 @@ const Services = ({state, actions, libraries}) => {
                                         } = service;
 
                                         return (
-                                            <Item key={index} size="auto" mxAuto>
+                                            <Item key={index} size="12" sizeMD={6} mxAuto>
                                                 <ServiceCard 
                                                     title={title} 
                                                     description={excerpt}
@@ -93,6 +117,22 @@ const Row = styled.div`
 
 const Col = styled.div`
     ${Cols}
+`;
+
+const Title = styled.h2`
+    ${({color})=>css`
+        color: ${color};
+        text-align: center;
+        text-transform: capitalize;
+        margin-bottom: 4rem;
+    `}
+`;
+
+const Description = styled.p`
+    text-align: justify;
+    max-width: 75rem;
+    margin: 0 auto;
+    margin-bottom: 8rem;
 `;
 
 const List = styled.ul`

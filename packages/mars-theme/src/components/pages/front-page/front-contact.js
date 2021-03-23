@@ -2,6 +2,8 @@ import { connect, styled, css } from "frontity";
 import React, {useState} from "react";
 import {Containers, Rows, Cols, Section, mq} from "../../layout";
 import ContactForm from "../../form";
+import FormHS from "../../form-hs";
+
 
 const Contact = ({state, actions, libraries}) => {
 
@@ -15,9 +17,14 @@ const Contact = ({state, actions, libraries}) => {
         <>
             <Section>
                 <Container>
-                    <Row>
+                    {/* <Row>
                         <Col size={12} sizeSM={10} sizeMD={8} mxAuto>
                             <Form formID ={home_contact_form} />
+                        </Col>
+                    </Row> */}
+                    <Row>
+                        <Col>
+                            <FormHS />    
                         </Col>
                     </Row>
                 </Container>

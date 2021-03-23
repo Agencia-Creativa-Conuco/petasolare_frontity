@@ -4,6 +4,7 @@ import Cover from "./front-cover";
 import Services from "./front-services"
 import About from "./front-about";
 import Contact from "./front-contact";
+import Infography from "./front-infography";
 
 const FrontPage = ({state, actions, libraries}) => {
 
@@ -11,6 +12,7 @@ const FrontPage = ({state, actions, libraries}) => {
         <>
             <Cover />
             <Services />
+            {/* <Infography /> */}
             <About />
             <Contact />
         </>

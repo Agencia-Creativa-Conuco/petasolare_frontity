@@ -1,6 +1,6 @@
 import { connect, styled, css } from "frontity";
 import React from "react";
-import {Containers, Rows, Cols, Section} from "../../layout";
+import {Containers, Rows, Cols, Section, mq} from "../../layout";
 import {h5} from "../../styles/tipography";
 import Link from "../../link";
 import FeaturedMedia from "../../featured-media";
@@ -32,12 +32,12 @@ const Services = ({state, actions, libraries}) => {
                                         } = service;
 
                                         return (
-                                            <Item key={index} size="12" sizeMD={6} sizeLG={4} mxAuto>
+                                            <Item key={index} size="12" sizeSM={6} mxAuto>
                                                 <Card>
                                                     <StyledLink link={link}>
                                                         <CardHeader>
                                                             <CardMedia>
-                                                                <FeaturedMedia media={icon} size="100%" bgColor="transparent"/>
+                                                                <FeaturedMedia media={icon} size="100%" bgColor="transparent" fit="initial"/>
                                                             </CardMedia>
                                                             <CardTitle color={state.theme.colors.primary.base}>{title}</CardTitle>
                                                         </CardHeader>
@@ -145,38 +145,45 @@ const Item = styled.li`
 
 
 const Card = styled.div`
+    display: block;
+    width: 100%;
     max-width: 30rem;
     margin: 0 auto;
+    cursor: pointer;
+    height: 100%;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2rem 2rem rgba(0,0,0,0.15);
+    border-radius: 5rem;
+    background-color: white;
+    &:hover{
+        transform: scale(1.05);
+    }
+    ${mq.sm}{
+
+    }
 `;
 
 const CardHeader = styled.div`
-    box-shadow: 0 2rem 2rem rgba(0,0,0,0.15);
-    border-radius: 5rem;
-    padding: 2rem;
     margin-bottom: 4rem;
     background-color: white;
 `;
 
 const CardMedia = styled.div`
-    max-width: 10rem;
-    margin: 2rem auto;
+    ${({bgColor="#FAFAFA"})=>css`
+        max-width: 10rem;
+        margin: 4rem auto;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 1.5rem;
+        background-color: ${bgColor};
+    `}
 `;
-
-const CardBody = styled.div``;
 
 const CardTitle = styled.p`
     ${h5}
     ${({color})=>css`
         color: ${color};
         text-align: center;
-    `}
-`;
-
-const CardDescription = styled.p`
-    ${({color})=>css`
-        color: ${color};
-        text-align: justify;
-        margin-bottom: 0;
     `}
 `;
 

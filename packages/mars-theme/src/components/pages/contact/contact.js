@@ -4,7 +4,7 @@ import {Containers, Rows, Cols, Section, mq} from "../../layout";
 import FeaturedMedia from "../../featured-media";
 import Link from "../../link";
 import {h3, h4} from "../../styles/tipography";
-import ContactForm from "../../form";
+import ContactForm from "../../form-hs";
 
 const About = ({state, actions, libraries}) => {
 

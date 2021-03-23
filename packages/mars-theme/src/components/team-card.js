@@ -35,6 +35,11 @@ const Card = styled.div`
     background-color: white;
     margin: 0 auto;
     height: 100%;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    &:hover{
+        transform: scale(1.05);
+    }
 `;
 
 const CardMedia = styled.div`

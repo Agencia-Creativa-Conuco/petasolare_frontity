@@ -3,6 +3,7 @@ import React from "react";
 import Link from "./link";
 import {h5} from "./styles/tipography";
 import FeaturedMedia from "./featured-media";
+import {mq} from "./layout";
 
 const ServiceCard = ({
     state, actions, libraries,
@@ -16,7 +17,7 @@ const ServiceCard = ({
             <Card>
                 <StyledLink link={link}>
                     <CardMedia>
-                        <FeaturedMedia media={media} size="100%"/>
+                        <FeaturedMedia media={media} size="100%" fit="initial"/>
                     </CardMedia>
                     <CardBody>
                         <CardTitle color={state.theme.colors.primary.base}>{title}</CardTitle>
@@ -32,15 +33,28 @@ export default connect(ServiceCard);
 
 const Card = styled.div`
     box-shadow: 0 2rem 2rem rgba(0,0,0,0.15);
-    max-width: 30rem;
     background-color: white;
     margin: 0 auto;
     height: 100%;
+    width: 100%;
+    max-width: 35rem;
+    display: block;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    &:hover{
+        transform: scale(1.05);
+    }
 `;
 
 const CardMedia = styled.div`
-    max-width: 10rem;
-    margin: 4rem auto;
+    ${({bgColor="#FAFAFA"})=>css`
+        max-width: 10rem;
+        margin: 4rem auto;
+        border-radius: 50%;
+        overflow: hidden;
+        padding: 2rem;
+        background-color: ${bgColor};
+    `}
 `;
 
 const CardBody = styled.div``;
