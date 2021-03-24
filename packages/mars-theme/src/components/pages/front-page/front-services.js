@@ -123,7 +123,7 @@ const Title = styled.h2`
     ${({color})=>css`
         color: ${color};
         text-align: center;
-        text-transform: capitalize;
+        text-transform: initial;
         margin-bottom: 4rem;
     `}
 `;
