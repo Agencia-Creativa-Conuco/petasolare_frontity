@@ -44,7 +44,9 @@ const Theme = ({ state }) => {
         on the type of URL we are in. */}
         <Main>
           <Switch>
-            <Loading when={data.isFetching} />
+            <LoadingWrapper when={data.isFetching}>
+              <Loading />
+            </LoadingWrapper>
             <Pages when={data.isPage} />
             <Post when={data.isPostType} />
             <List when={data.isArchive} />
@@ -94,4 +96,16 @@ const Main = styled.div`
 
 const Wrapper = styled.div`
   overflow: hidden;
+`;
+
+const LoadingWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  flex: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 0;
 `;
