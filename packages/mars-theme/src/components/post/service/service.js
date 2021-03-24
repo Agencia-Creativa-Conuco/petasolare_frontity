@@ -14,8 +14,8 @@ const Service = ({state, actions, libraries}) => {
         <Article>
             <Cover />
             <Info />
-            <Video />
             <Services />
+            <Video />
             <Content />
             <Images />
             <Form />
