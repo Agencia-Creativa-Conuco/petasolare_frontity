@@ -101,7 +101,7 @@ const tipography = ({colors}) => css`
     h1,h2,h3,h4,h5,h6{
         margin-bottom: 1rem;
         margin-top: 2rem;
-        color: ${colors.text_heading};
+        color: ${colors.heading};
         font-family: Source Sans Pro, sans-serif;
         line-height: 1;
     }

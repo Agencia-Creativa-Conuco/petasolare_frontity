@@ -5,6 +5,8 @@ import Content from "./service-content";
 import Info from "./service-info";
 import Services from "./service-related";
 import Form  from "./service-form";
+import Images from "./service-images";
+import Video from "./service-video";
 
 const Service = ({state, actions, libraries}) => {
 
@@ -12,8 +14,10 @@ const Service = ({state, actions, libraries}) => {
         <Article>
             <Cover />
             <Info />
+            <Video />
             <Services />
             <Content />
+            <Images />
             <Form />
         </Article>
     )

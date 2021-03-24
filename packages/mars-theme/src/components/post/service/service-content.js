@@ -24,7 +24,7 @@ const Content = ({state, actions, libraries}) => {
                     <Container>
                         <Row>
                             <Col>
-                                <Title>{service_benefits_title}</Title>
+                                <Title>{service_benefits_title || "Beneficios"}</Title>
                             </Col>
                         </Row>
                         <Benefits decoColor={state.theme.colors.primary.dark}>
@@ -73,6 +73,7 @@ const Col = styled.div`
 
 const Title = styled.h2`
     text-align: center;
+    margin-bottom: 2.5rem;
 `;
 
 const Item = styled.li``;

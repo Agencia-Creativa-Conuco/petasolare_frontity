@@ -12,10 +12,15 @@ const Contact = ({state, actions, libraries}) => {
 
     const { service_form_id } = service.meta_box
     
-    return (
+    return service_form_id?(
         <>
             <Section>
                 <Container>
+                    <Row>
+                        <Col>
+                            <Title>{"Solicitar"}</Title>
+                        </Col>
+                    </Row>
                     <Row>
                         <Col>
                             <FormHS formID={service_form_id}/>    
@@ -24,7 +29,7 @@ const Contact = ({state, actions, libraries}) => {
                 </Container>
             </Section>
         </>
-    )
+    ):null
 }
 
 export default connect(Contact);
@@ -39,4 +44,9 @@ const Row = styled.div`
 
 const Col = styled.div`
     ${Cols}
+`;
+
+const Title = styled.h2`
+    text-align: center;
+    margin-bottom: 2.5rem;
 `;

@@ -29,7 +29,7 @@ const marsTheme = {
         }
       },
       colors:{
-        heading: "#808080",
+        heading: "#0065B8",
         text: "#808080",
         background:{
           body:"#FFFFFF",

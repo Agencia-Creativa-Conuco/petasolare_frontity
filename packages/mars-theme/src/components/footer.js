@@ -21,7 +21,9 @@ const Footer = ({ state }) => {
     <>
       <StyledFooter>
         <Deco colors={state.theme.colors} />
-
+        <Whatsapp link={`https://api.whatsapp.com/send?phone=+1${whatsapp.replace(/-/g,"")}&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202.`}>
+          <WhatsappIcon/>
+        </Whatsapp>
         <Container>
           <Row alignCenter>
             <Col>
@@ -281,4 +283,30 @@ const Address = styled(Link)`
 const AddressInfo = styled.span`
   display: block;
   white-space: pre;
+`;
+
+const Whatsapp = styled(Link)`
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+  background-color: #25d366;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 2;	
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ${mq.md}{
+    width: 6rem;
+    height: 6rem;
+    bottom: 2.5rem;
+    right: 2.5rem;
+  }
+  svg{
+    color: white;
+    width: 60%;
+    position: absolute;
+  }
 `;

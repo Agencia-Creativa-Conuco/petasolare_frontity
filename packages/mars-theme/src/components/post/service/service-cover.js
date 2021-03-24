@@ -25,7 +25,7 @@ const Cover = ({state, actions, libraries}) => {
             <Section spaceNone>
                 <Wrapper bgColor={colors.primary.base}>
                     <MediaContainer color={state.theme.colors.primary.base}>
-                        <FeaturedMedia media={featured_media} height="100%"/>
+                        <FeaturedMedia media={featured_media} height="100%" loading="eager"/>
                     </MediaContainer>
                     <Container>
                         <Row>

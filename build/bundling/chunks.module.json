@@ -2,7 +2,7 @@
   "errors": [],
   "warnings": [],
   "version": "4.44.2",
-  "hash": "33b769c247056f83c35d",
+  "hash": "4ea3be661efd2520730f",
   "publicPath": "/static/",
   "outputPath": "C:\\Users\\ingos\\frontity\\petasolare_frontity\\build\\static",
   "assetsByChunkName": {
@@ -17,21 +17,22 @@
     "page-error": "page-error.module.js",
     "pages": "pages.module.js",
     "petasolare": "petasolare.module.js",
-    "service": [
-      "service.module.js",
-      "service.3f16bd9d4387f42464de.hot-update.js"
+    "service": "service.module.js",
+    "single": [
+      "single.module.js",
+      "single.63d5961f24400dfa2992.hot-update.js"
     ],
-    "single": "single.module.js",
     "solution": "solution.module.js",
     "solutions": "solutions.module.js",
     "vendors~front-page": "vendors~front-page.module.js",
     "vendors~page~single": "vendors~page~single.module.js",
+    "vendors~service": "vendors~service.module.js",
     "vendors~single": "vendors~single.module.js"
   },
   "assets": [
     {
-      "name": "3f16bd9d4387f42464de.hot-update.json",
-      "size": 49,
+      "name": "63d5961f24400dfa2992.hot-update.json",
+      "size": 48,
       "chunks": [],
       "chunkNames": [],
       "info": {
@@ -275,7 +276,7 @@
     },
     {
       "name": "petasolare.module.js",
-      "size": 6199576,
+      "size": 6235857,
       "chunks": [
         "petasolare"
       ],
@@ -286,13 +287,25 @@
       "emitted": false
     },
     {
-      "name": "service.3f16bd9d4387f42464de.hot-update.js",
-      "size": 32373,
+      "name": "service.module.js",
+      "size": 293053,
       "chunks": [
         "service"
       ],
       "chunkNames": [
         "service"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "single.63d5961f24400dfa2992.hot-update.js",
+      "size": 9816,
+      "chunks": [
+        "single"
+      ],
+      "chunkNames": [
+        "single"
       ],
       "info": {
         "hotModuleReplacement": true,
@@ -301,20 +314,8 @@
       "emitted": false
     },
     {
-      "name": "service.module.js",
-      "size": 195537,
-      "chunks": [
-        "service"
-      ],
-      "chunkNames": [
-        "service"
-      ],
-      "info": {},
-      "emitted": false
-    },
-    {
       "name": "single.module.js",
-      "size": 276527,
+      "size": 276550,
       "chunks": [
         "single"
       ],
@@ -368,6 +369,18 @@
       ],
       "chunkNames": [
         "vendors~page~single"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "vendors~service.module.js",
+      "size": 472300,
+      "chunks": [
+        "vendors~service"
+      ],
+      "chunkNames": [
+        "vendors~service"
       ],
       "info": {},
       "emitted": false
@@ -428,7 +441,8 @@
       "assets": [
         "vendors~page~single.module.js",
         "vendors~single.module.js",
-        "single.module.js"
+        "single.module.js",
+        "single.63d5961f24400dfa2992.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -455,15 +469,16 @@
     },
     "service": {
       "chunks": [
+        "vendors~service",
         "contact~front-page~service",
         "front-page~service",
         "service"
       ],
       "assets": [
+        "vendors~service.module.js",
         "contact~front-page~service.module.js",
         "front-page~service.module.js",
-        "service.module.js",
-        "service.3f16bd9d4387f42464de.hot-update.js"
+        "service.module.js"
       ],
       "children": {},
       "childAssets": {}
