@@ -24,7 +24,6 @@ const ContactForm = ({state, formID, className}) => {
 
         if (response.ok){
             const res = await response.json();
-            // console.log(response, res);
 
             if(res.status == "mail_sent"){
                 setErrorMessages([]);
@@ -36,7 +35,6 @@ const ContactForm = ({state, formID, className}) => {
             setFormSubmiting(false);
         }
         else{
-            // console.log(response.status);
             setFormSubmiting(false);
         }
     };

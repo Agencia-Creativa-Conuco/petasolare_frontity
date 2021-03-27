@@ -2,18 +2,6 @@ import { css } from "frontity";
 import typography from "./tipography";
 import normalize from "./normalize";
 
-const auxiliarCSS = ({state}) => {
-  // Get Gutenberg css url
-  const apiURL = new URL(state.source.api);
-  const blockStyle = apiURL.origin + "/wp-includes/css/dist/block-library/style.min.css";
-  const blockTheme = apiURL.origin + "/wp-includes/css/dist/block-library/theme.min.css";
-  
-  return css`
-    @import "${blockStyle}";
-    @import "${blockTheme}";
-  `
-};
-
 const cssReset = css`
 
   html{
@@ -427,7 +415,6 @@ const tableStyles = (colors) => css`
 
 const globalStyles = (props) =>
   css([
-    auxiliarCSS(props),
     cssReset,
     normalize,
     documentSetup(props.state.theme.colors),

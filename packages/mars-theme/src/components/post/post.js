@@ -4,6 +4,7 @@ import Link from "../link";
 import List from "../list";
 import FeaturedMedia from "../featured-media";
 import {Container, Row, Col, Section, mq} from "@osirispp/frontity-layout";
+import postsStyles from "../styles/posts-styles";
 
 import Bootstrap from "bootstrap/dist/css/bootstrap-grid.min.css";
 
@@ -19,9 +20,6 @@ const Post = ({ state, actions, libraries }) => {
   // Get the html2react component.
   const Html2React = libraries.html2react.Component;
 
-  // Get Gutenberg css url
-  const apiURL = new URL(state.source.api);
-  const gutenbergCSS = apiURL.origin + "/wp-includes/css/dist/block-library/style.min.css";
   /**
    * Once the post has loaded in the DOM, prefetch both the
    * home posts and the list component so if the user visits
@@ -35,7 +33,7 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <>
-      <Global styles={postStyles({gutenbergCSS})} />
+      <Global styles={styles({state, actions, libraries})} />
     
       <SectionComponent as="article">
         <Container>
@@ -132,7 +130,7 @@ const Content = styled.div`
   margin: 0 auto;
 `;
 
-const postStyles = ({gutenbergCSS}) => css`
-    ${Bootstrap}
-    @import "${gutenbergCSS}";
+const styles = (props) => css`
+  ${postsStyles(props)}
+  ${Bootstrap}
 `;

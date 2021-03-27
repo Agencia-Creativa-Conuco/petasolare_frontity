@@ -1,18 +1,19 @@
 import React from "react";
-import { Global, css, connect, styled, Head } from "frontity";
+import { Global, css, connect, styled, Head, loadable } from "frontity";
 import Script from "@frontity/components/script";
 import Switch from "@frontity/components/switch";
 import Header from "./header";
 import Footer from "./footer";
-import List from "./list";
-import Post from "./post";
-import Pages from "./pages";
 import Loading from "./loading";
 import Title from "./title";
-import PageError from "./error";
 import globalStyles from "./styles/global-styles";
 import FontFace from "./styles/font-faces";
 import Modal from "./modal";
+
+const List = loadable(()=>import("./list"));
+const PageError = loadable(()=>import("./error"));
+const Post = loadable(()=>import("./post"));
+const Pages = loadable(()=>import("./pages"));
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.

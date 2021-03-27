@@ -10,7 +10,6 @@ const Modal = ({state, actions}) =>{
     const { closeModal } = actions.theme;
 
     const closeModalOverlay = (e) =>{
-        console.log(e)
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
         closeModal();

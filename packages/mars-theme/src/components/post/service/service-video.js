@@ -13,7 +13,6 @@ const Video = ({state, actions, libraries})=>{
     const {colors} = state.theme;
 
     const video = metabox["service_video"]
-    console.log(video)
     return video?(
        <Section>
            <Container>

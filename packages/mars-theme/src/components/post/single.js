@@ -24,7 +24,7 @@ const Single = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <>
-      <Global styles={globalStyles({state, colors})}/>
+      <Global styles={styles({state, actions, libraries})}/>
 
       <Switch>
         <Service when={data.type === "service"} />
@@ -36,7 +36,7 @@ const Single = ({ state, actions, libraries }) => {
 
 export default connect(Single);
 
-const globalStyles = (props) => css`
+const styles = (props) => css`
   ${bootstrapCSS}
   ${postsStyles(props)}
 `;

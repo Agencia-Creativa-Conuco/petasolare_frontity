@@ -2,6 +2,7 @@ import { css } from "frontity";
 import typography from "./posts-tipography";
 import normalize from "./normalize";
 import blocks from "./blocks";
+import wpStyles from "./wordpress-styles";
 
 const cssReset = css`
   html,
@@ -220,19 +221,7 @@ const listStyle = ({colors}) => css`
 
   li {
     line-height: 1.25;
-    margin: 1rem 0 0 2rem;
-    list-style: none;
-    position: relative;
-    &:before{
-      content: '•';
-      font-size: 3rem;
-      line-height: 0.5;
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform: translate(-150%, 0);
-      color: ${colors.primary.base};
-    }
+    margin: 0.5rem 0 0 2rem;
   }
 
   li > ul,
@@ -421,20 +410,23 @@ const tableStyles = ({colors}) => css`
   }
 `;
 
-const postsStyles = (props) =>
-  css([
-    blocks(props),
+const postsStyles = (props) => {
+  const {colors} = props.state.theme;
+  return css([
+    wpStyles,
+    blocks({colors}),
     cssReset,
     normalize,
-    documentSetup(props),
+    documentSetup({colors}),
     accessibilitySettings,
-    typography(props),
-    elementBase(props),
-    listStyle(props),
-    quoteStyle(props),
-    codeStyle(props),
-    mediaStyle(props),
-    tableStyles(props),
+    typography({colors}),
+    elementBase({colors}),
+    listStyle({colors}),
+    quoteStyle({colors}),
+    codeStyle({colors}),
+    mediaStyle({colors}),
+    tableStyles({colors}),
   ]);
+}
 
 export default postsStyles;
