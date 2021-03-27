@@ -41,15 +41,17 @@ const FeaturedMedia = ({
 
   return (
     <Container {...{height, heightSM, heightMD, heightLG, heightXL, size, sizeSM, sizeMD, sizeLG, sizeXL, position, className, bgColor, colors, rounded, mxAuto, maxWidth}}>
-      <StyledImage
-        alt={(isCustom? media.title : media.title.rendered)}
-        src={(isCustom? media.full_url : media.source_url)}
-        srcSet={!isSVG? `${srcset}, ${(isCustom? media.full_url : media.source_url)} 1920w`:null}
-        position={position}
-        isSized={isSized}
-        loading={loading}
-        fit={fit}
-      />
+      <Wrapper {...{height, heightSM, heightMD, heightLG, heightXL, size, sizeSM, sizeMD, sizeLG, sizeXL, position, className, bgColor, colors, rounded, mxAuto, maxWidth}}>
+        <StyledImage
+          alt={(isCustom? media.title : media.title.rendered)}
+          src={(isCustom? media.full_url : media.source_url)}
+          srcSet={!isSVG? `${srcset}, ${(isCustom? media.full_url : media.source_url)} 1920w`:null}
+          position={position}
+          isSized={isSized}
+          loading={loading}
+          fit={fit}
+        />
+      </Wrapper>
     </Container>
   );
 };
@@ -59,31 +61,19 @@ export default connect(FeaturedMedia);
 const Container = styled.div`
 ${({
   height, heightSM, heightMD, heightLG, heightXL,
-  size, sizeSM, sizeMD, sizeLG, sizeXL, bgColor ="transparent", colors, rounded, 
+  bgColor ="transparent", rounded, 
   mxAuto, maxWidth
 })=> `
     position: relative;
     background-color: ${bgColor};
 
-    ${maxWidth?`max-width: 40rem;`:""}
+    ${maxWidth?`max-width: ${maxWidth};`:""}
     ${mxAuto?`margin: 0 auto`:""};
     ${rounded? `
       overflow: hidden;
       border-radius: 50%;
     `:""}
-    ${size && size != true? `padding-bottom: ${size};`: ""}
-    ${mq.sm}{
-      ${sizeSM && sizeSM != true? `padding-bottom: ${sizeSM};`: ""}
-    }
-    ${mq.md}{
-      ${sizeMD && sizeMD != true? `padding-bottom: ${sizeMD};`: ""}
-    }
-    ${mq.lg}{
-      ${sizeLG && sizeLG != true? `padding-bottom: ${sizeLG};`: ""}
-    }
-    ${mq.xl}{
-      ${sizeXL && sizeXL != true? `padding-bottom: ${sizeXL};`: ""}
-    }
+
     ${height && height != true? `height: ${height};`: ""}
     ${mq.sm}{
       ${heightSM && heightSM != true? `height: ${heightSM};`: ""}
@@ -97,6 +87,29 @@ ${({
     ${mq.xl}{
       ${heightXL && heightXL != true? `height: ${heightXL};`: ""}
     }
+  `}
+`;
+
+const Wrapper = styled.div`
+${({
+  height, heightSM, heightMD, heightLG, heightXL,
+  size, sizeSM, sizeMD, sizeLG, sizeXL
+})=> `
+    ${size && size != true? `padding-bottom: ${size};`: ""}
+    ${mq.sm}{
+      ${sizeSM && sizeSM != true? `padding-bottom: ${sizeSM};`: ""}
+    }
+    ${mq.md}{
+      ${sizeMD && sizeMD != true? `padding-bottom: ${sizeMD};`: ""}
+    }
+    ${mq.lg}{
+      ${sizeLG && sizeLG != true? `padding-bottom: ${sizeLG};`: ""}
+    }
+    ${mq.xl}{
+      ${sizeXL && sizeXL != true? `padding-bottom: ${sizeXL};`: ""}
+    }
+    height: inherit;
+    position: inherit;
   `}
 `;
 

@@ -27,15 +27,15 @@ const About = ({state, actions, libraries}) => {
         <Section spaceTopNone>
             <Wrapper>
                 <Container fluid>
-                    <Row alignCenter>
+                    <Row>
                         <Col size={12} sizeLG={6}>
                             <MediaContainer>
-                                <FeaturedMedia media={featured_media} loading="eager" mxAuto maxWidth="40rem"/>
+                                <FeaturedMedia media={featured_media} loading="eager" rounded size="100%" mxAuto maxWidth="70rem"/>
                             </MediaContainer>
                         </Col>
-                        <InfoContainer size={12} sizeLG={6} mlAuto>
+                        <InfoContainer size={12} sizeLG={6} m>
                             <Row>
-                                <InfoWrapper size={12} sizeSM={10} sizeSM={10} sizeLG={10} sizeXL={8} mxAuto>
+                                <InfoWrapper size={12} sizeSM={10} sizeSM={10} sizeXL={10} sizeXL={8} mxAuto>
                                     <Row>
                                         <Col>
                                             <Title color={state.theme.colors.primary.base}>Contáctanos</Title>
@@ -107,14 +107,43 @@ const Wrapper = styled.div`
 `;
 
 const MediaContainer = styled.div`
-    padding: 20% 0;
+    ${({bgColor="#FFFFFF88", bgColorBefore="#28AAE1", bgColorAfter="#28AAE1"})=>css`
+    margin: 0 auto;
+    padding-top: 20%;
+    background: ${bgColor};
+    border-radius: 50%;
+    position: relative;
+    z-index: 1;
+    &:before{
+        content: '';
+        position: absolute;
+        top: 70%;
+        left: 0%;
+        width: 10%;
+        padding-bottom: 10%;
+        background-color: ${bgColorBefore};
+        border-radius: 50%;
+        transform: translate(-50%,0);
+        opacity: 0.15;
+    }
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20%;
+        padding-bottom: 20%;
+        background-color: ${bgColorAfter};
+        border-radius: 50%;
+        opacity: 0.15;
+    }
+    `}
 `;
 
 const InfoContainer = styled(Col)`
     background-color: white;
     padding-bottom: 15vw;
     padding-top: 5vw;
-    box-shadow: 0 0 2rem rgba(0,0,0,0.15);
     ${mq.lg}{
         padding-bottom: 10vw;
         padding-top: 10vw;

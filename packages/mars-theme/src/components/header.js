@@ -44,7 +44,7 @@ const Header = ({ state, actions }) => {
               <MobileToggle />
             </Col>
             {/* Site Nav */}
-            <Col size="auto" hidden visibleLG mlAuto>
+            <Col size="auto" visibleLG mlAuto css={navStyles}>
               <Nav />
             </Col>
           </Row>
@@ -76,6 +76,13 @@ const containerStyles = (props) => css`
     padding-left: 4rem;
     padding-right: 4rem;
     z-index: 100;
+  }
+`;
+
+const navStyles = (props) => css`
+  display: none;
+  ${mq.md}{
+    padding: 0 4rem;
   }
 `;
 
@@ -118,6 +125,6 @@ const Logo = styled(FeaturedMedia)`
     position: relative;
     z-index:2;
     width: 25rem;
-    transform: scale(1.3);
+    transform: scale(1.15) translate(0%, -10%);
   `}
 `;

@@ -25,7 +25,7 @@ const Services = ({state, actions, libraries}) => {
                                 <List as="ul">
                                 {
                                     services.map((service,index)=>{
-                                        const icon = meta_box.service_icon[0];
+                                        const icon = service.meta_box.service_icon[0];
 
                                         return (
                                             <Item as="li" key={index} size={12} sizeSM={6} mxAuto>

@@ -53,12 +53,12 @@ const Media = styled.div`
             position: absolute;
             bottom: 0;
             left: 0;
-            transform: translate(-100%, -50%);
-            width: 10%;
-            padding-bottom: 10%;
+            transform: translate(-150%, -50%);
+            width: 5%;
+            padding-bottom: 5%;
             background-color: ${decoBgColor};
             border-radius: 50%;
-            z-index: -1;
+            z-index: 1;
             box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
         }
         &:after{
