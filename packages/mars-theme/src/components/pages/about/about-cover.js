@@ -1,7 +1,7 @@
 import { connect, styled, css } from "frontity";
 import React from "react";
 import FeaturedMedia from "../../featured-media";
-import {Containers, Rows, Cols, Section, mq} from "../../layout";
+import {Container, Row, Col, Section, mq} from "@osirispp/frontity-layout";
 
 const Cover = ({state, actions, libraries}) => {
 
@@ -36,28 +36,17 @@ const Cover = ({state, actions, libraries}) => {
 
 export default connect(Cover);
 
-const Container = styled.div`
-    ${Containers}
-`;
-
-const Row = styled.div`
-    ${Rows}
-`;
-
-const Col = styled.div`
-    ${Cols}
-    z-index: 2;
-`;
-
 const Content = styled.div`
     positiong: relative;
     z-index: 2;
     padding: 40% 0;
+    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.5);
     ${mq.sm}{
         padding: 40% 3rem;
     }
     ${mq.md}{
-        padding: 40% 4rem;
+        padding: 80% 4rem;
+        padding-bottom: 20%;
     }
 `;
 
@@ -71,6 +60,7 @@ const Copy = styled.p`
     color: white;
     ${mq.md}{
         text-align: left;
+        font-size: 2rem;
     }
 `;
 
@@ -82,7 +72,7 @@ const CoverContainer = styled.div`
         left: 0;
         top: 0;
         overflow: hidden;
-        z-index: 1;
+        z-index: -1;
         &:before{
             content: "";
             position: absolute;
@@ -91,17 +81,8 @@ const CoverContainer = styled.div`
             width: 100%;
             height: 100%;
             background-color: ${color};
-            opacity: 0.5;
+            opacity: 0.3;
             z-index: 1;
-            // ${mq.lg}{
-            //     left: -20%;
-            //     width: 75%;
-            //     height: 0%;
-            //     padding-bottom: 75%;    
-            //     border-radius: 50%;
-            //     transform: translate(00%, -50%);
-            //     top: 50%;
-            // }
         }
         &:after{
             content: "";

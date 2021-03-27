@@ -1,7 +1,7 @@
 import React from "react";
 import { styled, connect, css } from "frontity";
 import Link from "./link";
-import {Containers,Rows, Cols, mq, Section} from "./layout";
+import {Container,Row, Col, mq, Section} from "@osirispp/frontity-layout";
 import MenuToggle from "./menu-toggle";
 
 const MenuModal = ({ state, libraries }) => {
@@ -15,7 +15,7 @@ const MenuModal = ({ state, libraries }) => {
                 <MenuToggle />
               </Col>
             </Row> */}
-            <NavContainer>
+            <NavContainer as="nav">
               {
                 state.theme.menu.main.items.map((item) => {
                 // Check if the link matched the current page url
@@ -58,24 +58,11 @@ const MenuWrapper = styled.div`
   `}
 `;
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
 
-const Col = styled.div`
-    ${Cols}
-`;
+const NavContainer = styled(Row)``;
 
-const NavContainer = styled.nav`
-  ${Rows}
-`;
-
-const NavItem = styled.div`
-  ${Cols}
+const NavItem = styled(Col)`
   text-align: center;
 `;
 

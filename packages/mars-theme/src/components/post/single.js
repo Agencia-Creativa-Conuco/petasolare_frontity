@@ -3,7 +3,7 @@ import { connect, styled, css, Global} from "frontity";
 import Switch from "@frontity/components/switch";
 import Link from "../link";
 import List from "../list";
-import {Containers, Rows, Cols, Section, mq} from "../layout";
+import {Container, Row, Col, Section, mq} from "@osirispp/frontity-layout";
 import Post from "./post";
 import Service from "./service";
 import postsStyles from "../styles/posts-styles";

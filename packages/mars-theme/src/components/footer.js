@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, styled, css } from "frontity";
 import Link from "./link";
-import {Containers, Rows, Cols, mq} from "./layout";
+import {Container, Row, Col, mq} from "@osirispp/frontity-layout";
 import Image from "@frontity/components/image";
 import {
   WhatsappIcon, PhoneIcon,
@@ -21,10 +21,10 @@ const Footer = ({ state }) => {
     <>
       <StyledFooter>
         <Deco colors={state.theme.colors} />
-        <Whatsapp link={`https://api.whatsapp.com/send?phone=+1${whatsapp.replace(/-/g,"")}&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20Varela%202.`}>
+        <Whatsapp link={`https://api.whatsapp.com/send?phone=+1${whatsapp.replace(/-/g,"")}&text=Hola%21%20Quisiera%20m%C3%A1s%20informaci%C3%B3n%20sobre%20los%20servicios.`}>
           <WhatsappIcon/>
         </Whatsapp>
-        <Container>
+        <Container css={containerStyles}>
           <Row alignCenter>
             <Col>
               <Info>
@@ -138,21 +138,12 @@ const StyledFooter = styled.footer`
   margin-top: 10rem;
 `;
 
-const Container = styled.div`
-  ${Containers}
+const containerStyles = (props) => css`
   z-index: 100;
   ${mq.lg}{
     padding-left: 4rem;
     padding-right: 4rem;
   }
-`;
-
-const Row = styled.div`
-  ${Rows}
-`;
-
-const Col = styled.div`
-  ${Cols}
 `;
 
 const Deco = styled.div`
@@ -197,9 +188,7 @@ const Deco = styled.div`
   `}
 `;
 
-const Info = styled.div`
-  ${Rows}
-`;
+const Info = styled(Row)``;
 
 const PhoneBox = styled.div`
   margin-bottom: 4rem;

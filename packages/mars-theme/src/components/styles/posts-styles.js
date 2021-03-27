@@ -3,18 +3,6 @@ import typography from "./posts-tipography";
 import normalize from "./normalize";
 import blocks from "./blocks";
 
-const auxiliarCSS = ({state}) => {
-  // Get Gutenberg css url
-  const apiURL = new URL(state.source.api);
-  const blockStyle = apiURL.origin + "/wp-includes/css/dist/block-library/style.min.css";
-  const blockTheme = apiURL.origin + "/wp-includes/css/dist/block-library/theme.min.css";
-  
-  return css`
-    @import "${blockStyle}";
-    @import "${blockTheme}";
-  `
-};
-
 const cssReset = css`
   html,
   body {
@@ -435,7 +423,6 @@ const tableStyles = ({colors}) => css`
 
 const postsStyles = (props) =>
   css([
-    auxiliarCSS(props),
     blocks(props),
     cssReset,
     normalize,

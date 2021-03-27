@@ -1,6 +1,6 @@
 import { connect, styled, css } from "frontity";
 import React, {useState} from "react";
-import {Containers, Rows, Cols, Section, mq} from "../../layout";
+import {Container, Row, Col, Section, mq} from "@osirispp/frontity-layout";
 import ContactForm from "../../form";
 import FormHS from "../../form-hs";
 
@@ -19,7 +19,9 @@ const Contact = ({state, actions, libraries}) => {
                 <Container>
                     {/* <Row>
                         <Col size={12} sizeSM={10} sizeMD={8} mxAuto>
-                            <Form formID ={home_contact_form} />
+                            <Row>
+                                <Form formID ={home_contact_form} />
+                            </Row>
                         </Col>
                     </Row> */}
                     <Row>
@@ -35,20 +37,9 @@ const Contact = ({state, actions, libraries}) => {
 
 export default connect(Contact);
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
-
-const Col = styled.div`
-    ${Cols}
-`;
 
 const Form = styled(ContactForm)`
-    ${Rows}
     border-radius: 2rem;
     box-shadow: 0 2rem 2rem rgba(0,0,0,0.15);
     background-color: white;

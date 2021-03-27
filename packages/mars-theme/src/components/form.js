@@ -1,6 +1,6 @@
 import { connect, styled, css } from "frontity";
 import React, {useState} from "react";
-import {Containers, Rows, Cols, mq} from "./layout";
+import {Container, Row, Col, mq} from "@osirispp/frontity-layout";
 import Button from "./button";
 import { useForm } from "react-hook-form";
 
@@ -155,16 +155,7 @@ const ContactForm = ({state, formID, className}) => {
 
 export default connect(ContactForm);
 
-const Row = styled.div`
-    ${Rows}
-`;
-
-const Col = styled.div`
-    ${Cols}
-`;
-
-const Form = styled.form`
-  ${Containers}
+const Form = styled(Container)`
   border-radius: 2rem;
   box-shadow: 0 2rem 2rem rgba(0,0,0,0.15);
   background-color: white;
@@ -223,8 +214,7 @@ const ErrorMessage = styled.p`
     color: red;
 `;
 
-const MessageBox = styled.div`
-    ${Rows}
+const MessageBox = styled(Row)`
     border-radius: 2rem;
     box-shadow: 0 2rem 2rem rgba(0,0,0,0.15);
     background-color: white;

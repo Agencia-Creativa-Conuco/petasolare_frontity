@@ -17,7 +17,7 @@ import Modal from "./modal";
  * Theme is the root React component of our theme. The one we will export
  * in roots.
  */
-const Theme = ({ state }) => {
+const Theme = ({ state, libraries, actions }) => {
   // Get information about the current URL.
   const data = state.source.get(state.router.link);
 
@@ -32,7 +32,7 @@ const Theme = ({ state }) => {
 
       {/* Add some global styles for the whole site, like body or a's. 
       Not classes here because we use CSS-in-JS. Only global HTML tags. */}
-      <Global styles={globalStyles(state.theme.colors)} />
+      <Global styles={globalStyles({state, libraries, actions})} />
 
       {/* Add the header of the site. */}
       <HeadContainer>

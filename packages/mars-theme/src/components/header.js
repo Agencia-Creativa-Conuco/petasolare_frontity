@@ -3,7 +3,7 @@ import { connect, styled, css } from "frontity";
 import Link from "./link";
 import Nav from "./nav";
 import MobileToggle from "./menu-toggle";
-import {Containers, Rows, Cols, mq} from "./layout";
+import {Container, Row, Col, mq} from "@osirispp/frontity-layout";
 import Switch from "@frontity/components/switch";
 import FeaturedMedia from "./featured-media";
 import MenuModal from "./menu-modal";
@@ -22,7 +22,7 @@ const Header = ({ state, actions }) => {
   return (
     <>
       <StyledHeader bgColor={isMobileMenuOpen? colors.background.headerMobile : colors.background.header} isOnTop={state.theme.menu.isOnTop}>
-        <Container fluid>
+        <Container fluid css={containerStyles}>
           <Row alignCenter>
             <Col size="auto">
               {/* Site Identity */}
@@ -44,7 +44,7 @@ const Header = ({ state, actions }) => {
               <MobileToggle />
             </Col>
             {/* Site Nav */}
-            <Col size="auto" hiddenXS visibleLG mlAuto>
+            <Col size="auto" hidden visibleLG mlAuto>
               <Nav />
             </Col>
           </Row>
@@ -71,21 +71,12 @@ const StyledHeader = styled.header`
   `}
 `;
 
-const Container = styled.div`
-  ${Containers}
+const containerStyles = (props) => css`
   ${mq.lg}{
     padding-left: 4rem;
     padding-right: 4rem;
     z-index: 100;
   }
-`;
-
-const Row = styled.div`
-  ${Rows}
-`;
-
-const Col = styled.div`
-  ${Cols}
 `;
 
 const Title = styled.h2`

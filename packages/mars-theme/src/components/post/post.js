@@ -3,7 +3,7 @@ import { connect, styled, css, Global } from "frontity";
 import Link from "../link";
 import List from "../list";
 import FeaturedMedia from "../featured-media";
-import {Containers, Rows, Cols, Section, mq} from "../layout";
+import {Container, Row, Col, Section, mq} from "@osirispp/frontity-layout";
 
 import Bootstrap from "bootstrap/dist/css/bootstrap-grid.min.css";
 
@@ -91,17 +91,7 @@ export default connect(Post);
 
 const SectionComponent = styled(Section)``;
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
-
-const Col = styled.div`
-    ${Cols}
-`;
 
 const PostHeader = styled.div`
   text-align: center;

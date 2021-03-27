@@ -1,6 +1,6 @@
 import { connect, styled, css } from "frontity";
 import React from "react";
-import {Containers, Rows, Cols, Section, mq} from "../../layout";
+import {Container, Row, Col, Section, mq} from "@osirispp/frontity-layout";
 import {h5} from "../../styles/tipography";
 import Link from "../../link";
 import FeaturedMedia from "../../featured-media";
@@ -21,7 +21,7 @@ const Services = ({state, actions, libraries}) => {
                     <Container>
                         <Row>
                             <Col>
-                                <List>
+                                <List as="ul">
                                 {
                                     services.map((service,index)=>{
                                         const {
@@ -32,7 +32,7 @@ const Services = ({state, actions, libraries}) => {
                                         } = service;
 
                                         return (
-                                            <Item key={index} size="12" sizeSM={6} mxAuto>
+                                            <Item as="li" key={index} size="12" sizeSM={6} mxAuto>
                                                 <Card>
                                                     <StyledLink link={link}>
                                                         <CardHeader>
@@ -118,26 +118,14 @@ const Deco = styled.div`
     `}
 `;
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
 
-const Col = styled.div`
-    ${Cols}
-`;
-
-const List = styled.ul`
-    ${Rows}
+const List = styled(Row)`
     padding: 0;
     margin: 0;
 `;
 
-const Item = styled.li`
-    ${Cols}
+const Item = styled(Col)`
     list-style: none;
     margin-bottom: 4rem;
     z-index: 1;

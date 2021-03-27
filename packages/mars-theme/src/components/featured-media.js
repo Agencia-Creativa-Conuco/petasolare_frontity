@@ -1,13 +1,14 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Image from "@frontity/components/image";
-import {mq} from "./layout";
+import {mq} from "@osirispp/frontity-layout";
 
 
 const FeaturedMedia = ({ 
   state, media, position, className, bgColor,
   height, heightSM, heightMD, heightLG, heightXL,
-  size, sizeSM, sizeMD, sizeLG, sizeXL, loading="lazy", fit="cover",
+  size, sizeSM, sizeMD, sizeLG, sizeXL, loading="lazy", fit="cover", rounded =false,
+  mxAuto, maxWidth 
 }) => {
   
   const isCustom = typeof media === "object";
@@ -39,7 +40,7 @@ const FeaturedMedia = ({
       ) : null;
 
   return (
-    <Container {...{height, heightSM, heightMD, heightLG, heightXL, size, sizeSM, sizeMD, sizeLG, sizeXL, position, className, bgColor, colors}}>
+    <Container {...{height, heightSM, heightMD, heightLG, heightXL, size, sizeSM, sizeMD, sizeLG, sizeXL, position, className, bgColor, colors, rounded, mxAuto, maxWidth}}>
       <StyledImage
         alt={(isCustom? media.title : media.title.rendered)}
         src={(isCustom? media.full_url : media.source_url)}
@@ -58,10 +59,18 @@ export default connect(FeaturedMedia);
 const Container = styled.div`
 ${({
   height, heightSM, heightMD, heightLG, heightXL,
-  size, sizeSM, sizeMD, sizeLG, sizeXL, bgColor ="transparent", colors
+  size, sizeSM, sizeMD, sizeLG, sizeXL, bgColor ="transparent", colors, rounded, 
+  mxAuto, maxWidth
 })=> `
     position: relative;
     background-color: ${bgColor};
+
+    ${maxWidth?`max-width: 40rem;`:""}
+    ${mxAuto?`margin: 0 auto`:""};
+    ${rounded? `
+      overflow: hidden;
+      border-radius: 50%;
+    `:""}
     ${size && size != true? `padding-bottom: ${size};`: ""}
     ${mq.sm}{
       ${sizeSM && sizeSM != true? `padding-bottom: ${sizeSM};`: ""}

@@ -1,6 +1,6 @@
 import { connect, styled, css } from "frontity";
 import React from "react";
-import {Containers, Rows, Cols, Section, mq} from "../../layout";
+import {Container, Row, Col, Section, mq} from "@osirispp/frontity-layout";
 import Link from "../../link";
 import {h1,h2} from "../../styles/tipography";
 
@@ -53,6 +53,7 @@ export default connect(Cover);
 
 const SectionComponent = styled(Section)`
     position: relative;
+    overflow: hidden;
     &:after{
         content: "";
         position: absolute;
@@ -68,17 +69,7 @@ const SectionComponent = styled(Section)`
     }
 `;
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
-
-const Col = styled.div`
-    ${Cols}
-`;
 
 const VideoContainer = styled.div`
     ${({color})=>css`

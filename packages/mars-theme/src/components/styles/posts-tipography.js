@@ -1,5 +1,5 @@
 import {css} from "frontity";
-import mq from "../layout/mq";
+import mq from "@osirispp/frontity-layout/mq";
 
 export const h1 = `
     font-size: 2.2rem;

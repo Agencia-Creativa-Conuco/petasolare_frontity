@@ -1,7 +1,7 @@
 import React from "react";
 import { connect, styled } from "frontity";
 import Link from "./link";
-import {Rows, Cols} from "./layout";
+import {Row, Col} from "@osirispp/frontity-layout";
 
 /**
  * Navigation Component
@@ -32,13 +32,9 @@ const Nav = ({ state, libraries }) => {
 
 export default connect(Nav);
 
-const NavContainer = styled.nav`
-  ${Rows}
-`;
+const NavContainer = styled(Row)``;
 
-const NavItem = styled.div`
-  ${Cols}
-`;
+const NavItem = styled(Col)``;
 
 const StyledLink = styled(Link)`
   color: white;

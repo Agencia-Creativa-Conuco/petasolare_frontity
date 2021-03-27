@@ -24,15 +24,6 @@ const serviceHandler ={
             state
         })
 
-        await serviceData.map((item)=>{
-            Object.assign(state.source.data[item.link], {
-                isPostType: true,
-                isServicio: true,
-                isReady: true,
-                isFetching: false
-            });
-        })
-        
         const service = serviceData[0];
         const relatedIds = state.source[service.type][service.id].meta_box.service_related;
 
@@ -60,6 +51,15 @@ const serviceHandler ={
                 });
             })
         }
+
+        await serviceData.map((item)=>{
+            Object.assign(state.source.data[item.link], {
+                isPostType: true,
+                isServicio: true,
+                isReady: true,
+                isFetching: false
+            });
+        })
 
     }
 }

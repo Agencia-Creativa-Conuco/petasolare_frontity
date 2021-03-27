@@ -1,6 +1,6 @@
 import React from "react";
 import { connect, styled, decode, css } from "frontity";
-import {Containers, Rows, Cols, Section, mq} from "../layout";
+import {Container, Row, Col, Section, mq} from "@osirispp/frontity-layout";
 import Item from "./posts-list-item";
 import Pagination from "./pagination";
 
@@ -50,17 +50,7 @@ const PostsList = ({ state }) => {
 
 export default connect(PostsList);
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
-
-const Col = styled.div`
-    ${Cols}
-`;
 
 const Header = styled.h3`
   ${({color})=>css`

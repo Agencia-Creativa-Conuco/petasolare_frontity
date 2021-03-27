@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect, styled, Global, css } from "frontity";
-import {mq, Containers, Rows, Cols, Section} from "../../layout";
+import {mq, Container, Row, Col, Section} from "@osirispp/frontity-layout";
 import Link from "../../link";
 import FeaturedMedia from "../../featured-media";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image, DotGroup } from 'pure-react-carousel';
@@ -58,17 +58,7 @@ const SliderComponent = ({ state, actions, libraries}) => {
 
 export default connect(SliderComponent);
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
-
-const Col = styled.div`
-    ${Cols}
-`;
 
 const SlideX = styled(Slide)`
     position: relative !important;

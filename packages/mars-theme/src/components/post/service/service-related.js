@@ -1,6 +1,6 @@
 import { connect, styled, css } from "frontity";
 import React from "react";
-import {Containers, Rows, Cols, Section} from "../../layout";
+import {Container, Row, Col, Section} from "@osirispp/frontity-layout";
 import ServiceCard from "../../service-card";
 
 const Services = ({state, actions, libraries}) => {
@@ -9,23 +9,26 @@ const Services = ({state, actions, libraries}) => {
 
     const service = state.source[data.type][data.id];
 
-    const services = service?service.meta_box.service_related:[];
-   
+    const services = service.meta_box.service_related.map((id)=>{
+        return state.source[service.type][id];
+    });
+
+    const {meta_box} = service;
+
     return services.length > 0?(
         <>
-            <Section thin spaceTopNone>
+            <Section thin>
                 <Wrapper decoColor={state.theme.colors.secondary.light}>
                     <Container>
                         <Row>
                             <Col>
-                                <List>
+                                <List as="ul">
                                 {
-                                    services.map((item,index)=>{
-                                        const service = state.source.service[item];
-                                        const icon = service.meta_box.service_icon[0];
+                                    services.map((service,index)=>{
+                                        const icon = meta_box.service_icon[0];
 
                                         return (
-                                            <Item key={index} size="auto" mxAuto>
+                                            <Item as="li" key={index} size={12} sizeSM={6} mxAuto>
                                                 <ServiceCard 
                                                     title={service.title.rendered} 
                                                     description={service.excerpt.rendered}
@@ -79,26 +82,14 @@ const Wrapper = styled.div`
     `}
 `;
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
 
-const Col = styled.div`
-    ${Cols}
-`;
-
-const List = styled.ul`
-    ${Rows}
+const List = styled(Row)`
     padding: 0;
     margin: 0;
 `;
 
-const Item = styled.li`
-    ${Cols}
+const Item = styled(Col)`
     list-style: none;
     margin-bottom: 4rem;
     z-index: 1;

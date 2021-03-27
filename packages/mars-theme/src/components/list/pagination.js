@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled } from "frontity";
 import Link from "../link";
-import {Containers, Rows, Cols} from "../layout";
+import {Container, Row, Col} from "@osirispp/frontity-layout";
 
 /**
  * Pagination Component
@@ -53,17 +53,7 @@ const Pagination = ({ state, actions }) => {
  */
 export default connect(Pagination);
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
-
-const Col = styled.div`
-    ${Cols}
-`;
 
 const Text = styled.em`
   display: inline-block;

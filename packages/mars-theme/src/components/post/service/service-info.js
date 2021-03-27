@@ -1,6 +1,6 @@
 import { connect, styled, css } from "frontity";
 import React from "react";
-import {Containers, Rows, Cols, Section, mq} from "../../layout";
+import {Container, Row, Col, Section, mq} from "@osirispp/frontity-layout";
 import FeaturedMedia from "../../featured-media";
 
 const Info = ({state, actions, libraries}) => {
@@ -21,44 +21,68 @@ const Info = ({state, actions, libraries}) => {
 
     const Html2React = libraries.html2react.Component;
 
-    return (
+    return service_description || service_logo.length>0?(
         <>
             <Section>
                 <Container>
                     <Row alignCenter>
-                        <Col size={12} sizeMD={6}>
+                        <Col size={12} sizeLG={6}>
                             <Content>
                                 <Description><Html2React html={service_description}/></Description>
                             </Content>
                         </Col>
-                        <Col size={12} sizeMD={6}>
-                            <MediaContainer>
-                                <FeaturedMedia media={service_logo[0]} size="100%" bgColor="transparent" fit="initial"/>
-                            </MediaContainer>
-                        </Col>
+                        {
+                            service_logo.length>0?(
+                                <Col size={12} sizeLG={6}>
+                                    <MediaContainer>
+                                        <FeaturedMedia media={service_logo[0]} size="100%" bgColor="transparent" fit="initial"/>
+                                    </MediaContainer>
+                                </Col>
+                            ):null
+                        }
                     </Row>
                 </Container>
             </Section>
         </>
-    )
+    ):null
 }
 
 export default connect(Info);
 
-const Container = styled.div`
-    ${Containers}
-`;
 
-const Row = styled.div`
-    ${Rows}
-`;
-
-const Col = styled.div`
-    ${Cols}
-`;
 
 const MediaContainer = styled.div`
-    margin: 0 auto;
+    ${({bgColor="#FFFFFF88", bgColorBefore="#28AAE1", bgColorAfter="#28AAE1"})=>css`
+        margin: 0 auto;
+        padding: 20%;
+        background: ${bgColor};
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+        &:before{
+            content: '';
+            position: absolute;
+            top: 70%;
+            left: 0;
+            width: 10%;
+            padding-bottom: 10%;
+            background-color: ${bgColorBefore};
+            border-radius: 50%;
+            transform: translate(-80%,0);
+            opacity: 0.15;
+        }
+        &:after{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20%;
+            padding-bottom: 20%;
+            background-color: ${bgColorAfter};
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+    `}
 `;
 
 const Content = styled.div`

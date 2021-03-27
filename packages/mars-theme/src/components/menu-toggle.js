@@ -1,7 +1,7 @@
 import React from "react";
 import { styled, connect, Global, css } from "frontity";
 import { CloseIcon, HamburgerIcon } from "./menu-icon";
-import {mq} from "./layout";
+import {mq} from "@osirispp/frontity-layout";
 
 function MobileToggle({ state, actions }) {
   const { isMobileMenuOpen } = state.theme;

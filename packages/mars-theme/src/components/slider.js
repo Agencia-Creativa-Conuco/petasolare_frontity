@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect, styled, Global, css } from "frontity";
-import {mq} from "./layout";
+import {mq} from "@osirispp/frontity-layout";
 import Link from "./link";
 import FeaturedMedia from "./featured-media";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, Image, DotGroup } from 'pure-react-carousel';

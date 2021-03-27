@@ -1,6 +1,6 @@
 import React, {useRef, useFocusEffect} from "react";
 import {connect, styled, Global} from "frontity";
-import {Containers, Rows, Cols, mq} from "./layout";
+import {Container, Row, Col, mq} from "@osirispp/frontity-layout";
 import {CloseIcon} from "./icons";
 import {fadeIn, slideDown} from "./styles/animations";
 
@@ -57,8 +57,7 @@ export default connect(Modal);
 
 
 
-const CardWrapper = styled.div`
-    ${Rows}
+const CardWrapper = styled(Row)`
     height: 100%;
     align-content: baseline;
 `;
@@ -85,20 +84,17 @@ const ModalWrapper = styled.div`
   }
 `;
 
-const ModalInner = styled.div`
-    ${Containers}
+const ModalInner = styled(Container)`
     height: 100%;
 `;
 
-const InnerWrapper = styled.div`
-    ${Rows}
+const InnerWrapper = styled(Row)`
     height: 100%;
     align-content: baseline;
     margin: 0;
 `;
 
-const ModalCard = styled.div`
-    ${Cols}
+const ModalCard = styled(Col)`
     background: #fff;
     overflow: auto;
     margin-top: 10vh;
@@ -107,8 +103,7 @@ const ModalCard = styled.div`
     animation: ${slideDown} 0.4s ease-out;
 `;
 
-const ModalHeader = styled.div`
-    ${Cols}
+const ModalHeader = styled(Col)`
     ${({colors})=>`
         background-color: ${colors.gray.lighter};
         align-self: baseline;
@@ -145,8 +140,7 @@ const CloseButton = styled.div`
   `}
 `;
 
-const ModalBody = styled.div`
-  ${Cols}
+const ModalBody = styled(Col)`
   padding-top: 2rem;
   padding-bottom: 2rem;
   ${mq.md}{

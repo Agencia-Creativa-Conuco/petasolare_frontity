@@ -3,7 +3,7 @@ import React from "react";
 import Link from "./link";
 import {h5} from "./styles/tipography";
 import FeaturedMedia from "./featured-media";
-import {mq} from "./layout";
+import {mq} from "@osirispp/frontity-layout";
 
 const ServiceCard = ({
     state, actions, libraries,
