@@ -28,7 +28,7 @@ const About = ({state, actions, libraries}) => {
             <Wrapper>
                 <Container fluid>
                     <Row>
-                        <Col size={12} sizeLG={6}>
+                        <Col size={12} sizeSM={8} sizeLG={6} mxAuto>
                             <MediaContainer>
                                 <FeaturedMedia media={featured_media} loading="eager" rounded size="100%" mxAuto maxWidth="70rem"/>
                             </MediaContainer>
