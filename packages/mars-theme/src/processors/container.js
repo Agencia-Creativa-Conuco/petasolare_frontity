@@ -1,5 +1,5 @@
 import {css, styled} from "frontity";
-import {Containers, mq} from "@osirispp/frontity-layout";
+import {Container, mq} from "@osirispp/frontity-layout";
 
 const container = {
     name: "container",
@@ -14,7 +14,7 @@ const container = {
       // node.children.unshift(Logo);
    
       //Substitute it for a React Component
-      node.component = Container;
+      node.component = ContainerComponent;
    
       return node;
     },
@@ -22,8 +22,7 @@ const container = {
 
 export default container;
 
-const Container = styled.section`
-  ${Containers}
+const ContainerComponent = styled(Container)`
   margin-bottom: 4.8rem;
   margin-top: 4.8rem;
   ${mq.md}{
