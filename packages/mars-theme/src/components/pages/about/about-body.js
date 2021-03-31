@@ -53,6 +53,9 @@ const Body = ({state, actions, libraries}) => {
                                 <FeaturedMedia media={about_values_image[0]}/>
                             </Col>
                         </Row>
+                        <Row>
+                            <Html2React html={page.content.rendered} />
+                        </Row>
                     </Container>
                 </Wrapper>
             </Section>

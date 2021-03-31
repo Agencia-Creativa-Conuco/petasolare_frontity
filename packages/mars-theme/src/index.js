@@ -1,9 +1,16 @@
 import Theme from "./components";
-import image from "@frontity/html2react/processors/image";
-import iframe from "@frontity/html2react/processors/iframe";
 import handlers from "./handlers";
 import { beforeSSR, beforeCSR } from "./actions";
 import {getURL} from "./libraries";
+
+// import image from "@frontity/html2react/processors/image";
+import iframe from "@frontity/html2react/processors/iframe";
+import script from '@frontity/html2react/processors/script';
+import image from "./processors/image";
+import container from "./processors/container";
+import cta from "./processors/cta";
+import Colors from "./processors/colors";
+import {squareReverse} from "./processors/decoration";
 
 const marsTheme = {
   name: "@frontity/mars-theme",
@@ -129,8 +136,10 @@ const marsTheme = {
        * Add a processor to `html2react` so it processes the `<img>` tags
        * inside the content HTML. You can add your own processors too
        */
-      processors: [image, iframe],
-    },
+      processors: [
+        image, iframe, script, container, cta, Colors, squareReverse
+      ]
+    }
   },
 };
 
