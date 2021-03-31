@@ -7,6 +7,7 @@ import Services from "./service-related";
 import Form  from "./service-form";
 import Images from "./service-images";
 import Video from "./service-video";
+import QA from "./service-qa";
 
 const Service = ({state, actions, libraries}) => {
 
@@ -19,6 +20,7 @@ const Service = ({state, actions, libraries}) => {
             <Content />
             <Images />
             <Form />
+            <QA />
         </Article>
     )
 }
