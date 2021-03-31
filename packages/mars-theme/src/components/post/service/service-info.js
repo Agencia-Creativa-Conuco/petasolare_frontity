@@ -54,7 +54,7 @@ export default connect(Info);
 const MediaContainer = styled.div`
     ${({bgColor="#FFFFFF88", bgColorBefore="#28AAE1", bgColorAfter="#28AAE1"})=>css`
         margin: 0 auto;
-        padding: 20%;
+        padding: 15%;
         background: ${bgColor};
         border-radius: 50%;
         position: relative;
