@@ -2,7 +2,7 @@ const settings = {
   "name": "petasolare",
   "state": {
     "frontity": {
-      "url": "http://petasolare.local/",
+      "url": "http://petasolare.com/",
       "title": "Test Frontity Blog",
       "description": "WordPress installation for Frontity development"
     }
@@ -24,7 +24,7 @@ const settings = {
       "state": {
         "source": {
           // "api": "http://172.27.32.1:10010/wp-json",
-          "api": "http://web.petasolare.conuco.do/wp-json",
+          "api": "http://petasolare.com/wp-json",
           "homepage" : "/petasolare",
           "postsPage" : "/blog",
         }
