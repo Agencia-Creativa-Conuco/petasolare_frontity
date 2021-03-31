@@ -3,7 +3,7 @@ const settings = {
   "state": {
     "frontity": {
       "url": "http://petasolare.com/",
-      "title": "Test Frontity Blog",
+      "title": "Petasolare",
       "description": "WordPress installation for Frontity development"
     }
   },
