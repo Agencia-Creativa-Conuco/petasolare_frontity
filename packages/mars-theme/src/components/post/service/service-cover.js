@@ -59,7 +59,7 @@ const Wrapper = styled.div`
             width: 100%;
             height: 100%;
             background-color: ${bgColor};
-            z-index: -1;
+            z-index: 2;
             opacity: 0.4;
         }
     `}
@@ -73,13 +73,15 @@ const MediaContainer = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
+        z-index: 1;
     `}
 `;
 
 const Content = styled.div`
     padding-bottom: 20vw;
     padding-top: 30vw;
+    position: relative;
+    z-index: 3;
     ${mq.md}{
         padding-bottom: 10vw;
         padding-top: 25vw;

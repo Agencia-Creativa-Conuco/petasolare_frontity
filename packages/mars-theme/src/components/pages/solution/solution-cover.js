@@ -10,6 +10,8 @@ const Cover = ({state, actions, libraries}) => {
 
     const page = state.source[data.type][data.id];
 
+    const {colors} = state.theme;
+
     const {
         title,
         featured_media
@@ -22,8 +24,8 @@ const Cover = ({state, actions, libraries}) => {
     return (
         <>
             <Section spaceNone>
-                <Wrapper>
-                    <MediaContainer color={state.theme.colors.primary.base}>
+                <Wrapper bgColor={colors.primary.dark}>
+                    <MediaContainer>
                         <FeaturedMedia media={featured_media} height="100%"/>
                     </MediaContainer>
                     <Container>
@@ -47,15 +49,27 @@ export default connect(Cover);
 
 
 const Wrapper = styled.div`
-    position: relative;
-    ${mq.md}{
-        clip-path: ellipse(70% 100% at 45% 0%);
-    }
+    ${({bgColor="blue"})=>css`
+        position: relative;
+        ${mq.md}{
+            clip-path: ellipse(70% 100% at 45% 0%);
+        }
+        &:after{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: ${bgColor};
+            z-index: -1;
+            opacity: 0.4;
+        }
+    `}
 `;
 
 const MediaContainer = styled.div`
     ${({color})=>css`
-        height: auto;
         height: 100%;
         position: absolute;
         overflow: hidden;
@@ -63,6 +77,7 @@ const MediaContainer = styled.div`
         left: 0;
         width: 100%;
         height: 100%;
+        z-index: -1;
     `}
 `;
 
@@ -84,4 +99,5 @@ const Title = styled.h1`
 const Copy = styled.p`
     color: white;
     text-shadow: 0 0.25rem 0.25rem rgba(0,0,0,0.15);
+    font-size: 1.8rem;
 `;

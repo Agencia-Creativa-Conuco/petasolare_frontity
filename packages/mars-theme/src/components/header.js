@@ -7,6 +7,7 @@ import {Container, Row, Col, mq} from "@osirispp/frontity-layout";
 import Switch from "@frontity/components/switch";
 import FeaturedMedia from "./featured-media";
 import MenuModal from "./menu-modal";
+import {useInView} from "react-intersection-observer";
 
 const Header = ({ state, actions }) => {
 
@@ -15,43 +16,53 @@ const Header = ({ state, actions }) => {
   
   const { isMobileMenuOpen, colors } = state.theme;
 
+  const [ref, inView, entry] = useInView({initialInView:true});
+
   useEffect(() => {
     actions.theme.menuIsOnTop(window.scrollY);
   }, []);
 
   return (
     <>
-      <StyledHeader bgColor={isMobileMenuOpen? colors.background.headerMobile : colors.background.header} isOnTop={state.theme.menu.isOnTop}>
-        <Container fluid css={containerStyles}>
-          <Row alignCenter>
-            <Col size="auto">
-              {/* Site Identity */}
-              <StyledLink link="/">
-                {
-                  logo? 
-                    <LogoContainer>
-                      < Logo media={logo} height="4rem" fit="initial" loading="eager"/>
-                    </LogoContainer>
-                  : 
-                    <>
-                      <Title>{settings["site-name"] || state.frontity.title}</Title>
-                      <Description>{state.frontity.description}</Description>
-                    </>
-                }
-              </StyledLink>
-            </Col>
-            <Col size="auto" hiddenLG mlAuto>
-              <MobileToggle />
-            </Col>
-            {/* Site Nav */}
-            <Col size="auto" visibleLG mlAuto css={navStyles}>
-              <Nav />
-            </Col>
-          </Row>
-        </Container>
-        {/* If the menu is open, render the menu modal */}
-        {isMobileMenuOpen && <MenuModal />}
-      </StyledHeader>
+      <HeaderElement ref={ref}>
+        <StyledHeader 
+          inView={inView}          
+          bgColor={isMobileMenuOpen? colors.background.headerMobile : colors.background.header} 
+          bgColorTop={colors.background.headerTop} 
+        >
+          <Container fluid css={containerStyles}
+          >
+            <Row alignCenter>
+              <Col size="auto">
+                {/* Site Identity */}
+                <StyledLink link="/">
+                  {
+                    logo? 
+                      <LogoContainer>
+                        < Logo media={logo} height="4rem" fit="initial" loading="eager"/>
+                      </LogoContainer>
+                    : 
+                      <>
+                        <Title>{settings["site-name"] || state.frontity.title}</Title>
+                        <Description>{state.frontity.description}</Description>
+                      </>
+                  }
+                </StyledLink>
+              </Col>
+              <Col size="auto" hiddenLG mlAuto>
+                <MobileToggle />
+              </Col>
+              {/* Site Nav */}
+              <Col size="auto" visibleLG mlAuto css={navStyles}>
+                <Nav />
+              </Col>
+            </Row>
+          </Container>
+          {/* If the menu is open, render the menu modal */}
+          {isMobileMenuOpen && <MenuModal />}
+        </StyledHeader>
+
+      </HeaderElement>
     </>
   );
 };
@@ -59,12 +70,16 @@ const Header = ({ state, actions }) => {
 // Connect the Header component to get access to the `state` in it's `props`
 export default connect(Header);
 
-const StyledHeader = styled.header`
-  ${({bgColor, isOnTop = true})=>css`
+const HeaderElement = styled.header``;
+
+const StyledHeader = styled.div`
+  ${({bgColor, bgColorTop, inView})=>css`
+    left: 0;
+    top: 0;
     position: fixed;
     z-index: 100;
     width: 100%;
-    background-color: ${isOnTop? "transaparent" : bgColor};
+    background-color: ${inView? `${bgColorTop}` : bgColor};
     transition: background 0.2s ease-in-out;
     min-height: 6rem;
     padding: 1.5rem 0;

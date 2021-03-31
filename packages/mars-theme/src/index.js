@@ -41,6 +41,7 @@ const marsTheme = {
         background:{
           body:"#FFFFFF",
           header: "#0065B8DD",
+          headerTop: "transparent",
           headerMobile: "#0065B8",
         },
         primary: {

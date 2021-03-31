@@ -37,8 +37,11 @@ const NavContainer = styled(Row)``;
 const NavItem = styled(Col)``;
 
 const StyledLink = styled(Link)`
-  color: white;
-  text-shadow: 0 0rem 0.5rem rgba(0,0,0,0.5);
+  color: #FFFFFF;
+  text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.5);
   text-decoration: none;
   font-size: 2rem;
+  &:hover{
+    color: white;
+  }
 `;

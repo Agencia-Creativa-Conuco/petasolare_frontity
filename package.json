@@ -23,6 +23,7 @@
     "@frontity/tiny-router": "^1.4.1",
     "@frontity/wp-source": "^1.11.2",
     "@osirispp/frontity-layout": "^1.0.2",
-    "frontity": "^1.14.3"
+    "frontity": "^1.14.3",
+    "react-intersection-observer": "^8.31.0"
   }
 }

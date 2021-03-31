@@ -61,16 +61,6 @@ const Theme = ({ state, libraries, actions }) => {
 
         <Modal />
       </Wrapper>
-
-      <Script code={`
-        const body = document;
-        
-        body.addEventListener('scroll', e => {
-          e.preventDefault();
-          
-          frontity.actions.theme.menuIsOnTop(window.scrollY);
-        });
-      `} />
     </>
   );
 };
