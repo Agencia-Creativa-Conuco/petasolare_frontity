@@ -134,10 +134,13 @@ const Title = styled.h2`
 `;
 
 const Description = styled.div`
-    text-align: center;
-    max-width: 75rem;
-    margin: 0 auto;
+    max-width: 60rem;
     margin-bottom: 8rem;
+    ${mq.lg}{
+        margin: 0 auto;
+        max-width: 75rem;
+        text-align: center;
+    }
 `;
 
 const List = styled.ul`

@@ -17,7 +17,7 @@ const Cover = ({state, actions, libraries}) => {
         <>
             <Section spaceNone>
                 <CoverContainer color={state.theme.colors.primary.base}>
-                    <FeaturedMedia media={page.featured_media} height="100%"/>
+                    <FeaturedMedia media={page.featured_media} size="80%" heightMD="100%"/>
                 </CoverContainer>
                 <Container>
                     <Row>
@@ -37,28 +37,30 @@ const Cover = ({state, actions, libraries}) => {
 export default connect(Cover);
 
 const Content = styled.div`
-    positiong: relative;
+    position: relative;
     z-index: 2;
-    padding: 40% 0;
-    text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.5);
-    ${mq.sm}{
+    /* padding: 40% 0; */
+    /* ${mq.sm}{
         padding: 40% 3rem;
-    }
-    ${mq.md}{
+    } */
+    ${mq.lg}{
+        text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.5);
         padding: 80% 4rem;
         padding-bottom: 20%;
     }
 `;
 
 const Title = styled.h1`
-    color: white;
     margin-bottom: 20px;
+    ${mq.lg}{
+        color: white;
+    }
 `;
 
 const Copy = styled.p`
     text-align: justify;
-    color: white;
-    ${mq.md}{
+    ${mq.lg}{
+        color: white;
         text-align: left;
         font-size: 2rem;
     }
@@ -66,13 +68,16 @@ const Copy = styled.p`
 
 const CoverContainer = styled.div`
     ${({color})=>css`
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        overflow: hidden;
-        z-index: -1;
+        position: relative;
+        ${mq.lg}{
+            overflow: hidden;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
         &:before{
             content: "";
             position: absolute;
@@ -82,7 +87,9 @@ const CoverContainer = styled.div`
             height: 100%;
             background-color: ${color};
             opacity: 0.3;
-            z-index: 1;
+            ${mq.lg}{
+                z-index: 1;
+            }
         }
         &:after{
             content: "";
@@ -96,8 +103,8 @@ const CoverContainer = styled.div`
             border-radius: 50%;
             transform-origin: center center;
             transform: translate(-50%, 98%);
-            z-index: 2;
             ${mq.lg}{
+                z-index: 2;
                 transform: translate(-50%, 99%);
             }
         }

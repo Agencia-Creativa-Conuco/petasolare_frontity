@@ -35,7 +35,7 @@ const Page = ({ state, actions, libraries }) => {
     <>
       <Global styles={styles({state, actions, libraries})} />
     
-      <SectionComponent as="article">
+      <SectionComponent as="article" large>
         <Container>
           <Row>
             <Col>
