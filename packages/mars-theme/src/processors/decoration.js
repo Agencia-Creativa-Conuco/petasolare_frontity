@@ -17,7 +17,7 @@ export const squareReverse = {
                 width: 15%;
                 padding-bottom: 70px;
                 transform: translate(550%, -20%);
-                background: ${state.theme.colors.blue.dark};
+                background: ${state.theme.colors.primary.dark};
             }
         `;
 
