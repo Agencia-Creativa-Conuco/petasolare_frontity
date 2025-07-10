@@ -3,7 +3,7 @@ module.exports = {
     {
       name: "petasolare.com",
       script: "yarn",
-      args: "serve",
+      args: "serve --port 3004",
       cwd: __dirname,
       env: {
         NODE_ENV: "production",
