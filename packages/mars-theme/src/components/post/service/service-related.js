@@ -9,9 +9,9 @@ const Services = ({state, actions, libraries}) => {
 
     const service = state.source[data.type][data.id];
 
-    const services = service.meta_box.service_related.map((id)=>{
-        return state.source[service.type][id];
-    });
+    const services = Array.isArray(service.meta_box.service_related)
+  ? service.meta_box.service_related.map((id)=> state.source[service.type][id])
+  : [];
 
     const {meta_box} = service;
 
